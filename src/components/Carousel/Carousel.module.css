@@ -1,0 +1,103 @@
+.carousel {
+	--slide-spacing: 16px;
+	--slide-size: 100%;
+	--control-margin: clamp(12px, 10.064px + 0.518vw, 20px);
+	position: relative;
+	display: flex;
+	align-items: center;
+	block-size: 100%;
+	padding: 16px;
+	overflow-x: hidden;
+}
+
+.slidesWrapper {
+	display: flex;
+	touch-action: pan-y pinch-zoom;
+	margin-inline-start: calc(var(--slide-spacing) * -1);
+}
+
+.slide {
+	flex: 0 0 var(--slide-size);
+	min-inline-size: 0;
+	transform: translate3d(0, 0, 0);
+	padding-inline-start: var(--slide-spacing);
+}
+
+.button {
+	display: none;
+}
+
+@media (hover: hover) {
+	.button {
+		--size: 32px;
+		position: absolute;
+		inset: 0 var(--control-margin);
+		inline-size: var(--size);
+		block-size: var(--size);
+		display: grid;
+		place-items: center;
+		margin-block: auto;
+		border-radius: 50%;
+		background-color: hsl(0 0% 0% / 0.2);
+		transition: transform 200ms;
+	}
+
+	.button:last-of-type {
+		margin-inline-start: auto;
+	}
+
+	.button:active {
+		transform: scale(0.9);
+	}
+
+	.button > svg {
+		color: hsl(0 0% 100%);
+	}
+
+	.button:first-of-type > svg {
+		margin-inline-start: -2px;
+	}
+
+	.button:last-of-type > svg {
+		margin-inline-end: -2px;
+	}
+}
+
+.dotsWrapper {
+	position: absolute;
+	inset-inline: 0;
+	inset-block-end: var(--control-margin);
+	display: flex;
+	inline-size: max-content;
+	padding-inline: 2px;
+	margin-inline: auto;
+	background-color: hsl(0 0% 0% / 0.2);
+	border-radius: 30px;
+}
+
+.dot {
+	--size: 0.6rem;
+	box-sizing: content-box;
+	display: flex;
+	inline-size: var(--size);
+	block-size: var(--size);
+	padding: 4px;
+	touch-action: manipulation;
+}
+
+.dot:focus-visible {
+	border-radius: 50%;
+}
+
+.dot::after {
+	content: "";
+	inline-size: var(--size);
+	block-size: var(--size);
+	border-radius: 50%;
+	background-color: hsl(0 0% 100% / 0.3);
+	transition: background-color 300ms;
+}
+
+.dot.selected::after {
+	background-color: hsl(0 0% 100%);
+}

@@ -1,9 +1,0 @@
-{
-	"extends": ["eslint-config-prettier", "next/core-web-vitals"],
-	"rules": {
-		"semi": ["warn", "never"],
-		"jsx-quotes": ["warn", "prefer-double"],
-		"quotes": ["warn", "double"],
-		"@next/next/no-img-element": "off"
-	}
-}

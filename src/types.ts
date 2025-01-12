@@ -1,14 +1,26 @@
-export interface CoverProject {
-	slug: string
-	name: string
-	imageUrl: string
-	description: string
+interface Link {
+	label: string,
+	url: string,
+	icon: React.ReactNode
 }
 
-export interface Post {
-	slug: string
-	title: string
+export interface Tag {
+	name: string,
+	colorLightHsl: string,
+	colorDarkHsl: string,
+}
+
+export interface ProjectModalData {
+	backgroundGradient: string
 	description: string
-	emoji: string
-	publishedOn: string
+	links: Link[]
+	images: string[]
+	tags: Tag[]
+}
+
+export interface CoverProject {
+	title: string
+	imageUrl: string
+	description: string
+	modalData: ProjectModalData
 }

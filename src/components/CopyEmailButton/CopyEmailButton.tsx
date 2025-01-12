@@ -23,13 +23,17 @@ export const CopyEmailButton = () => {
 
 	return (
 		<div className={styles.wrapper}>
-			<div className={clsx(styles.toast, { [styles.enterToast]: displayFeedback })}>
+			<div className={clsx(styles.toast, { [styles.show]: displayFeedback })}>
 				¡Espero saber pronto de ti!
 			</div>
-			<button className={styles.button} type="button" onClick={handleOnClick}>
-				{DRESAN_EMAIL}
+			<button
+				className={styles.button}
+				onClick={handleOnClick}
+				type="button"
+			>
+				<span>{DRESAN_EMAIL}</span>
+				<div className={styles.hintMessage}>Click para copiar</div>
 			</button>
-			<div className={styles.hintMessage}>Click para copiar</div>
 		</div>
 	)
 }

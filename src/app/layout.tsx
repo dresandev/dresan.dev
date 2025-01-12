@@ -2,8 +2,10 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { ThemeProvider } from "next-themes"
 import { HOST_URL } from "~/constants"
-import { SvgMasks } from "~/components/Svg/SvgMasks"
+import { SvgMasks } from "~/components/Svg/Masks"
 import { Header } from "~/components/Header"
+import { Footer } from "~/components/Footer"
+import { BackgroundNoise } from "~/components/BackgroundNoise"
 import "~/styles/reset.css"
 import "~/styles/globals.css"
 import "~/styles/utils.css"
@@ -30,7 +32,9 @@ export default function RootLayout({
 					<div className="__next">
 						<Header />
 						{children}
+						<Footer />
 					</div>
+					<BackgroundNoise />
 				</ThemeProvider>
 			</body>
 		</html>

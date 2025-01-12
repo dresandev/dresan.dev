@@ -1,87 +1,93 @@
-import { AstroJsLogo } from "~/components/Svg/AstroJsLogo"
-import { NextJsLogo } from "~/components/Svg/NextJsLogo"
-import { CssLogo } from "~/components/Svg/CssLogo"
-import { MongoDbLogo } from "~/components/Svg/MongoDbLogo"
-import { PostgreSqlLogo } from "~/components/Svg/PostgreSqlLogo"
-import { ReactJsLogo } from "~/components/Svg/ReactJsLogo"
-import { ExpressLogo } from "~/components/Svg/ExpressLogo"
-import { JavascriptLogo } from "~/components/Svg/JavascriptLogo"
-import { HtmlLogo } from "~/components/Svg/HtmlLogo"
-import { StyledComponentsLogo } from "~/components/Svg/StyledComponentsLogo"
-import { TypescriptLogo } from "~/components/Svg/TypescriptLogo"
-import { NodeJsLogo } from "~/components/Svg/NodeJsLogo"
-import { TailwindCssLogo } from "~/components/Svg/TailwindCssLogo"
-import { VitestLogo } from "~/components/Svg/VitestLogo"
+import { ReactIcon } from "~/components/Svg/ReactIcon"
+import { NextJsIcon } from "~/components/Svg/NextJsIcon"
+import { TypescriptIcon } from "~/components/Svg/TypescriptIcon"
+import { NodeJsIcon } from "~/components/Svg/NodeJsIcon"
+import { StyledComponentsIcon } from "~/components/Svg/StyledComponentsIcon"
+import { ExpressIcon } from "~/components/Svg/ExpressIcon"
+import { MongoDBIcon } from "~/components/Svg/MongoDBIcon"
+import { PostgreSQLIcon } from "~/components/Svg/PostgreSQLIcon"
+import { AstroIcon } from "~/components/Svg/AstroIcon"
+import { HTMLIcon } from "~/components/Svg/HTMLIcon"
+import { CSSIcon } from "~/components/Svg/CSSIcon"
+import { JavascriptIcon } from "~/components/Svg/JavascriptIcon"
+import { TailwindCSSIcon } from "~/components/Svg/TailwindCSSIcon"
+import { VitestIcon } from "~/components/Svg/VitestIcon"
+import { JestIcon } from "~/components/Svg/JestIcon"
 
 export const skills = [
 	{
-		name: "React",
-		icon: <ReactJsLogo />,
-		brandColor: "#61dafb",
+		label: "React",
+		icon: <ReactIcon />,
+		url: "https://es.react.dev",
 	},
 	{
-		name: "Next.js",
-		icon: <NextJsLogo />,
-		brandColor: "",
+		label: "Next.js",
+		icon: <NextJsIcon />,
+		url: "https://nextjs.org",
 	},
 	{
-		name: "Typescript",
-		icon: <TypescriptLogo />,
-		brandColor: "#3178C6",
+		label: "Typescript",
+		icon: <TypescriptIcon />,
+		url: "https://www.typescriptlang.org",
 	},
 	{
-		name: "Node.js",
-		icon: <NodeJsLogo />,
-		brandColor: "#5FA04E",
+		label: "Node.js",
+		icon: <NodeJsIcon />,
+		url: "https://nodejs.org",
 	},
 	{
-		name: "Styled components",
-		icon: <StyledComponentsLogo />,
-		brandColor: "#DB7093",
+		label: "Styled components",
+		icon: <StyledComponentsIcon />,
+		url: "https://styled-components.com",
 	},
 	{
-		name: "Express",
-		icon: <ExpressLogo />,
-		brandColor: "",
+		label: "Express Js",
+		icon: <ExpressIcon />,
+		url: "https://expressjs.com",
 	},
 	{
-		name: "MongoDB",
-		icon: <MongoDbLogo />,
-		brandColor: "#47A248",
+		label: "MongoDB",
+		icon: <MongoDBIcon />,
+		url: "https://www.mongodb.com",
 	},
 	{
-		name: "PostgreSQL",
-		icon: <PostgreSqlLogo />,
-		brandColor: "#4169E1",
+		label: "PostgreSQL",
+		icon: <PostgreSQLIcon />,
+		url: "https://www.postgresql.org",
 	},
 	{
-		name: "Astro",
-		icon: <AstroJsLogo />,
-		brandColor: "#BC52EE",
+		label: "Astro",
+		icon: <AstroIcon />,
+		url: "https://astro.build",
 	},
 	{
-		name: "HTML",
-		icon: <HtmlLogo />,
-		brandColor: "#E34F26",
+		label: "HTML",
+		icon: <HTMLIcon />,
+		url: "https://developer.mozilla.org/es/docs/Web/HTML",
 	},
 	{
-		name: "CSS",
-		icon: <CssLogo />,
-		brandColor: "#1572B6",
+		label: "CSS",
+		icon: <CSSIcon />,
+		url: "https://developer.mozilla.org/es/docs/Web/CSS",
 	},
 	{
-		name: "Javascript",
-		icon: <JavascriptLogo />,
-		brandColor: "#c7b008",
+		label: "Javascript",
+		icon: <JavascriptIcon />,
+		url: "https://developer.mozilla.org/es/docs/Web/JavaScript",
 	},
 	{
-		name: "Tailwind CSS",
-		icon: <TailwindCssLogo />,
-		brandColor: "#06B6D4",
+		label: "Tailwind CSS",
+		icon: <TailwindCSSIcon />,
+		url: "https://tailwindcss.com",
 	},
 	{
-		name: "Vitest",
-		icon: <VitestLogo />,
-		brandColor: "#6E9F18",
+		label: "Vitest",
+		icon: <VitestIcon />,
+		url: "https://vitest.dev",
+	},
+	{
+		label: "Jest",
+		icon: <JestIcon />,
+		url: "https://jestjs.io",
 	},
 ]

@@ -33,25 +33,14 @@
 	animation-fill-mode: forwards;
 }
 
-.nav {
-	margin-inline-end: auto;
-}
-
-.navList {
-	display: flex;
-	gap: 0 var(--items-spacing);
-	list-style: none;
-	padding-inline-start: 0;
-}
-
 .optionsWrapper {
 	display: flex;
 	align-items: center;
-	gap: 0 var(--items-spacing);
+	gap: var(--items-spacing);
+	margin-inline-start: auto;
 }
 
 @media screen and (max-width: 768px) {
-	.nav,
 	.optionsWrapper {
 		display: none;
 	}

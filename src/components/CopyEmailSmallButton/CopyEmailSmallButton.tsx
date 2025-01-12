@@ -30,7 +30,7 @@ export const CopyEmailSmallButton: React.FC<Props> = ({ className }) => {
 
 	return (
 		<button className={clsx(styles.button, className)} onClick={handleOnClick}>
-			<EmailIcon /> {DRESAN_EMAIL}
+			<EmailIcon width={16} height={16} /> {DRESAN_EMAIL}
 			<CopyIcon className={clsx(styles.icon, { [styles.showIcon]: !displayFeedback })} />
 			<CheckIcon className={clsx(styles.icon, { [styles.showIcon]: displayFeedback })} />
 		</button>

@@ -11,7 +11,13 @@ export const Footer = () => {
 				<span className={styles.year}>ฅʕ´•ᴥ•`ʔฅ - {currentYear}</span>
 				<div className={styles.linksWrapper}>
 					{socialMediaLinks.map(({ url, label }) => (
-						<Link key={url} className={styles.link} href={url} target="_blank">
+						<Link
+							key={url}
+							className={styles.link}
+							href={url}
+							target="_blank"
+							rel="noopener"
+						>
 							{label}
 						</Link>
 					))}

@@ -3,7 +3,6 @@
 import { forwardRef } from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import clsx from "clsx"
-import { X } from "~/components/Svg/X"
 import styles from "./Dialog.module.css"
 
 export const Dialog = DialogPrimitive.Root
@@ -23,15 +22,13 @@ export const DialogContent = forwardRef<
 	React.ElementRef<typeof DialogPrimitive.Content>,
 	React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
-	<DialogPortal>
-		<DialogOverlay />
-		<DialogPrimitive.Content ref={ref} className={clsx(styles.content, className)} {...props}>
-			{children}
-			<DialogClose aria-label="Cerrar" className={styles.close}>
-				<X />
-			</DialogClose>
-		</DialogPrimitive.Content>
-	</DialogPortal>
+	<DialogPrimitive.Content
+		ref={ref}
+		className={clsx(styles.content, className)}
+		{...props}
+	>
+		{children}
+	</DialogPrimitive.Content>
 ))
 DialogContent.displayName = DialogPrimitive.Content.displayName
 

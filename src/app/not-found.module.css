@@ -1,5 +1,4 @@
 .wrapper {
-	--safe-space: 5px;
 	display: grid;
 	justify-items: center;
 	align-content: center;
@@ -10,6 +9,8 @@
 .title {
 	font-size: clamp(150px, 137.872px + 3.236vw, 200px);
 	line-height: 1;
+	font-family: var(--secondary-font);
+
 }
 
 .description {

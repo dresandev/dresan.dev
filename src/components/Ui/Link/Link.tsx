@@ -11,7 +11,6 @@ interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 export const Link: React.FC<Props> = ({ href, children, target, className, ...delegated }) => {
 	const isTargetBlank = target === "_blank"
 	const rel = isTargetBlank ? "noopener" : undefined
-	const prefetch = isTargetBlank
 
 	return (
 		<NextLink
@@ -19,7 +18,7 @@ export const Link: React.FC<Props> = ({ href, children, target, className, ...de
 			href={href}
 			target={target}
 			rel={rel}
-			prefetch={prefetch}
+			prefetch={isTargetBlank}
 			{...delegated}
 		>
 			{children}

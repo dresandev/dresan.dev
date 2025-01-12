@@ -53,3 +53,9 @@ button {
 	background-color: transparent;
 	cursor: pointer;
 }
+
+ul,
+ol {
+	padding-inline-start: 0;
+	list-style: none;
+}

@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { Button } from "~/components/Ui/Button"
-import { Footer } from "~/components/Footer"
 import styles from "./not-found.module.css"
 
 export const metadata = {
@@ -17,7 +16,6 @@ export default function NotFound() {
 					<Link href="/">Volver al inicio</Link>
 				</Button>
 			</main>
-			<Footer />
 		</>
 	)
 }

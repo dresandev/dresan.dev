@@ -2,26 +2,27 @@
 
 import { useState } from "react"
 import clsx from "clsx"
-import { HEADER_LINKS } from "~/constants"
+import { HOME_NAV_LINKS } from "~/constants"
 import { toggleBodyOverflow } from "~/utils"
-import { useOnPathnameChange } from "~/hooks/use-on-pathname-change"
+import { useIsValidAppRoute } from "~/hooks/use-is-in-valid-path"
 import { Link } from "~/components/Ui/Link"
 import { Button } from "~/components/Ui/Button"
 import { ThemeSwitcher } from "~/components/ThemeSwitcher"
-import { ContactDialog } from "~/components/ContactDialog"
+import { ContactModal } from "~/components/ContactModal"
 import styles from "./MenuMobile.module.css"
 
 export const MenuMobile = () => {
 	const [open, setOpen] = useState(false)
+	const isValidAppRoute = useIsValidAppRoute()
 
-	useOnPathnameChange(() => {
-		setOpen(false)
-		toggleBodyOverflow(false)
-	})
-
-	const handleOnClick = () => {
+	const handleToggleMenu = () => {
 		setOpen(!open)
 		toggleBodyOverflow(!open)
+	}
+
+	const handleCloseMenu = () => {
+		setOpen(false)
+		toggleBodyOverflow(false)
 	}
 
 	return (
@@ -30,31 +31,39 @@ export const MenuMobile = () => {
 				className={clsx(styles.button, { [styles.open]: open })}
 				aria-label={`${open ? "Cerrar" : "Abrir"} menú`}
 				type="button"
-				onClick={handleOnClick}
+				onClick={handleToggleMenu}
 			>
 				<span className={styles.buttonLine}></span>
 				<span className={styles.buttonLine}></span>
 			</button>
 			<div className={clsx(styles.menu, { [styles.open]: open })}>
-				<nav className={styles.nav}>
-					<ul className={styles.navList}>
-						{HEADER_LINKS.map(({ href, label, target }) => (
-							<li key={href}>
-								<Link className={styles.navLink} href={href} target={target}>
-									{label}
-								</Link>
-							</li>
-						))}
-					</ul>
-				</nav>
+				{isValidAppRoute && (
+					<nav className={styles.nav}>
+						<ul className={styles.navList}>
+							{HOME_NAV_LINKS.map(({ href, label }) => (
+								<li key={href}>
+									<Link
+										className={styles.navLink}
+										href={href}
+										onClick={handleCloseMenu}
+									>
+										{label}
+									</Link>
+								</li>
+							))}
+						</ul>
+					</nav>
+				)}
 				<div className={styles.optionsWrapper}>
-					<ContactDialog
-						trigger={
-							<Button className={styles.contactButton} size="medium" type="button">
-								Contactar
-							</Button>
-						}
-					/>
+					<ContactModal trigger={
+						<Button
+							className={styles.contactButton}
+							size="medium"
+							type="button"
+						>
+							Contactar
+						</Button>
+					} />
 					<div className={styles.themeWrapper}>
 						<span>Tema</span> <ThemeSwitcher />
 					</div>

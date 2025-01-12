@@ -1,0 +1,24 @@
+.fakeMasonry > div {
+	padding: 24px;
+	border: 1px solid var(--color-stroke);
+	border-radius: 16px;
+	background-color: var(--color-card-background);
+	transition: background-color var(--theme-transition-duration),
+		border-color var(--theme-transition-duration);
+}
+
+.fakeMasonry h3 {
+	text-transform: uppercase;
+	padding-block-end: 24px;
+	font-weight: 600;
+}
+
+.fakeMasonry h4 {
+	font-weight: 500;
+	padding-block-end: 4px;
+}
+
+.title {
+	padding-block-end: clamp(32px, 24.24px + 2.071vw, 64px);
+	text-align: center;
+}

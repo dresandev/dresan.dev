@@ -1,0 +1,31 @@
+.tooltip {
+	padding: 1px 6px;
+	font-size: 13px;
+	line-height: normal;
+	border: 2px dotted var(--color-stroke);
+	border-radius: 20px;
+	background-color: var(--color-background-secondary);
+	animation: animate-in 300ms;
+}
+
+.tooltip[data-state="closed"] {
+	animation: animate-out 300ms;
+}
+
+@keyframes animate-in {
+	from {
+		transform: translateY(10px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes animate-out {
+	to {
+		transform: translateY(10px);
+		opacity: 0;
+	}
+}

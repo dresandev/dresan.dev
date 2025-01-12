@@ -13,6 +13,7 @@ interface SendEmailResponse {
 	success?: boolean
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const isFormDataValues = (obj: any): obj is FormDataValues => {
 	return (
 		typeof obj.name === "string" && typeof obj.email === "string" && typeof obj.message === "string"
@@ -41,6 +42,6 @@ export const sendEmail = async (formData: FormData): Promise<SendEmailResponse> 
 
 		return { success: true }
 	} catch (error) {
-		return { error: "Error de red o del servidor" }
+		return { error: `Error de red o del servidor: ${error}` }
 	}
 }

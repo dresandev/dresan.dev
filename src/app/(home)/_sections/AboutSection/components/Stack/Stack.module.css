@@ -1,0 +1,11 @@
+.technologiesList {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+}
+
+.technologiesList svg {
+	--size: 30px;
+	inline-size: var(--size);
+	block-size: var(--size);
+}

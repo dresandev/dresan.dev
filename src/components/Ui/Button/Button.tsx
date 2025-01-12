@@ -1,6 +1,6 @@
 import { forwardRef } from "react"
 import { clsx } from "clsx"
-import { Slot } from "~/components/Slot"
+import { Slot } from "@radix-ui/react-slot"
 import styles from "./Button.module.css"
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

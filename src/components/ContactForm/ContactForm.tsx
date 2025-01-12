@@ -57,7 +57,7 @@ export const ContactForm = () => {
 				<span className={styles.labelWrapper}>Mensaje</span>
 				<TextField
 					multiline
-					placeholder="Hola Dresan, (Tu increíble mensaje)"
+					placeholder="Hola Dresan, (Tu bonito mensaje)"
 					name="message"
 					required
 				/>
@@ -66,7 +66,9 @@ export const ContactForm = () => {
 				Enviar
 			</Button>
 			{responseMessage && (
-				<MessageCard variant={hasError ? "error" : "success"}>{responseMessage}</MessageCard>
+				<MessageCard variant={hasError ? "error" : "success"}>
+					{responseMessage}
+				</MessageCard>
 			)}
 		</form>
 	)

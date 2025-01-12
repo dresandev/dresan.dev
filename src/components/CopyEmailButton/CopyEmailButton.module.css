@@ -12,23 +12,28 @@
 	border-radius: 4px;
 	font-size: 14px;
 	font-weight: 500;
+	user-select: none;
 	opacity: 0;
 	transition: opacity 300ms, transform 300ms;
 }
 
-.enterToast {
+.toast.show {
 	opacity: 1;
 	transform: translateY(-2.5rem);
 }
 
 .button {
-	padding-inline: 0;
-	font-size: clamp(25px, 19.424px + 1.489vw, 48px);
-	text-decoration: underline;
 	-webkit-tap-highlight-color: transparent;
 }
 
+.button > span {
+	font-size: clamp(25px, 19.424px + 1.489vw, 48px);
+	text-decoration: underline;
+}
+
 .hintMessage {
+	text-align: start;
 	font-size: 14px;
 	color: var(--color-text-secondary);
+	user-select: none;
 }

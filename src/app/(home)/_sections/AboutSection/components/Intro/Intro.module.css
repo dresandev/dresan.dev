@@ -1,0 +1,24 @@
+.intro {
+	font-weight: 500;
+	font-size: 24px;
+	padding-block-end: 32px;
+}
+
+.linksWrapper {
+	display: flex;
+	gap: 0 10px;
+	align-items: center;
+}
+
+.link {
+	padding: 6px;
+	background-color: var(--color-card-background-secondary);
+	border: 1px solid var(--color-stroke);
+	border-radius: 50%;
+	transition: background-color var(--theme-transition-duration),
+		border-color var(--theme-transition-duration);
+}
+
+.link:hover {
+	background-color: var(--color-hover-card-background-secondary);
+}

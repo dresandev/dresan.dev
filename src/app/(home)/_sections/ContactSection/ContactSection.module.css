@@ -1,0 +1,15 @@
+.section {
+	max-inline-size: 1920px;
+	margin-inline: auto;
+}
+
+.title {
+	display: grid;
+	font-size: clamp(32px, 6.4px + 8vw, 160px);
+	font-weight: 900;
+	line-height: normal;
+}
+
+.title > span:last-of-type {
+	justify-self: self-end;
+}

@@ -1,0 +1,6 @@
+.experiencesList {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	font-size: clamp(14px, 13.52px + 0.129vw, 16px);
+}

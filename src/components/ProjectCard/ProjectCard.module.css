@@ -1,38 +1,54 @@
 .card {
-	--border-radius: 8px;
+	--border-radius: clamp(12px, 8.268px + 0.259vw, 16px);
 	position: relative;
 }
 
-.link {
+.modalTrigger:is(:focus-visible, :hover) ~ .imageWrapper {
+	filter: contrast(1) grayscale(0);
+}
+
+.modalTrigger {
 	position: absolute;
 	inset: 0;
 	z-index: 1;
-	font-size: 0;
 	border-radius: var(--border-radius);
-	overflow: hidden;
 }
 
 .imageWrapper {
 	overflow: hidden;
+	border-radius: var(--border-radius);
+	filter: contrast(1.1) grayscale(1);
+	transition: filter 500ms;
 }
 
 .image {
-	inline-size: 100%;
 	block-size: auto;
-	border-radius: var(--border-radius);
-	filter: saturate(0);
-	transition: filter 250ms ease-in-out, transform 250ms ease-in-out;
-}
-
-.link:focus-visible + .imageWrapper > .image,
-.card:hover .image {
-	filter: none;
+	inline-size: 100%;
+	aspect-ratio: 3 / 2;
+	transition: transform 500ms;
 }
 
 .card:hover .image {
-	transform: scale(1.05);
+	transform: scale(1.1);
+}
+
+.gradientImage {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	block-size: auto;
+	aspect-ratio: 3 / 2;
+	transform: scale(1.15);
+	filter: blur(60px);
+	opacity: 0;
+	transition: opacity 500ms;
+}
+
+.card:has(.modalTrigger:hover, .modalTrigger:focus-visible) .gradientImage {
+	opacity: 0.4;
 }
 
 .title {
-	padding-block-start: 12px;
+	padding-block-start: 14px;
+	font-size: 24px;
 }

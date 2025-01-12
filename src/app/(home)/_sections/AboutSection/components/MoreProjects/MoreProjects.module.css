@@ -1,0 +1,32 @@
+.projectList {
+	border-block-start: 1px solid var(--color-stroke);
+	transition: border-block-start-color var(--theme-transition-duration);
+}
+
+.projectCard {
+	padding-block: 12px;
+	border-block-end: 1px solid var(--color-stroke);
+	transition: border-block-end-color var(--theme-transition-duration);
+}
+
+.projectTitle {
+	inline-size: max-content;
+	font-size: 18px;
+	text-transform: none;
+	font-weight: 600;
+}
+
+.projectLink {
+	--hover-color: hsl(214 93% 65%);
+	display: inline-block;
+	inline-size: max-content;
+}
+
+[data-theme="light"] .projectLink {
+	--hover-color: hsl(210 100% 42%);
+}
+
+.projectLink:hover {
+	color: var(--hover-color);
+	text-decoration: underline;
+}

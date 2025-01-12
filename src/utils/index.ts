@@ -16,3 +16,7 @@ export const copyToClipboard = async (text: string) => {
 export const toggleBodyOverflow = (force: boolean = false) => {
 	document.body.classList.toggle("hide-overflow", force)
 }
+
+export const ensureArray = (children: React.ReactNode | React.ReactNode[]) => {
+	return Array.isArray(children) ? children : [children]
+}
