@@ -20,7 +20,7 @@ export const ContactModal: React.FC<Props> = ({ trigger }) => {
 		<Dialog>
 			<DialogTrigger asChild>{trigger}</DialogTrigger>
 			<DialogPortal>
-				<DialogOverlay />
+				<DialogOverlay className={styles.overlay}/>
 				<DialogContent className={styles.content}>
 					<DialogClose aria-label="Cerrar" className={styles.close}>
 						<X />

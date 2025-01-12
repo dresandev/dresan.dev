@@ -1,7 +1,6 @@
 .overlay {
 	position: fixed;
 	inset: 0;
-	background-color: hsl(0 0 0% / 0.6);
 	animation: overlay-show 200ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -12,7 +11,6 @@
 .content {
 	position: fixed;
 	inset: 0;
-	margin: auto;
 	animation: content-show 200ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 

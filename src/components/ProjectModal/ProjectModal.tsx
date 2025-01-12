@@ -30,7 +30,6 @@ export const ProjectModal: React.FC<Props> = ({ children, data }) => {
       className={styles.image}
       src={url}
       alt=""
-      loading="lazy"
       decoding="async"
     />
   ))

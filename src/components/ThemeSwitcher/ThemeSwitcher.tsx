@@ -1,10 +1,12 @@
 "use client"
 
 import { useTheme } from "next-themes"
+import { useHasMounted } from "~/hooks/use-has-mounted"
 import styles from "./ThemeSwitcher.module.css"
 
 export const ThemeSwitcher = () => {
 	const { theme, setTheme } = useTheme()
+	const hasMounted = useHasMounted()
 	const isLightMode = theme === "light"
 	const oppositeThemeName = isLightMode ? "oscuro" : "claro"
 
@@ -12,6 +14,8 @@ export const ThemeSwitcher = () => {
 		const oppositeTheme = isLightMode ? "dark" : "light"
 		setTheme(oppositeTheme)
 	}
+
+	if (!hasMounted) return
 
 	return (
 		<button

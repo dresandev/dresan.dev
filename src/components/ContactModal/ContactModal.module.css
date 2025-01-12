@@ -1,3 +1,20 @@
+.overlay {
+	background-color: hsl(0 0 0% / 0.6);
+}
+
+.content {
+	inline-size: min(500px, 90vw);
+	block-size: fit-content;
+	max-block-size: 85vh;
+	padding: 25px;
+	margin: auto;
+	background-color: var(--color-background);
+	border-radius: 12px;
+	border: 1px solid var(--color-stroke);
+	overflow-y: auto;
+	scrollbar-width: thin;
+}
+
 .close {
 	--size: 20px;
 	display: grid;
@@ -13,16 +30,4 @@
 .close:hover {
 	opacity: 1;
 	transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.content {
-	inline-size: min(500px, 90vw);
-	block-size: fit-content;
-	max-block-size: 85vh;
-	padding: 25px;
-	background-color: var(--color-background);
-	border-radius: 12px;
-	border: 1px solid var(--color-stroke);
-	overflow-y: auto;
-	scrollbar-width: thin;
 }
