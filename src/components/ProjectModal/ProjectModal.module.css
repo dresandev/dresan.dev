@@ -54,6 +54,10 @@
 	place-items: center;
 }
 
+.imageWrapper.oneItem {
+	padding: 16px;
+}
+
 .image {
 	block-size: auto;
 	inline-size: 100%;
@@ -95,7 +99,7 @@
 }
 
 .tagsWrapper {
-	padding: 20px 24px;
+	display: none;
 }
 
 .tagList {
@@ -139,6 +143,11 @@
 	.image {
 		max-inline-size: 700px;
 		margin-inline: auto;
+	}
+
+	.tagsWrapper {
+		display: block;
+		padding: 20px 24px;
 	}
 }
 

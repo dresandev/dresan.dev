@@ -1,4 +1,5 @@
 import type { ProjectModalData } from "~/types"
+import clsx from "clsx"
 import {
   Dialog,
   DialogClose,
@@ -34,6 +35,7 @@ export const ProjectModal: React.FC<Props> = ({ children, data }) => {
       height={520}
     />
   ))
+  const hasSeveralItems = slides.length > 1
 
   return (
     <Dialog>
@@ -43,9 +45,12 @@ export const ProjectModal: React.FC<Props> = ({ children, data }) => {
         <DialogContent className={styles.content}>
           <div
             style={{ background: backgroundGradient }}
-            className={styles.imageWrapper}
+            className={clsx(
+              styles.imageWrapper,
+              { [styles.oneItem]: !hasSeveralItems }
+            )}
           >
-            {slides.length > 1 ? (
+            {hasSeveralItems ? (
               <Carousel
                 slides={slides}
                 options={{ loop: true }}

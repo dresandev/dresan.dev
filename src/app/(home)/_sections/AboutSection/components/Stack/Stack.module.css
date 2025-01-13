@@ -5,7 +5,13 @@
 }
 
 .technologiesList svg {
-	--size: 30px;
+	--size: 34px;
 	inline-size: var(--size);
 	block-size: var(--size);
+}
+
+@media screen and (min-width: 768px) {
+	.technologiesList svg {
+		--size: 30px;
+	}
 }
