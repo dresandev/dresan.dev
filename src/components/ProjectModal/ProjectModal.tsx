@@ -33,6 +33,8 @@ export const ProjectModal: React.FC<Props> = ({ children, data }) => {
       alt=""
       width={974}
       height={520}
+      loading="eager"
+      decoding="sync"
     />
   ))
   const hasSeveralItems = slides.length > 1
