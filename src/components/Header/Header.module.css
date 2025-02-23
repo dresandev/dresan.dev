@@ -10,7 +10,8 @@
 	background-color: hsl(var(--color-background-hsl) / 0.8);
 	backdrop-filter: saturate(180%) blur(5px);
 	border-block-end: 1px solid var(--color-stroke);
-	transition: border-block-end-color var(--theme-transition-duration),
+	transition:
+		border-block-end-color var(--theme-transition-duration),
 		background-color var(--theme-transition-duration);
 }
 
@@ -31,6 +32,12 @@
 	animation-name: dash, fill;
 	animation-delay: 0ms, 500ms;
 	animation-fill-mode: forwards;
+}
+
+.themeWrapper {
+	--size: 24px;
+	inline-size: var(--size);
+	block-size: var(--size);
 }
 
 .optionsWrapper {

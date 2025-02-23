@@ -4,6 +4,7 @@ import { ThemeSwitcher } from "~/components/ThemeSwitcher"
 import { Button } from "~/components/Ui/Button"
 import { MenuMobile } from "~/components/MenuMobile"
 import { ContactModal } from "~/components/ContactModal"
+import { FadeIn } from "~/components/FadeIn"
 import { Navigation } from "../Navigation"
 import styles from "./Header.module.css"
 
@@ -21,7 +22,9 @@ export const Header = () => {
 							Contactar
 						</Button>
 					)} />
-					<ThemeSwitcher />
+					<FadeIn className={styles.themeWrapper}>
+						<ThemeSwitcher />
+					</FadeIn>
 				</div>
 				<MenuMobile />
 			</div>
