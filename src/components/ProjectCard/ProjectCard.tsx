@@ -1,9 +1,9 @@
-import type { CoverProject } from "~/types"
+import type { Project } from "~/types"
 import { ProjectModal } from "~/components/ProjectModal"
 import { DialogTrigger } from "~/components/Ui/Dialog"
 import styles from "./ProjectCard.module.css"
 
-interface Props extends CoverProject {
+interface Props extends Project {
 	title: string
 }
 
