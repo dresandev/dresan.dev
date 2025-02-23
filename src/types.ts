@@ -1,6 +1,6 @@
 interface Link {
-	label: string,
-	url: string,
+	label: string
+	url: string
 	icon: React.ReactNode
 }
 
@@ -18,7 +18,7 @@ export interface ProjectModalData {
 	tags: Tag[]
 }
 
-export interface CoverProject {
+export interface Project {
 	title: string
 	imageUrl: string
 	description: string
