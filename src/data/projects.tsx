@@ -165,6 +165,11 @@ export const moreProjects = [
 		url: "https://github.com/dresandev/github-tags-input",
 	},
 	{
+		title: "youtube-shorts-autoscroll-extension",
+		description: "Add a button at the bottom left that when active automatically scrolls the YouTube shorts👆🏼.",
+		url: "https://github.com/dresandev/youtube-shorts-autoscroll-extension",
+	},
+	{
 		title: "new-component",
 		description: "⚛ ⚡ CLI utility for quickly creating new React components. ⚡ ⚛",
 		url: "https://github.com/dresandev/new-component",
