@@ -25,16 +25,16 @@ interface PillCustomProps extends React.CSSProperties {
 export const ProjectModal: React.FC<Props> = ({ children, data }) => {
   const { title, description, images, backgroundGradient, links, tags } = data
 
-  const slides = images.map((url) => (
+  const slides = images.map((url, index) => (
     <img
       key={url}
       className={styles.image}
       src={url}
-      alt=""
+      alt={`Imagen ${++index} del proyecto ${title} desarrollado por Dresan`}
       width={974}
       height={520}
       loading="eager"
-      decoding="sync"
+      decoding="async"
     />
   ))
   const hasSeveralItems = slides.length > 1
@@ -53,10 +53,9 @@ export const ProjectModal: React.FC<Props> = ({ children, data }) => {
             )}
           >
             {hasSeveralItems ? (
-              <Carousel
-                slides={slides}
-                options={{ loop: true }}
-              />
+              <Carousel options={{ loop: true }}>
+                {slides}
+              </Carousel>
             ) : slides}
           </div>
 

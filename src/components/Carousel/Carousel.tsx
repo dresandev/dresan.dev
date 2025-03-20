@@ -12,12 +12,12 @@ import {
 import styles from "./Carousel.module.css"
 
 type PropType = {
-  slides: React.ReactNode[]
   options?: EmblaOptionsType
+  children: React.ReactNode[]
 }
 
 export const Carousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props
+  const { children, options } = props
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi)
@@ -33,7 +33,7 @@ export const Carousel: React.FC<PropType> = (props) => {
     <section className={styles.carousel}>
       <div ref={emblaRef}>
         <div className={styles.slidesWrapper}>
-          {slides.map((slide, index) => (
+          {children.map((slide, index) => (
             <div key={index} className={styles.slide}>
               {slide}
             </div>
