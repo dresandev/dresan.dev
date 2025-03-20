@@ -19,7 +19,7 @@ export const MoreAbout = () => {
       </p>
 
       <p className={styles.text}>
-        Actualmente, estoy profundizando mi conocimiento en el ecosistema de React <ReactIcon /> y adentrandome en el mundo de Vue.js <VueJsIcon />.
+        Actualmente, estoy profundizando mi conocimiento en el ecosistema de React <ReactIcon /> y adentrándome en el mundo de Vue.js <VueJsIcon />.
       </p>
     </div>
   )
