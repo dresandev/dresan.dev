@@ -19,7 +19,7 @@ export const projects = [
 			description: "App de exploración de películas, al estilo de Amazon Prime Video y Crunchyroll.",
 		},
 		modalData: {
-			backgroundGradient: "linear-gradient(29deg, hsl(50 63% 38%) 0%, hsl(330 52% 33%) 100%)",
+			backgroundGradient: "linear-gradient(135deg, hsl(270 40% 60%), hsl(340 50% 70%))",
 			description: "Aplicación web para explorar películas, similar a Amazon Prime Video y Crunchyroll, con funcionalidades como scroll infinito, un buscador de películas optimizado para la navegación por teclado similar al de YouTube, y un carrusel para promocionar películas con características como reproducción automática solo cuando la película sea visible (es decir, cuando esté en el viewport y la pestaña tenga el foco), entre otras características.",
 			links: [
 				{
@@ -56,7 +56,7 @@ export const projects = [
 			description: "Clon del e-commerce de Bershka, implementando el flujo principal de un e-commerce.",
 		},
 		modalData: {
-			backgroundGradient: "linear-gradient(29deg, hsl(222 54% 56%) 0%, hsl(338 95% 41%) 100%)",
+			backgroundGradient: "linear-gradient(135deg, hsl(250 50% 70%), hsl(30 60% 70%))",
 			description: "Clon del ecommerce de Bershka, implementando funcionalidades principales como el flujo de autenticación con auth.js, el flujo de pago de productos mediante la pasarela de pagos MercadoPago, maquetación de la app con precisión pixel perfect, y diseño responsive sin usar JavaScript (como se hace originalmente). Además, se implementó código funcional en producción.",
 			links: [
 				{
@@ -94,7 +94,7 @@ export const projects = [
 			description: "App para gestionar links, implementando scraping para la obtención de información de los sitios webs.",
 		},
 		modalData: {
-			backgroundGradient: "linear-gradient(29deg, hsl(149 74% 56%) 0%, hsl(335 56% 47%) 100%)",
+			backgroundGradient: "linear-gradient(135deg, hsl(340 40% 65%), hsl(50 50% 75%))",
 			description: "Aplicación para gestionar enlaces, realizando scraping para obtener datos como el título, descripción e imagen usada en el Open Graph Protocol (OGP). Incluye un componente para agregar etiquetas similar al TagsInput de GitHub. El enfoque principal es del lado del servidor, de manera que la mayoría del trabajo se realiza en el servidor.",
 			links: [
 				{
@@ -130,7 +130,7 @@ export const projects = [
 			description: "Herramienta para generar diagramas de texto sobre la estructura de file systems 📁.",
 		},
 		modalData: {
-			backgroundGradient: "linear-gradient(29deg, hsl(168 68% 64%) 0%, hsl(246 66% 59%) 100%)",
+			backgroundGradient: "linear-gradient(135deg, hsl(220 40% 65%), hsl(280 45% 70%))",
 			description: "Herramienta para generar diagramas de texto sobre estructuras de directorios y archivos, basado en el proyecto de Nathan Friend: https://tree.nathanfriend.io/.",
 			links: [
 				{
