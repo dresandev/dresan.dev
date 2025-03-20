@@ -11,7 +11,7 @@ export const MoreAbout = () => {
         Soy de Colombia <ColombiaFlagIcon /> y disfruto aprender sobre el mundo del desarrollo de software, valoro los pequeños detalles y soy gran fan de CSS (¡el mejor lenguaje de programación! 🙂).
       </p>
       <p className={styles.text}>
-        En mi tiempo libre suelo consumir contenido sobre tecnología, jugar videojuegos, mejorar mi creatividad y habilidades de comunicación, solucionar problemas o generar ideas para mis proyectos.
+        En mi tiempo libre suelo consumir contenido sobre tecnología, contribuir a proyectos de codigo abierto, mejorar mi creatividad y habilidades de comunicación, solucionar problemas de codigo o generar ideas para mis proyectos.
       </p>
 
       <p className={styles.text}>
@@ -19,7 +19,7 @@ export const MoreAbout = () => {
       </p>
 
       <p className={styles.text}>
-        Actualmente, estoy profundizando mi conocimiento en el ecosistema de React <ReactIcon />, pero siempre estoy dispuesto a aprender nuevas tecnologías (Vue.js <VueJsIcon />).
+        Actualmente, estoy profundizando mi conocimiento en el ecosistema de React <ReactIcon /> y adentrandome en el mundo de Vue.js <VueJsIcon />.
       </p>
     </div>
   )
