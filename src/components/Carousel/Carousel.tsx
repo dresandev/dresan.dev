@@ -41,11 +41,13 @@ export const Carousel: React.FC<PropType> = ({ children, options }) => {
       </div>
 
       <PrevButton
+        aria-label="Ir al slide anterior"
         className={styles.button}
         onClick={onPrevButtonClick}
         disabled={prevBtnDisabled}
       />
       <NextButton
+        aria-label="Ir al siguiente slide"
         className={styles.button}
         onClick={onNextButtonClick}
         disabled={nextBtnDisabled}
