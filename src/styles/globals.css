@@ -27,6 +27,7 @@
 }
 
 [data-theme="light"] {
+	--color-primary-hsl: 212 100% 48%;
 	--color-background-hsl: 0 0% 99%;
 	--color-text-hsl: 0 0% 1%;
 	--color-stroke-hsl: 0 3% 84%;
@@ -50,6 +51,7 @@
 }
 
 [data-theme="dark"] {
+	--color-primary-hsl: 212 100% 48%;
 	--color-background-hsl: 0 0% 1%;
 	--color-text-hsl: 0 0% 93%;
 	--color-stroke-hsl: 0 0% 12%;
@@ -87,7 +89,8 @@ body {
 	accent-color: var(--color-primary);
 	color: var(--color-text);
 	background-color: var(--color-background);
-	transition: color var(--theme-transition-duration),
+	transition:
+		color var(--theme-transition-duration),
 		background-color var(--theme-transition-duration);
 }
 
