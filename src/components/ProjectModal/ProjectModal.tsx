@@ -1,5 +1,6 @@
 import type { ProjectModalData } from "~/types"
 import clsx from "clsx"
+import { Description } from "@radix-ui/react-dialog"
 import {
   Dialog,
   DialogClose,
@@ -34,7 +35,7 @@ export const ProjectModal: React.FC<Props> = ({ children, data }) => {
       width={974}
       height={520}
       loading="eager"
-      decoding="async"
+      fetchPriority="high"
     />
   ))
   const hasSeveralItems = slides.length > 1
@@ -45,6 +46,7 @@ export const ProjectModal: React.FC<Props> = ({ children, data }) => {
       <DialogPortal>
         <DialogOverlay className={styles.overlay} />
         <DialogContent className={styles.content}>
+          <Description />
           <div
             style={{ background: backgroundGradient }}
             className={clsx(
