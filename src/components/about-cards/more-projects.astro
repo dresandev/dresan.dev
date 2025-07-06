@@ -35,7 +35,6 @@ import FakeMasonryItem from "@/components/fake-masonry-item.astro"
   }
 
   .project-title {
-    inline-size: max-content;
     padding-block-end: 4px;
     font-size: 18px;
     font-weight: 500;
@@ -44,11 +43,9 @@ import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 
   .project-link {
     --hover-color: hsl(214 93% 65%);
-    display: inline-block;
-    inline-size: max-content;
   }
 
-  [data-theme="light"] .project-link {
+  html[data-theme="light"] .project-link {
     --hover-color: hsl(210 100% 42%);
   }
 
