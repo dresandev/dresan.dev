@@ -4,7 +4,9 @@ import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 ---
 
 <FakeMasonryItem id="greeting" class="wrapper">
-  <img class="skin-image" src="/images/skin.webp" width={388} height={600} alt="" />
+  <div class="skin-container-wrapper">
+    <canvas id="skin-container" class="skin-container"></canvas>
+  </div>
   <div class="message-list">
     <div class="message">¡Hola! 🖖🏼</div>
     <div class="message">Me llamo Javier Andrés</div>
@@ -16,15 +18,39 @@ import FakeMasonryItem from "@/components/fake-masonry-item.astro"
   </div>
 </FakeMasonryItem>
 
+<script>
+  import { $ } from "@/utils/dom-selector"
+  import * as skinview3d from "skinview3d"
+
+  const skinContainer = $<HTMLCanvasElement>("#skin-container")!
+
+  let skinViewer = new skinview3d.SkinViewer({
+    canvas: skinContainer,
+    width: 400,
+    height: 550,
+    zoom: 0.95,
+    enableControls: false,
+    animation: new skinview3d.WalkingAnimation(),
+    skin: "/images/skin.png",
+    cape: "/images/cape.png",
+  })
+
+  skinViewer.animation!.speed = 0.7
+</script>
+
 <style>
   .wrapper {
     position: relative;
   }
 
-  .skin-image {
-    block-size: auto;
-    padding-block: 30px;
+  .skin-container-wrapper {
     margin-inline: auto;
+    inline-size: fit-content;
+    block-size: 550px;
+  }
+
+  .skin-container {
+    pointer-events: none;
   }
 
   .message-list {
@@ -63,5 +89,16 @@ import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 
   .email-link:hover {
     color: var(--hover-color);
+  }
+
+  @media screen and (max-width: 511px) {
+    .skin-container-wrapper {
+      block-size: 410px;
+    }
+
+    .skin-container {
+      inline-size: 279px !important;
+      block-size: 410px !important;
+    }
   }
 </style>
