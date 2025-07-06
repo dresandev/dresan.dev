@@ -1,5 +1,6 @@
 ---
 import { HOME_NAV_LINKS } from "@/constants/nav-links"
+import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
 import Link from "@/components/ui/link.astro"
 import Action from "@/components/ui/action.astro"
 import ThemeSwitcher from "@/components/theme-switcher.astro"
@@ -24,7 +25,15 @@ import ThemeSwitcher from "@/components/theme-switcher.astro"
     </ul>
   </nav>
   <div class="options-wrapper">
-    <Action as="button" class="contact-button" size="medium" type="button"> Contactar </Action>
+    <Action
+      data-modal-trigger={CONTACT_MODAL_ID}
+      as="button"
+      class="contact-button"
+      size="medium"
+      type="button"
+    >
+      Contactar
+    </Action>
     <div class="theme-wrapper">
       <span>Tema</span>
       <ThemeSwitcher />
@@ -43,6 +52,7 @@ import ThemeSwitcher from "@/components/theme-switcher.astro"
     const currentState = $mobileButton.getAttribute("data-state")
     const isOpen = currentState === "open"
     const newState = isOpen ? "closed" : "open"
+    document.body.toggleAttribute("data-scroll-locked", !isOpen)
     $mobileButton.ariaLabel = `${currentState === "open" ? "Cerrar" : "Abrir"} menú`
     $mobileButton.setAttribute("data-state", newState)
     $mobileMenu.setAttribute("data-state", newState)
