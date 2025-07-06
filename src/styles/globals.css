@@ -1,131 +1,146 @@
 :root {
-	--ease-elastic-out-3: cubic-bezier(0.5, 1.25, 0.75, 1.25);
-	--ease-elastic-3: var(--ease-elastic-out-3);
-	--ease-elastic-out-4: cubic-bezier(0.5, 1.5, 0.75, 1.25);
-	--ease-elastic-4: var(--ease-elastic-out-4);
-	--ease-3: cubic-bezier(0.25, 0, 0.3, 1);
-	--ease-out-5: cubic-bezier(0, 0, 0, 1);
-	--header-block-size: 64px;
-	--footer-block-size: 100px;
-	--space-inline: 24px;
-	--space-block: 32px;
-	--max-inline-size: 1400px;
-	--theme-transition-duration: 150ms;
-	--safe-space: 5px;
-	--max-content-block-size: calc(
-		100vh - var(--header-block-size) - var(--footer-block-size) - var(--safe-space)
-	);
+  --ease-elastic-out-3: cubic-bezier(0.5, 1.25, 0.75, 1.25);
+  --ease-elastic-3: var(--ease-elastic-out-3);
+  --ease-elastic-out-4: cubic-bezier(0.5, 1.5, 0.75, 1.25);
+  --ease-elastic-4: var(--ease-elastic-out-4);
+  --ease-3: cubic-bezier(0.25, 0, 0.3, 1);
+  --ease-out-5: cubic-bezier(0, 0, 0, 1);
+  --header-block-size: 64px;
+  --footer-block-size: 100px;
+  --space-inline: 24px;
+  --space-block: 32px;
+  --max-inline-size: 1400px;
+  --theme-transition-duration: 150ms;
+  --safe-space: 5px;
+  --max-content-block-size: calc(
+    100vh - var(--header-block-size) - var(--footer-block-size) - var(--safe-space)
+  );
+  --primary-font: Geist, Arial;
 
-	font-size: 16px;
-	scroll-behavior: smooth;
-	scrollbar-gutter: stable;
-	scrollbar-color: var(--color-text) var(--color-background);
-}
-
-:root:has([data-scroll-locked="1"]) {
-	scrollbar-gutter: unset;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--color-text) var(--color-background);
 }
 
 [data-theme="light"] {
-	--color-primary-hsl: 212 100% 48%;
-	--color-background-hsl: 0 0% 99%;
-	--color-text-hsl: 0 0% 1%;
-	--color-stroke-hsl: 0 3% 84%;
-	--color-card-background-hls: 0 2% 85%;
+  --color-primary-hsl: 212 100% 48%;
+  --color-background-hsl: 0 0% 99%;
+  --color-text-hsl: 0 0% 1%;
+  --color-stroke-hsl: 0 3% 84%;
+  --color-card-background-hls: 0 2% 85%;
 
-	--color-primary: hsl(212 100% 48%);
-	--color-text: hsl(0 0% 1%);
-	--color-text-secondary: hsl(0 0% 40%);
-	--color-background: hsl(0 0% 99%);
-	--color-themed-background: hsl(0 0% 99%);
-	--color-background-secondary: hsl(0 10% 98%);
-	--color-stroke: hsl(0 2% 76%);
-	--color-themed-stroke: hsla(0 0 0 / 0.14);
-	--color-card-background: hsl(0 0% 94%);
-	--color-card-background-secondary: hsl(0 2% 88%);
-	--color-hover-card-background-secondary: hsl(0 2% 80%);
+  --color-primary: hsl(212 100% 48%);
+  --color-text: hsl(0 0% 1%);
+  --color-text-secondary: hsl(0 0% 40%);
+  --color-background: hsl(0 0% 99%);
+  --color-themed-background: hsl(0 0% 99%);
+  --color-background-secondary: hsl(0 10% 98%);
+  --color-stroke: hsl(0 2% 76%);
+  --color-themed-stroke: hsla(0 0 0 / 0.14);
+  --color-card-background: hsl(0 0% 94%);
+  --color-card-background-secondary: hsl(0 2% 88%);
+  --color-hover-card-background-secondary: hsl(0 2% 80%);
 
-	--text-gradient: linear-gradient(180deg, hsl(0 0% 33%), hsl(0 0% 0%));
+  --text-gradient: linear-gradient(180deg, hsl(0 0% 33%), hsl(0 0% 0%));
 
-	color-scheme: light;
+  color-scheme: light;
 }
 
 [data-theme="dark"] {
-	--color-primary-hsl: 212 100% 48%;
-	--color-background-hsl: 0 0% 1%;
-	--color-text-hsl: 0 0% 93%;
-	--color-stroke-hsl: 0 0% 12%;
-	--color-card-background-hls: 0 1% 15%;
+  --color-primary-hsl: 212 100% 48%;
+  --color-background-hsl: 0 0% 1%;
+  --color-text-hsl: 0 0% 93%;
+  --color-stroke-hsl: 0 0% 12%;
+  --color-card-background-hls: 0 1% 15%;
 
-	--color-primary: hsl(212 100% 48%);
-	--color-text: hsl(0 0% 93%);
-	--color-text-secondary: hsl(0 0% 62%);
-	--color-background: hsl(0 0% 1%);
-	--color-themed-background: hsl(0 0% 4%);
-	--color-background-secondary: hsl(0 0% 6%);
-	--color-stroke: hsl(0 0% 12%);
-	--color-themed-stroke: hsl(0 0% 100% / 0.14);
-	--color-card-background: hsl(0 0% 7%);
-	--color-card-background-secondary: hsl(0 1% 15%);
-	--color-hover-card-background-secondary: hsl(0, 0%, 24%);
+  --color-primary: hsl(212 100% 48%);
+  --color-text: hsl(0 0% 93%);
+  --color-text-secondary: hsl(0 0% 62%);
+  --color-background: hsl(0 0% 1%);
+  --color-themed-background: hsl(0 0% 4%);
+  --color-background-secondary: hsl(0 0% 6%);
+  --color-stroke: hsl(0 0% 12%);
+  --color-themed-stroke: hsl(0 0% 100% / 0.14);
+  --color-card-background: hsl(0 0% 7%);
+  --color-card-background-secondary: hsl(0 1% 15%);
+  --color-hover-card-background-secondary: hsl(0, 0%, 24%);
 
-	--text-gradient: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 68%));
+  --text-gradient: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 68%));
 
-	color-scheme: dark;
+  color-scheme: dark;
 }
 
 ::selection {
-	background-color: var(--color-primary);
-	color: hsl(0 0% 100%);
+  background-color: var(--color-primary);
+  color: hsl(0 0% 100%);
 }
 
 :focus-visible {
-	outline: 2px solid hsl(210 100% 66%);
-	outline-offset: 2px;
+  outline: 2px solid hsl(210 100% 66%);
+  outline-offset: 2px;
+}
+
+[data-scroll-locked] {
+  overflow: hidden;
+  overscroll-behavior: contain;
 }
 
 body {
-	text-rendering: optimizeSpeed;
-	accent-color: var(--color-primary);
-	color: var(--color-text);
-	background-color: var(--color-background);
-	transition:
-		color var(--theme-transition-duration),
-		background-color var(--theme-transition-duration);
+  font-family: var(--primary-font);
+  text-rendering: optimizeSpeed;
+  accent-color: var(--color-primary);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  transition:
+    color var(--theme-transition-duration),
+    background-color var(--theme-transition-duration);
 }
 
 h2 {
-	font-size: 32px;
+  font-size: 32px;
 }
 
 h3 {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 button,
 a {
-	border-radius: 1px;
+  border-radius: 1px;
 }
 
-.__next {
-	isolation: isolate;
-}
-
-[id] {
-	scroll-margin-block-start: calc(var(--header-block-size) - 1px);
-}
+/* [id] {
+  scroll-margin-block-start: calc(var(--header-block-size) - 1px);
+} */
 
 @media screen and (min-width: 768px) {
-	:root {
-		--space-inline: 32px;
-		--space-block: 100px;
-	}
+  :root {
+    --space-inline: 32px;
+    --space-block: 100px;
+  }
 
-	h2 {
-		font-size: 40px;
-	}
+  h2 {
+    font-size: 40px;
+  }
 
-	h3 {
-		font-size: 24px;
-	}
+  h3 {
+    font-size: 24px;
+  }
+}
+
+.tippy-box[data-theme~="tomato"] {
+  padding: 1px 6px;
+  font-size: 13px;
+  line-height: normal;
+  border: 2px dotted hsl(var(--color-primary-hsl) / 0.5);
+  border-radius: 20px;
+  background-color: var(--color-background-secondary);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.tippy-box[data-animation="custom"][data-state="hidden"] {
+  transform: translateY(10px);
+  opacity: 0;
 }

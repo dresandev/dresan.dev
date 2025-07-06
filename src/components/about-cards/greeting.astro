@@ -1,0 +1,67 @@
+---
+import { DRESAN_EMAIL } from "@/constants/dresan-data"
+import FakeMasonryItem from "../fake-masonry-item.astro"
+---
+
+<FakeMasonryItem id="greeting" class="wrapper">
+  <img class="background-image" src="/images/skin.webp" width={388} height={548} alt="" />
+  <div class="message-list">
+    <div class="message">¡Hola! 🖖🏼</div>
+    <div class="message">Me llamo Javier Andrés</div>
+    <div class="message">¡Pero puedes decirme Dresan!</div>
+    <div class="message">
+      Te dejo mi <a class="email-link" href=`mailto:${DRESAN_EMAIL}` target="_blank">correo</a>
+      para ponernos en contacto 🫱🏼
+    </div>
+  </div>
+</FakeMasonryItem>
+
+<style>
+  .wrapper {
+    position: relative;
+  }
+
+  .background-image {
+    block-size: auto;
+    padding-block: 30px;
+    margin-inline: auto;
+  }
+
+  .message-list {
+    position: absolute;
+    inset: 24px;
+    inset-block-start: unset;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .message {
+    inline-size: fit-content;
+    padding: 4px 10px;
+    background-color: hsl(var(--color-card-background-hls) / 0.8);
+    border-radius: 4px 20px 20px 4px;
+    text-wrap: pretty;
+  }
+
+  .message:first-of-type {
+    border-top-left-radius: 20px;
+  }
+
+  .message:last-of-type {
+    border-bottom-left-radius: 20px;
+  }
+
+  .email-link {
+    --hover-color: hsl(0 95% 66%);
+    text-decoration: underline;
+  }
+
+  [data-theme="light"] .email-link {
+    --hover-color: hsl(1 93% 38%);
+  }
+
+  .email-link:hover {
+    color: var(--hover-color);
+  }
+</style>

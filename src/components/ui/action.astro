@@ -1,0 +1,111 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types"
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+  as: Tag
+  size?: "large" | "medium" | "small"
+  variant?: "primary" | "outlined"
+  rounded?: "default" | "full"
+}>
+
+const {
+  as: Tag,
+  class: className,
+  size = "large",
+  variant = "primary",
+  rounded = "default",
+  ...props
+} = Astro.props
+---
+
+<Tag class:list={[className, "action", size, variant, rounded]} {...props}>
+  <slot />
+</Tag>
+
+<style>
+  .action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 4px;
+    font-weight: 500;
+    text-decoration: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color var(--theme-transition-duration);
+  }
+
+  .action:disabled {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .action.primary {
+    background-color: var(--color-text);
+    color: var(--color-background);
+  }
+
+  .action.primary:active {
+    background-color: hsl(var(--color-text-hsl) / 0.8);
+  }
+
+  .action.outlined {
+    --hover-color-background: hsl(0 0% 88%);
+    --hover-color-stroke: hsl(0 0 0 / 0.12);
+    background-color: var(--color-themed-background);
+    color: var(--color-text);
+    border: 1px solid var(--color-themed-stroke);
+    transition-property: background-color, border-color;
+  }
+
+  .action.outlined:active {
+    background-color: var(--hover-color-background);
+    border-color: var(--hover-color-stroke);
+  }
+
+  html[data-theme="dark"] .action.outlined {
+    --hover-color-background: hsl(0 0% 12%);
+    --hover-color-stroke: hsl(0 0% 100% / 0.17);
+  }
+
+  @media (hover: hover) {
+    .action.primary:hover {
+      background-color: hsl(var(--color-text-hsl) / 0.8);
+    }
+
+    .action.outlined:hover {
+      background-color: var(--hover-color-background);
+      border-color: var(--hover-color-stroke);
+    }
+  }
+
+  /* Size */
+
+  .action.large {
+    min-block-size: 48px;
+    padding-inline: 14px;
+    font-size: 16px;
+  }
+
+  .action.medium {
+    min-block-size: 40px;
+    padding-inline: 16px;
+    font-size: 14px;
+  }
+
+  .action.small {
+    min-block-size: 32px;
+    padding-inline: 12px;
+    font-size: 14px;
+  }
+
+  /* Rounded */
+
+  .action.default {
+    border-radius: 6px;
+  }
+
+  .action.full {
+    border-radius: 1rem;
+  }
+</style>

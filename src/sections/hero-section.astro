@@ -1,0 +1,155 @@
+---
+import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
+import Action from "@/components/ui/action.astro"
+import CopyEmailSmallButton from "@/components/copy-email-small-button.astro"
+import ArrowDown from "@/components/icons/arrow-down.astro"
+---
+
+<section class="section">
+  <p class="phrase">
+    No hay límite de edad para rendirse y trabajar en una granja
+    <Action
+      as="a"
+      href="https://www.linkedin.com/in/dresandev"
+      target="_blank"
+      rel="noopener"
+      rounded="full"
+      size="small"
+    >
+      Disponible para trabajar <span class="available-circle"></span>
+    </Action>
+  </p>
+  <h1 class="text-gradient title">Dresan, Desarrollador Frontend</h1>
+  <p class="intro-subtitle">
+    Hago que tu proyecto <strong>destaque</strong> con la <strong>elegancia</strong> y la
+    <strong>calidad</strong> que merece.
+  </p>
+  <div class="actions">
+    <Action as="button" data-modal-trigger={CONTACT_MODAL_ID} class="action-button" type="button"
+      >ʕっ•ᴥ•ʔっ Contáctame</Action
+    >
+    <Action
+      as="a"
+      href="/files/Javier-Andres-Frontend-Developer-CV.pdf"
+      target="_blank"
+      class="action-button"
+      variant="outlined"
+    >
+      Descargar Curriculum <ArrowDown />
+    </Action>
+    <CopyEmailSmallButton class="copy-email-button" />
+  </div>
+</section>
+
+<style>
+  .section {
+    text-align: center;
+    padding-block-end: var(--space-block);
+  }
+
+  .phrase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: var(--space-inline);
+    color: var(--color-text-secondary);
+  }
+
+  .available-circle {
+    --size: 8px;
+    --color-background: hsl(126 38% 48%);
+    position: relative;
+    inline-size: var(--size);
+    block-size: var(--size);
+    border-radius: 50%;
+    background: var(--color-background);
+  }
+
+  .available-circle::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 var(--color-background);
+    animation: circle-pulse 2s infinite;
+  }
+
+  .title {
+    position: relative;
+    padding: var(--space-inline) 12px;
+    font: 900 clamp(42px, 34.4px + 2.375vw, 80px) / 1 var(--primary-font);
+  }
+
+  .title::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-block: 1px dashed var(--color-stroke);
+    transition: border-block-color var(--theme-transition-duration);
+    pointer-events: none;
+  }
+
+  .intro-subtitle {
+    padding: var(--space-inline);
+    font-size: clamp(18px, 17.296px + 0.141vw, 20px);
+    color: var(--color-text-secondary);
+    border-block-end: 1px dashed var(--color-stroke);
+    transition: border-block-end-color var(--theme-transition-duration);
+  }
+
+  .intro-subtitle > strong {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: var(--space-inline);
+  }
+
+  .copy-email-button {
+    align-self: center;
+  }
+
+  @media screen and (min-width: 575px) {
+    .actions {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-inline-size: 580px;
+      margin-inline: auto;
+    }
+
+    .action-button {
+      flex: 1 0 250px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .section {
+      inline-size: fit-content;
+      padding-block: var(--space-block);
+      margin-inline: auto;
+    }
+  }
+
+  @keyframes circle-pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 hsl(126 38% 48% / 0.9);
+    }
+    50% {
+      transform: scale(1);
+      box-shadow: 0 0 0 8px hsl(126 38% 48% / 0);
+    }
+
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 hsl(126 38% 48% / 0);
+    }
+  }
+</style>

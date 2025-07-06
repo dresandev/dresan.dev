@@ -1,0 +1,42 @@
+---
+import { projects } from "@/data/projects"
+import ProjectCard from "@/components/project-card.astro"
+---
+
+<section id="projects">
+  <div class="wrapper section-wrapper">
+    <h2 class="title">Proyectos destacados</h2>
+    <div class="projects-wrapper">
+      {projects.map((data) => <ProjectCard {...data} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .wrapper {
+    overflow: hidden;
+  }
+
+  .title {
+    --padding-block-end: 32px;
+    padding-block-end: var(--padding-block-end);
+    text-align: center;
+  }
+
+  .projects-wrapper {
+    display: grid;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: 820px) {
+    .projects-wrapper {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-inline-size: var(--max-inline-size);
+      margin-inline: auto;
+    }
+
+    .title {
+      --padding-block-end: 64px;
+    }
+  }
+</style>

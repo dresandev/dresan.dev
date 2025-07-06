@@ -1,0 +1,48 @@
+<svg class="wrapper" aria-hidden="true">
+  <defs>
+    <mask class="moon" id="moon-mask">
+      <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+      <circle cx="24" cy="10" r="6" fill="black"></circle>
+    </mask>
+  </defs>
+</svg>
+
+<style>
+  .wrapper {
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .moon {
+    transform-origin: center;
+  }
+
+  html[data-theme="dark"] .moon > circle {
+    transform: translate(-7px);
+  }
+
+  @supports (cx: 1) {
+    html[data-theme="dark"] .moon > circle {
+      cx: 17;
+      transform: translate(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .moon > circle {
+      transition: transform 250ms var(--ease-out-5);
+    }
+
+    html[data-theme="dark"] .moon > circle {
+      transition-delay: 250ms;
+      transition-duration: 500ms;
+    }
+
+    @supports (cx: 1) {
+      .moon > circle {
+        transition: cx 250ms var(--ease-out-5);
+      }
+    }
+  }
+</style>

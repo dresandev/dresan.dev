@@ -1,0 +1,241 @@
+---
+import ChevronLeft from "@/components/icons/chevron-left.astro"
+import ChevronRight from "@/components/icons/chevron-right.astro"
+---
+
+<section data-id="carousel" class="carousel">
+  <div data-id="viewport" class="viewport">
+    <div data-id="container" class="container">
+      <slot />
+    </div>
+  </div>
+
+  <button data-id="button-prev" class="button button-prev" type="button">
+    <ChevronLeft />
+  </button>
+  <button data-id="button-next" class="button button-next" type="button">
+    <ChevronRight />
+  </button>
+
+  <div data-id="dots" class="dots"></div>
+</section>
+
+<script>
+  import EmblaCarousel, { type EmblaOptionsType, type EmblaCarouselType } from "embla-carousel"
+  import { $$ } from "@/utils/dom-selector"
+
+  const $carouselNodes = $$(".carousel")
+  const OPTIONS: EmblaOptionsType = { loop: true }
+
+  const addTogglePrevNextBtnsActive = (
+    emblaApi: EmblaCarouselType,
+    prevBtn: HTMLElement,
+    nextBtn: HTMLElement,
+  ): (() => void) => {
+    const togglePrevNextBtnsState = (): void => {
+      if (emblaApi.canScrollPrev()) prevBtn.removeAttribute("disabled")
+      else prevBtn.setAttribute("disabled", "disabled")
+
+      if (emblaApi.canScrollNext()) nextBtn.removeAttribute("disabled")
+      else nextBtn.setAttribute("disabled", "disabled")
+    }
+
+    emblaApi
+      .on("select", togglePrevNextBtnsState)
+      .on("init", togglePrevNextBtnsState)
+      .on("reInit", togglePrevNextBtnsState)
+
+    return (): void => {
+      prevBtn.removeAttribute("disabled")
+      nextBtn.removeAttribute("disabled")
+    }
+  }
+
+  export const addPrevNextBtnsClickHandlers = (
+    emblaApi: EmblaCarouselType,
+    prevBtn: HTMLElement,
+    nextBtn: HTMLElement,
+  ): (() => void) => {
+    const scrollPrev = (): void => {
+      emblaApi.scrollPrev()
+    }
+    const scrollNext = (): void => {
+      emblaApi.scrollNext()
+    }
+    prevBtn.addEventListener("click", scrollPrev, false)
+    nextBtn.addEventListener("click", scrollNext, false)
+
+    const removeTogglePrevNextBtnsActive = addTogglePrevNextBtnsActive(emblaApi, prevBtn, nextBtn)
+
+    return (): void => {
+      removeTogglePrevNextBtnsActive()
+      prevBtn.removeEventListener("click", scrollPrev, false)
+      nextBtn.removeEventListener("click", scrollNext, false)
+    }
+  }
+
+  export const addDotBtnsAndClickHandlers = (
+    emblaApi: EmblaCarouselType,
+    dotsNode: HTMLElement,
+  ): (() => void) => {
+    let dotNodes: HTMLElement[] = []
+
+    const addDotBtnsWithClickHandlers = (): void => {
+      dotsNode.innerHTML = emblaApi
+        .scrollSnapList()
+        .map(() => "<button data-id='dot' class='dot' type='button'></button>")
+        .join("")
+
+      const scrollTo = (index: number): void => {
+        emblaApi.scrollTo(index)
+      }
+
+      dotNodes = Array.from(dotsNode.querySelectorAll("[data-id='dot']"))
+      dotNodes.forEach((dotNode, index) => {
+        dotNode.addEventListener("click", () => scrollTo(index), false)
+      })
+    }
+
+    const toggleDotBtnsActive = (): void => {
+      const previous = emblaApi.previousScrollSnap()
+      const selected = emblaApi.selectedScrollSnap()
+      dotNodes[previous].classList.remove("selected")
+      dotNodes[selected].classList.add("selected")
+    }
+
+    emblaApi
+      .on("init", addDotBtnsWithClickHandlers)
+      .on("reInit", addDotBtnsWithClickHandlers)
+      .on("init", toggleDotBtnsActive)
+      .on("reInit", toggleDotBtnsActive)
+      .on("select", toggleDotBtnsActive)
+
+    return (): void => {
+      dotsNode.innerHTML = ""
+    }
+  }
+
+  $carouselNodes.forEach((emblaNode) => {
+    const $viewportNode = emblaNode.querySelector<HTMLElement>("[data-id='viewport']")!
+    const $prevBtnNode = emblaNode.querySelector<HTMLElement>("[data-id='button-prev']")!
+    const $nextBtnNode = emblaNode.querySelector<HTMLElement>("[data-id='button-next']")!
+    const $dotsNode = emblaNode.querySelector<HTMLElement>("[data-id='dots']")!
+
+    const emblaApi = EmblaCarousel($viewportNode, OPTIONS)
+
+    const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
+      emblaApi,
+      $prevBtnNode,
+      $nextBtnNode,
+    )
+    const removeDotBtnsAndClickHandlers = addDotBtnsAndClickHandlers(emblaApi, $dotsNode)
+
+    emblaApi.on("destroy", removePrevNextBtnsClickHandlers)
+    emblaApi.on("destroy", removeDotBtnsAndClickHandlers)
+  })
+</script>
+
+<style>
+  .carousel {
+    --slide-spacing: 16px;
+    --slide-size: 100%;
+    --control-margin: clamp(12px, 10.064px + 0.518vw, 20px);
+    position: relative;
+    block-size: 100%;
+    inline-size: 100%;
+  }
+
+  .viewport {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    block-size: 100%;
+    padding: 16px;
+  }
+
+  .container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    margin-inline-start: calc(var(--slide-spacing) * -1);
+    will-change: transform;
+  }
+
+  .button {
+    display: none;
+  }
+
+  @media (hover: hover) {
+    .button {
+      --size: 32px;
+      position: absolute;
+      inset: 0 var(--control-margin);
+      inline-size: var(--size);
+      block-size: var(--size);
+      display: grid;
+      place-items: center;
+      margin-block: auto;
+      border-radius: 50%;
+      background-color: hsl(0 0% 0% / 0.2);
+      transition: transform 200ms;
+    }
+
+    .button:last-of-type {
+      margin-inline-start: auto;
+    }
+
+    .button:active {
+      transform: scale(0.9);
+    }
+
+    .button > svg {
+      color: hsl(0 0% 100%);
+    }
+
+    .button:first-of-type > svg {
+      margin-inline-start: -2px;
+    }
+
+    .button:last-of-type > svg {
+      margin-inline-end: -2px;
+    }
+  }
+
+  .dots {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: var(--control-margin);
+    display: flex;
+    inline-size: max-content;
+    padding-inline: 2px;
+    margin-inline: auto;
+    background-color: hsl(0 0% 0% / 0.2);
+    border-radius: 30px;
+  }
+
+  :global(.dot) {
+    --size: 0.6rem;
+    box-sizing: content-box;
+    display: flex;
+    inline-size: var(--size);
+    block-size: var(--size);
+    padding: 4px;
+    touch-action: manipulation;
+  }
+
+  :global(.dot:focus-visible) {
+    border-radius: 50%;
+  }
+
+  :global(.dot::after) {
+    content: "";
+    inline-size: var(--size);
+    block-size: var(--size);
+    border-radius: 50%;
+    background-color: hsl(0 0% 100% / 0.3);
+    transition: background-color 300ms;
+  }
+
+  :global(.dot.selected::after) {
+    background-color: hsl(0 0% 100%);
+  }
+</style>

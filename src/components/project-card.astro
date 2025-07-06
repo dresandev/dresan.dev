@@ -1,0 +1,89 @@
+---
+import type { Project } from "@/types"
+import ProjectModal from "@/components/project-modal.astro"
+
+interface Props extends Project {}
+
+const { id, title, description, imageUrl, modalData } = Astro.props
+
+const modalId = `${id}-modal`
+---
+
+<button class="modal-trigger" data-modal-trigger={modalId} type="button">
+  <figure class="image-wrapper">
+    <img class="image" src={imageUrl} alt="" width={684} height={385} />
+  </figure>
+  <img
+    class="gradient-image"
+    src={imageUrl}
+    aria-hidden
+    alt=""
+    width={684}
+    height={385}
+    loading="lazy"
+    decoding="async"
+  />
+  <h3 class="title">{title}</h3>
+  <p>{description}</p>
+</button>
+<ProjectModal id={modalId} title={title} {...modalData} />
+
+<style>
+  .modal-trigger {
+    --border-radius: clamp(12px, 8.268px + 0.259vw, 16px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: start;
+    border-radius: var(--border-radius);
+  }
+
+  .image-wrapper {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    filter: contrast(1.2) grayscale(1);
+    transition: filter 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .modal-trigger:is(:focus-visible, :hover) .image-wrapper {
+    filter: contrast(1) grayscale(0);
+  }
+
+  .image {
+    block-size: auto;
+    inline-size: 100%;
+    aspect-ratio: 3 / 2;
+    transition: transform 500ms;
+  }
+
+  .modal-trigger:hover .image {
+    transform: scale(1.1);
+  }
+
+  .gradient-image {
+    --active-opacity: 0.6;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    block-size: auto;
+    aspect-ratio: 3 / 2;
+    transform: scale(1.15);
+    filter: blur(60px);
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+
+  html[data-theme="dark"] .gradient-image {
+    --active-opacity: 0.4;
+  }
+
+  .modal-trigger:is(:focus-visible, :hover) .gradient-image {
+    opacity: var(--active-opacity);
+  }
+
+  .title {
+    padding-block-start: 14px;
+    font-size: 24px;
+  }
+</style>

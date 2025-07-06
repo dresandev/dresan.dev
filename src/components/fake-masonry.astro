@@ -1,0 +1,88 @@
+---
+const { class: className } = Astro.props
+---
+
+<div class:list={[className, "fake-masonry"]} data-id="fake-masonry">
+  <slot />
+</div>
+
+<script>
+  type OrderMap = Record<string, number>
+
+  const smOrder: OrderMap = {
+    intro: 1,
+    "more-about": 4,
+    greeting: 2,
+    "more-projects": 7,
+    experience: 3,
+    education: 5,
+    "my-stack": 6,
+  }
+
+  const mdOrder: OrderMap = {
+    intro: 1,
+    "more-about": 2,
+    greeting: 5,
+    "more-projects": 4,
+    experience: 6,
+    education: 7,
+    "my-stack": 3,
+  }
+
+  const lgOrder: OrderMap = {
+    intro: 1,
+    "more-about": 2,
+    greeting: 3,
+    "more-projects": 4,
+    experience: 5,
+    education: 6,
+    "my-stack": 7,
+  }
+
+  const getOrder = () => {
+    const width = window.innerWidth
+    if (width >= 1400) return lgOrder
+    if (width >= 900) return mdOrder
+    return smOrder
+  }
+
+  const wrapper = document.querySelector("[data-id='fake-masonry']")!
+
+  const sortElements = () => {
+    const order = getOrder()
+    const elements = Array.from(wrapper.children)
+
+    const ordered = elements.sort((a, b) => {
+      const aName = a.getAttribute("data-fake-masonry-item-id") || ""
+      const bName = b.getAttribute("data-fake-masonry-item-id") || ""
+      return (order[aName] ?? 99) - (order[bName] ?? 99)
+    })
+
+    wrapper.replaceChildren(...ordered)
+  }
+
+  sortElements()
+
+  window.addEventListener("resize", sortElements)
+</script>
+
+<style>
+  .fake-masonry {
+    column-count: 1;
+    gap: 32px;
+    max-inline-size: 1920px;
+    margin-inline: auto;
+  }
+
+  @media screen and (min-width: 900px) {
+    .fake-masonry {
+      column-count: 2;
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    .fake-masonry {
+      column-count: 3;
+    }
+  }
+</style>

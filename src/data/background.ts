@@ -9,6 +9,12 @@ export interface BackgroundData {
 export const experience: BackgroundData[] = [
   {
     role: "Front-end Developer",
+    years: "2023 — 2025",
+    siteName: "Freelance",
+    inRemote: true
+  },
+  {
+    role: "Front-end Developer",
     years: "2022 — 2023",
     siteName: "NTT DATA",
     siteUrl: "https://co.nttdata.com",

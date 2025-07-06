@@ -1,0 +1,110 @@
+---
+import { HOME_NAV_LINKS } from "@/constants/nav-links"
+import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
+import Link from "@/components/ui/link.astro"
+import Action from "@/components/ui/action.astro"
+import ThemeSwitcher from "@/components/theme-switcher.astro"
+import MobileMenu from "@/components/mobile-menu.astro"
+import DresanLogo from "@/components/icons/dresan-logo.astro"
+---
+
+<header class="header">
+  <div class="content-wrapper">
+    <a href="/" aria-label="Ir al inicio">
+      <DresanLogo class="dresan-logo" />
+    </a>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        {
+          HOME_NAV_LINKS.map(({ label, href }) => (
+            <li>
+              <Link href={href}>{label}</Link>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="options-wrapper">
+      <Action as="button" data-modal-trigger={CONTACT_MODAL_ID} size="small" type="button"
+        >Contactar</Action
+      >
+      <ThemeSwitcher />
+    </div>
+
+    <MobileMenu />
+  </div>
+</header>
+
+<style>
+  .header {
+    --items-spacing: 24px;
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    block-size: var(--header-block-size);
+    padding-inline: 24px;
+    background-color: hsl(var(--color-background-hsl) / 0.8);
+    backdrop-filter: saturate(180%) blur(5px);
+    border-block-end: 1px solid var(--color-stroke);
+    transition:
+      border-block-end-color var(--theme-transition-duration),
+      background-color var(--theme-transition-duration);
+  }
+
+  .content-wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 32px;
+    max-inline-size: var(--max-inline-size);
+    inline-size: 100%;
+  }
+
+  :global(.dresan-logo > path) {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    fill: transparent;
+    animation-name: dash, fill;
+    animation-duration: 5s, 500ms;
+    animation-delay: 0ms, 500ms;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: var(--items-spacing);
+  }
+
+  .options-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--items-spacing);
+    margin-inline-start: auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    .nav {
+      display: none;
+    }
+
+    .options-wrapper {
+      display: none;
+    }
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes fill {
+    to {
+      fill: currentColor;
+    }
+  }
+</style>

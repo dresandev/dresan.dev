@@ -1,0 +1,59 @@
+---
+import { extraProjects } from "@/data/projects"
+import FakeMasonryItem from "@/components/fake-masonry-item.astro"
+---
+
+<FakeMasonryItem id="more-projects">
+  <h3>Otros proyectos</h3>
+
+  <ul class="project-list">
+    {
+      extraProjects.map(({ title, description, url }) => (
+        <li>
+          <div class="project-card">
+            <a class="project-link" href={url} target="_blank">
+              <h4 class="project-title">{title}</h4>
+            </a>
+            <p>{description}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</FakeMasonryItem>
+
+<style>
+  .project-list {
+    border-block-start: 1px solid var(--color-stroke);
+    transition: border-block-start-color var(--theme-transition-duration);
+  }
+
+  .project-card {
+    padding-block: 12px;
+    border-block-end: 1px solid var(--color-stroke);
+    transition: border-block-end-color var(--theme-transition-duration);
+  }
+
+  .project-title {
+    inline-size: max-content;
+    padding-block-end: 4px;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: none;
+  }
+
+  .project-link {
+    --hover-color: hsl(214 93% 65%);
+    display: inline-block;
+    inline-size: max-content;
+  }
+
+  [data-theme="light"] .project-link {
+    --hover-color: hsl(210 100% 42%);
+  }
+
+  .project-link:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+  }
+</style>

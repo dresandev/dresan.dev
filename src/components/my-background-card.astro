@@ -1,0 +1,114 @@
+---
+import type { BackgroundData } from "@/data/background"
+import ArrowUpRight from "@/components/icons/arrow-up-right.astro"
+
+interface Props {
+  data: BackgroundData
+  isExperience?: boolean
+}
+
+const {
+  data: { role, siteName, years, inRemote, siteUrl },
+  isExperience,
+} = Astro.props
+
+const showBadge = isExperience && inRemote
+---
+
+<div class="card">
+  <div class="years">
+    {years}
+  </div>
+  <div>
+    <h4 class="role">{role}</h4>
+    {
+      isExperience ? (
+        <div class="site-data">
+          <a class="site-link" href={siteUrl} target="_blank">
+            {siteName}
+            <ArrowUpRight width="18" height="18" strokeWidth="1.5" />
+          </a>
+          {showBadge && <div class="badge">Remoto</div>}
+        </div>
+      ) : (
+        <div class="site-name">{siteName}</div>
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .card {
+    display: flex;
+    gap: clamp(32px, 24.24px + 2.071vw, 64px);
+  }
+
+  .years {
+    text-wrap: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .role {
+    font-weight: 500;
+    padding-block-end: 4px;
+  }
+
+  .site-data {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+  }
+
+  .site-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .site-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    background-color: var(--color-text);
+    block-size: 1px;
+    inline-size: 100%;
+    mask-image: linear-gradient(to right, black 50%, transparent 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 250ms;
+    will-change: transform;
+  }
+
+  .site-link:hover::before {
+    transform: scaleX(1);
+  }
+
+  .site-link svg {
+    transition: transform 250ms;
+  }
+
+  .site-link:hover svg {
+    transform: rotate(45deg);
+  }
+
+  .years,
+  .site-name,
+  .site-link {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    padding: 1px 8px;
+    font-size: 12px;
+    line-height: normal;
+    border-radius: 20px;
+    background-color: var(--color-card-background-secondary);
+    transition: background-color var(--theme-transition-duration);
+  }
+</style>

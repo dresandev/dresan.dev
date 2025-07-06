@@ -1,33 +1,74 @@
 .hide-overflow {
-	overflow-y: hidden;
+  overflow-y: hidden;
 }
 
 .section-wrapper {
-	padding: var(--space-block) var(--space-inline);
-	border-block-start: 1px dashed var(--color-stroke);
-	transition: background-color var(--theme-transition-duration),
-		border-block-start-color var(--theme-transition-duration);
+  padding: var(--space-block) var(--space-inline);
+  border-block-start: 1px dashed var(--color-stroke);
+  transition:
+    background-color var(--theme-transition-duration),
+    border-block-start-color var(--theme-transition-duration);
 }
 
 .text-gradient {
-	background-image: var(--text-gradient);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+  background-image: var(--text-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .text-gradient::selection {
-	background-clip: unset;
-	-webkit-background-clip: unset;
-	-webkit-text-fill-color: initial;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
 }
 
 .sr-only {
-	position: absolute;
-	overflow: hidden;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	width: 1px;
-	padding: 0;
-	border: 0;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+}
+
+.modal {
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    display 200ms allow-discrete,
+    overlay 200ms allow-discrete,
+    opacity 200ms,
+    transform 200ms;
+  transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  will-change: transform, opacity;
+}
+
+.modal[open] {
+  opacity: 1;
+  transform: scale(1);
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+.modal::backdrop {
+  opacity: 0;
+  transition:
+    display 200ms allow-discrete,
+    opacity 200ms;
+  transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.modal[open]::backdrop {
+  opacity: 1;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+
+  @starting-style {
+    opacity: 0;
+  }
 }

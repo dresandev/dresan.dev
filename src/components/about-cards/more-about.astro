@@ -1,0 +1,44 @@
+---
+import FakeMasonryItem from "@/components/fake-masonry-item.astro"
+import ColombiaFlag from "@/components/icons/colombia-flag.astro"
+import ReactIcon from "@/components/icons/react-icon.astro"
+import VueJsIcon from "@/components/icons/vuejs-icon.astro"
+---
+
+<FakeMasonryItem id="more-about">
+  <h3>Un poco más</h3>
+  <p class="text">
+    Soy de Colombia <ColombiaFlag /> y disfruto aprender sobre el mundo del desarrollo de software, valoro
+    los pequeños detalles y soy gran fan de CSS (¡el mejor lenguaje de programación! 🙂).
+  </p>
+  <p class="text">
+    En mi tiempo libre suelo consumir contenido sobre tecnología, contribuir a proyectos de código
+    abierto, mejorar mi creatividad y habilidades de comunicación, solucionar problemas de código o
+    generar ideas para mis proyectos.
+  </p>
+
+  <p class="text">
+    Me gusta mucho trabajar en la web, hacer que sea un lugar accesible, agradable y eficiente para
+    todo tipo de usuarios.
+  </p>
+
+  <p class="text">
+    Actualmente, estoy profundizando mi conocimiento en el ecosistema de React <ReactIcon /> y adentrándome
+    en el mundo de Vue.js <VueJsIcon />.
+  </p>
+</FakeMasonryItem>
+
+<style>
+  .text {
+    padding-block-end: 12px;
+  }
+  .text:last-of-type {
+    padding-block-end: 0;
+  }
+
+  .text svg {
+    display: inline-block;
+    vertical-align: top;
+    margin-inline: 4px;
+  }
+</style>

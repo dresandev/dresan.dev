@@ -1,0 +1,83 @@
+---
+import { DRESAN_EMAIL } from "@/constants/dresan-data"
+---
+
+<div class="wrapper">
+  <div data-id="fake-toast" class="toast">¡Espero saber pronto de ti!</div>
+  <button data-id="copy-email-button" class="button" type="button">
+    <span>{DRESAN_EMAIL}</span>
+    <div class="hint-message">Click para copiar</div>
+  </button>
+</div>
+
+<script>
+  import { $ } from "@/utils/dom-selector"
+  import { copyToClipboard } from "@/utils/copy-to-clipboard"
+  import { DRESAN_EMAIL } from "@/constants/dresan-data"
+
+  const RESET_FEEDBACK_TIME = 5000
+  let feedbackTimeout: number | undefined
+
+  const $toast = $("[data-id='fake-toast']")!
+  const $copyEmailButton = $("[data-id='copy-email-button']")!
+
+  $copyEmailButton.addEventListener("click", async () => {
+    const hasCopied = await copyToClipboard(DRESAN_EMAIL)
+
+    if (!hasCopied) return
+
+    $toast.classList.add("show")
+
+    if (feedbackTimeout) {
+      clearTimeout(feedbackTimeout)
+    }
+
+    feedbackTimeout = window.setTimeout(() => {
+      $toast.classList.remove("show")
+    }, RESET_FEEDBACK_TIME)
+  })
+</script>
+
+<style>
+  .wrapper {
+    position: relative;
+    padding-block: 44px;
+  }
+
+  .toast {
+    position: absolute;
+    z-index: -1;
+    padding: 8px 10px;
+    background-color: var(--color-text);
+    color: var(--color-background);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    user-select: none;
+    opacity: 0;
+    transition:
+      opacity 300ms,
+      transform 300ms;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translateY(-2.5rem);
+  }
+
+  .button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .button > span {
+    font-size: clamp(25px, 19.424px + 1.489vw, 48px);
+    text-decoration: underline;
+  }
+
+  .hint-message {
+    text-align: start;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    user-select: none;
+  }
+</style>

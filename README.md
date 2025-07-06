@@ -11,5 +11,3 @@ Soy Dresan y aqui encontrarás mi portafolio, habilidades, información de conta
 ### Light mode
 
 ![image](https://github.com/user-attachments/assets/ace63474-0055-4b8a-aca0-e32665545fea)
-
-

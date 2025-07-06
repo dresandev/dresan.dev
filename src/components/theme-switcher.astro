@@ -1,0 +1,137 @@
+<button data-id="theme-toggle" class="button" aria-live="polite" type="button">
+  <svg
+    class="sun-and-moon"
+    aria-hidden="true"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    stroke-linecap="round"
+  >
+    <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor"></circle>
+    <g class="sun-beams" stroke="currentColor" stroke-width="2">
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </g>
+  </svg>
+</button>
+
+<script>
+  import { $$ } from "@/utils/dom-selector"
+
+  const storageKey = "theme-preference"
+
+  const $themeSwitchers = $$("[data-id='theme-toggle']")
+
+  const getColorPreference = () => {
+    const colorPreference = localStorage.getItem(storageKey)
+
+    if (colorPreference) return colorPreference
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+  }
+
+  const theme = {
+    value: getColorPreference()!,
+  }
+
+  const onClick = () => {
+    theme.value = theme.value === "light" ? "dark" : "light"
+    setPreference()
+  }
+
+  const setPreference = () => {
+    localStorage.setItem(storageKey, theme.value)
+    reflectPreference()
+  }
+
+  const reflectPreference = () => {
+    document.documentElement.setAttribute("data-theme", theme.value)
+
+    $themeSwitchers.forEach((button) => {
+      button.setAttribute("title", `Cambiar a modo ${theme.value === "dark" ? "claro" : "oscuro"}`)
+    })
+  }
+
+  reflectPreference()
+
+  window.onload = () => {
+    reflectPreference()
+
+    $themeSwitchers.forEach((button) => {
+      button.addEventListener("click", onClick)
+    })
+  }
+
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", ({ matches: isDark }) => {
+      theme.value = isDark ? "dark" : "light"
+      setPreference()
+    })
+</script>
+
+<style>
+  .button {
+    --size: 24px;
+    inline-size: var(--size);
+    block-size: var(--size);
+    color: var(--color-text-secondary);
+    background-color: transparent;
+    border: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: color var(--theme-transition-duration) ease;
+  }
+
+  .button:hover {
+    color: var(--color-text);
+  }
+
+  .sun-and-moon {
+    --size: 100%;
+    inline-size: var(--size);
+    block-size: var(--size);
+  }
+
+  .sun,
+  .sun-beams {
+    transform-origin: center;
+  }
+
+  html[data-theme="dark"] .sun {
+    transform: scale(1.75);
+  }
+
+  html[data-theme="dark"] .sun-beams {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .sun {
+      transition: transform 500ms var(--ease-elastic-3);
+    }
+
+    html[data-theme="dark"] .sun {
+      transform: scale(1.75);
+      transition-timing-function: var(--ease-3);
+      transition-duration: 250ms;
+    }
+
+    .sun-beams {
+      transition:
+        transform 500ms var(--ease-elastic-4),
+        opacity 500ms var(--ease-3);
+    }
+
+    html[data-theme="dark"] .sun-beams {
+      transform: rotate(-25deg);
+      transition-duration: 150ms;
+    }
+  }
+</style>

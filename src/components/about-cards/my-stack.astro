@@ -1,0 +1,45 @@
+---
+import { skills } from "@/data/my-skills"
+import FakeMasonryItem from "@/components/fake-masonry-item.astro"
+---
+
+<FakeMasonryItem id="stack">
+  <h3>Mi Stack</h3>
+
+  <div class="technologies-list">
+    {
+      skills.map(({ label, url, ...skill }) => (
+        <a
+          aria-label={`Visitar el sitio de ${label}`}
+          data-tooltip
+          data-tooltip-content={label}
+          href={url}
+          target="_blank"
+          rel="noopener"
+        >
+          <skill.icon />
+        </a>
+      ))
+    }
+  </div>
+</FakeMasonryItem>
+
+<style>
+  .technologies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .technologies-list svg {
+    --size: 34px;
+    inline-size: var(--size);
+    block-size: var(--size);
+  }
+
+  @media screen and (min-width: 768px) {
+    .technologies-list svg {
+      --size: 30px;
+    }
+  }
+</style>

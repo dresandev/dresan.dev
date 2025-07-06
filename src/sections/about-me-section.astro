@@ -1,0 +1,31 @@
+---
+import FakeMasonry from "@/components/fake-masonry.astro"
+import Intro from "@/components/about-cards/intro.astro"
+import MoreAbout from "@/components/about-cards/more-about.astro"
+import MoreProjects from "@/components/about-cards/more-projects.astro"
+import Greeting from "@/components/about-cards/greeting.astro"
+import Experience from "@/components/about-cards/experience.astro"
+import Education from "@/components/about-cards/education.astro"
+import Stack from "@/components/about-cards/my-stack.astro"
+---
+
+<section id="about" class="section-wrapper">
+  <h2 class="title">Sobre mí</h2>
+
+  <FakeMasonry class="fake-masonry">
+    <Intro />
+    <MoreAbout />
+    <Greeting />
+    <MoreProjects />
+    <Experience />
+    <Education />
+    <Stack />
+  </FakeMasonry>
+</section>
+
+<style>
+  .title {
+    padding-block-end: clamp(32px, 24.24px + 2.071vw, 64px);
+    text-align: center;
+  }
+</style>

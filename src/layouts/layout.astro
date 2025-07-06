@@ -1,0 +1,69 @@
+---
+import { HOST_URL } from "@/constants/urls"
+import Header from "@/components/header.astro"
+import MoonMask from "@/components/icons/moon-mask.astro"
+import Modals from "@/components/modals.astro"
+import Footer from "@/components/footer.astro"
+import "@/styles/reset.css"
+import "@/styles/fonts.css"
+import "@/styles/globals.css"
+import "@/styles/utils.css"
+
+interface Props {
+  title: string
+  description?: string
+  canonical?: string
+}
+
+const { title, description, canonical } = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+
+    {canonical && <link rel="canonical" href={canonical} />}
+
+    <link
+      rel="preload"
+      href="/fonts/geist-vf.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+
+    <meta property="og:url" content={HOST_URL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={title} />
+    <meta name="og:image" content=`${HOST_URL}/ogp.png` />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_CO" />
+
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content=`${HOST_URL}/ogp.png` />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@dresandev" />
+
+    <script is:inline src="/scripts/theme.js"></script>
+  </head>
+  <body>
+    <MoonMask />
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <Modals />
+  </body>
+</html>
+
+<script src="@/scripts"></script>

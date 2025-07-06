@@ -1,0 +1,31 @@
+---
+import ArrowUpRight from "@/components/icons/arrow-up-right.astro"
+
+const { target, class: className, ...props } = Astro.props
+
+const isTargetBlank = target === "_blank"
+const rel = isTargetBlank ? "noopener" : undefined
+---
+
+<a class:list={[className, "link"]} rel={rel} target={target} {...props}>
+  <slot />
+  {isTargetBlank && <ArrowUpRight className="arrow-icon" />}
+</a>
+
+<style>
+  .link {
+    display: inline-flex;
+    color: var(--color-text-secondary);
+    transition: color var(--theme-transition-duration);
+  }
+
+  .link:hover {
+    color: var(--color-text);
+  }
+
+  .arrow-icon {
+    --size: 0.65em;
+    inline-size: var(--size);
+    block-size: var(--size);
+  }
+</style>

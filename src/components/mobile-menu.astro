@@ -1,0 +1,145 @@
+---
+import { HOME_NAV_LINKS } from "@/constants/nav-links"
+import Link from "@/components/ui/link.astro"
+import Action from "@/components/ui/action.astro"
+import ThemeSwitcher from "@/components/theme-switcher.astro"
+---
+
+<button id="mobile-button" class="button" type="button">
+  <span class="line"></span>
+  <span class="line"></span>
+</button>
+<div id="mobile-menu" class="menu">
+  <nav class="nav">
+    <ul class="nav-list">
+      {
+        HOME_NAV_LINKS.map(({ href, label }) => (
+          <li>
+            <Link class="nav-link" href={href}>
+              {label}
+            </Link>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <div class="options-wrapper">
+    <Action as="button" class="contact-button" size="medium" type="button"> Contactar </Action>
+    <div class="theme-wrapper">
+      <span>Tema</span>
+      <ThemeSwitcher />
+    </div>
+  </div>
+</div>
+
+<script>
+  import { $ } from "@/utils/dom-selector"
+
+  const $mobileButton = $("#mobile-button")!
+  const $mobileMenu = $("#mobile-menu")!
+
+  $mobileButton.addEventListener("click", () => {
+    const currentState = $mobileButton.getAttribute("data-state")
+    const newState = currentState === "open" ? "closed" : "open"
+    $mobileButton.ariaLabel = `${currentState === "open" ? "Cerrar" : "Abrir"} menú`
+    $mobileButton.setAttribute("data-state", newState)
+    $mobileMenu.setAttribute("data-state", newState)
+  })
+</script>
+
+<style>
+  .button {
+    --size: 32px;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    row-gap: 8px;
+    inline-size: var(--size);
+    block-size: var(--size);
+    margin-inline-start: auto;
+    background-color: transparent;
+    padding-inline: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .line {
+    inline-size: 80%;
+    block-size: 3px;
+    border-radius: 2px;
+    background-color: currentColor;
+    transform-origin: 7px;
+    transition: transform 300ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+
+  .button[data-state="open"] > .line:first-of-type {
+    transform: rotateZ(45deg) translate(2px);
+  }
+
+  .button[data-state="open"] > .line:last-of-type {
+    transform: rotateZ(-45deg) translate(2px);
+  }
+
+  .menu {
+    --items-padding: 12px;
+    position: fixed;
+    inset: var(--header-block-size) 0;
+    display: grid;
+    block-size: calc(100dvh - var(--header-block-size));
+    padding-inline: var(--items-padding);
+    background-color: var(--color-background);
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      visibility 300ms,
+      opacity 300ms,
+      background-color var(--theme-transition-duration);
+  }
+
+  .menu[data-state="open"] {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .nav-list {
+    padding-block: 24px 48px;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    block-size: 48px;
+    inline-size: 100%;
+    padding-inline: var(--items-padding);
+    color: var(--color-text-secondary);
+  }
+
+  .options-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    margin-block-start: auto;
+  }
+
+  .contact-button {
+    margin-inline: var(--items-padding);
+  }
+
+  .theme-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    block-size: 72px;
+    padding-inline: var(--items-padding);
+    color: var(--color-text-secondary);
+    border-block-start: 1px dashed var(--color-stroke);
+    transition: border-block-start-color var(--theme-transition-duration);
+  }
+
+  @media screen and (min-width: 769px) {
+    .button,
+    .menu {
+      display: none;
+    }
+  }
+</style>

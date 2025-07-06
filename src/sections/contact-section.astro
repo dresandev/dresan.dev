@@ -1,0 +1,29 @@
+---
+import CopyEmailButton from "@/components/copy-email-button.astro"
+---
+
+<section class="section-wrapper section">
+  <h2 class="title">
+    <span>¿Deseas iniciar</span>
+    <span>un proyecto?</span>
+  </h2>
+  <CopyEmailButton />
+</section>
+
+<style>
+  .section {
+    max-inline-size: 1920px;
+    margin-inline: auto;
+  }
+
+  .title {
+    display: grid;
+    font-size: clamp(32px, 6.4px + 8vw, 160px);
+    font-weight: 900;
+    line-height: normal;
+  }
+
+  .title > span:last-of-type {
+    justify-self: self-end;
+  }
+</style>

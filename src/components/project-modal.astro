@@ -1,0 +1,279 @@
+---
+import type { CssProperties } from "node_modules/astro/dist/assets/fonts/definitions"
+import type { ProjectModalData } from "@/types"
+import Carousel from "@/components/ui/carousel.astro"
+import Slide from "@/components/ui/slide.astro"
+import X from "@/components/icons/x.astro"
+
+interface Props extends ProjectModalData {
+  id: string
+  title: string
+}
+
+interface PillCssProperties extends CssProperties {
+  "--tag-pill-light-color-hsl": string
+  "--tag-pill-dark-color-hsl": string
+}
+
+const { id, title, description, images, backgroundGradient, links, tags } = Astro.props
+
+const hasSeveralItems = images.length > 1
+---
+
+<dialog id={id} class="modal" data-modal closedby="any">
+  <div class="content">
+    <div
+      style={{ background: backgroundGradient }}
+      class:list={["image-wrapper", { "one-item": !hasSeveralItems }]}
+    >
+      {
+        hasSeveralItems ? (
+          <Carousel>
+            {images.map((src, index) => (
+              <Slide>
+                <img
+                  class="image"
+                  src={src}
+                  alt={`Imagen del ${++index} proyecto ${title} desarrollado por Dresan`}
+                  width={974}
+                  height={520}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </Slide>
+            ))}
+          </Carousel>
+        ) : (
+          <img
+            class="image"
+            src={images[0]}
+            alt={`Imagen del proyecto ${title} desarrollado por Dresan`}
+            width={974}
+            height={520}
+            loading="lazy"
+            decoding="async"
+          />
+        )
+      }
+    </div>
+
+    <div class="info-wrapper">
+      <div class="header">
+        <h2 class="title">{title}</h2>
+        {
+          links.map((link) => (
+            <a class="action" href={link.url} target="_blank" aria-label={link.label}>
+              <link.icon />
+            </a>
+          ))
+        }
+        <form method="dialog">
+          <button class="action close" aria-label="Cerrar modal">
+            <X />
+          </button>
+        </form>
+      </div>
+
+      <div class="tags-wrapper">
+        <h3>Tags</h3>
+        <div class="tag-list">
+          {
+            tags.map(({ name, colorLightHsl, colorDarkHsl }) => (
+              <span
+                style={
+                  {
+                    "--tag-pill-light-color-hsl": colorLightHsl,
+                    "--tag-pill-dark-color-hsl": colorDarkHsl,
+                  } as PillCssProperties
+                }
+                class="tag-pill"
+              >
+                {name}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="info">
+        <h3 class="heading">Descripción general</h3>
+        <p>{description}</p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  .modal {
+    --wrapper-block-background-color: hsl(0 0% 7% / 0.6);
+    --block-background-color: hsl(0 2% 10% / 0.6);
+    --hover-block-background-color: hsl(0 3% 15% / 0.6);
+    --backdrop-background-color: hsl(0 0% 1% / 0.8);
+    inset-inline-start: var(--scrollbar-width);
+    inline-size: min(100%, 93vw);
+    block-size: min(100%, 90vh);
+    background-color: transparent;
+    pointer-events: none;
+  }
+
+  html[data-theme="light"] .modal {
+    --wrapper-block-background-color: hsl(0 0% 90% / 0.7);
+    --block-background-color: hsl(0 0% 85% / 0.7);
+    --hover-block-background-color: hsl(0 0% 75% / 0.7);
+    --backdrop-background-color: hsl(0 0% 100% / 0.8);
+  }
+
+  .modal::backdrop {
+    backdrop-filter: blur(8px);
+    background-color: var(--backdrop-background-color);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    block-size: 100%;
+  }
+
+  .content > * {
+    pointer-events: auto;
+  }
+
+  .tags-wrapper,
+  .action,
+  .title,
+  .info {
+    background-color: var(--block-background-color);
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+  }
+
+  .info-wrapper {
+    flex: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+    background-color: var(--wrapper-block-background-color);
+    border: 1px solid var(--color-stroke);
+  }
+
+  .image-wrapper,
+  .info-wrapper {
+    border-radius: 16px;
+  }
+
+  .image-wrapper {
+    flex: 1;
+    display: grid;
+    place-items: center;
+  }
+
+  .image-wrapper.one-item {
+    padding: 16px;
+  }
+
+  .image {
+    block-size: auto;
+    inline-size: 100%;
+    border-radius: 8px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .title {
+    flex: 1;
+    padding: 12px 24px;
+    font-size: 24px;
+    line-height: normal;
+  }
+
+  .action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 55px;
+    transition: background-color 300ms;
+  }
+
+  .action.close {
+    block-size: 100%;
+  }
+
+  .action:is(:hover, :focus-visible) {
+    background-color: var(--hover-block-background-color);
+  }
+
+  .tags-wrapper {
+    display: none;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag-pill {
+    --tag-pill-color: var(--tag-pill-dark-color-hsl);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: normal;
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: hsl(var(--tag-pill-color));
+    background-color: hsl(var(--tag-pill-color) / 0.08);
+    border: 1px solid hsl(var(--tag-pill-color) / 0.2);
+  }
+
+  html[data-theme="light"] .tag-pill {
+    --tag-pill-color: var(--tag-pill-light-color-hsl);
+  }
+
+  .info {
+    flex: 1;
+    padding: 24px;
+    background-color: var(--block-background-color);
+    border: 1px solid var(--color-stroke);
+    overflow-y: auto;
+  }
+
+  .info-wrapper h3 {
+    display: inline-block;
+    font-weight: 600;
+    padding-block-end: 12px;
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .image {
+      max-inline-size: 700px;
+      margin-inline: auto;
+    }
+
+    .tags-wrapper {
+      display: block;
+      padding: 20px 24px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .content {
+      flex-direction: row;
+    }
+
+    .image {
+      max-inline-size: unset;
+      inline-size: 80%;
+    }
+
+    .info-wrapper {
+      flex: 0.4;
+      min-inline-size: 500px;
+    }
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+import { education } from "@/data/background"
+import MyBackgroundCard from "@/components/my-background-card.astro"
+import FakeMasonryItem from "@/components/fake-masonry-item.astro"
+---
+
+<FakeMasonryItem id="education">
+  <h3>Educación</h3>
+  <div class="education-list">
+    {education.map((data) => <MyBackgroundCard data={data} isExperience={false} />)}
+  </div>
+</FakeMasonryItem>
+
+<style>
+  .education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-size: clamp(14px, 13.52px + 0.129vw, 16px);
+  }
+</style>

@@ -1,0 +1,51 @@
+---
+import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
+import X from "@/components/icons/x.astro"
+import ContactForm from "@/components/contact-form.astro"
+---
+
+<dialog id={CONTACT_MODAL_ID} data-modal class="modal" closedby="any">
+  <form method="dialog">
+    <button class="close" aria-label="Cerrar">
+      <X />
+    </button>
+  </form>
+  <h2 class="title">Contactar</h2>
+  <ContactForm />
+</dialog>
+
+<style>
+  .modal {
+    inline-size: min(500px, 90vw);
+    block-size: fit-content;
+    padding: 25px;
+    background-color: var(--color-background);
+    border-radius: 12px;
+    border: 1px solid var(--color-stroke);
+  }
+
+  .modal::backdrop {
+    background-color: hsl(0 0 0% / 0.6);
+  }
+
+  .close {
+    --size: 20px;
+    display: grid;
+    place-content: center;
+    position: absolute;
+    inset-block-start: 16px;
+    inset-inline-end: 16px;
+    inline-size: var(--size);
+    block-size: var(--size);
+    opacity: 0.75;
+  }
+
+  .close:hover {
+    opacity: 1;
+    transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .title {
+    font-size: 24px;
+  }
+</style>

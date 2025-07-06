@@ -1,0 +1,60 @@
+---
+import { SOCIAL_MEDIA_LINKS } from "@/constants/social-media-links"
+import Link from "@/components/ui/link.astro"
+---
+
+<footer class="footer">
+  <div class="wrapper">
+    <span data-id="current-year" class="year">ฅʕ´•ᴥ•`ʔฅ - </span>
+    <div class="links-wrapper">
+      {
+        SOCIAL_MEDIA_LINKS.map(({ url, label }) => (
+          <Link key={url} href={url} target="_blank" rel="noopener">
+            {label}
+          </Link>
+        ))
+      }
+    </div>
+  </div>
+</footer>
+
+<script>
+  import { $ } from "@/utils/dom-selector"
+
+  const $currentYear = $("[data-id='current-year']")!
+
+  const currentYear = new Date().getFullYear()
+
+  $currentYear.textContent = $currentYear.textContent! + currentYear
+</script>
+
+<style>
+  .footer {
+    min-block-size: 100px;
+    padding-inline: var(--space-inline);
+    border-block-start: 1px solid var(--color-stroke);
+    font-size: clamp(20px, 19.024px + 0.259vw, 24px);
+    transition: border-block-start-color var(--theme-transition-duration);
+  }
+
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: space-between;
+    align-items: center;
+    max-inline-size: var(--max-inline-size);
+    margin-inline: auto;
+    padding-block: 32px;
+  }
+
+  .year {
+    text-wrap: nowrap;
+  }
+
+  .links-wrapper {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+</style>

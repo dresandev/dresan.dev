@@ -1,30 +1,38 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 * {
-	margin: 0;
+  margin: 0;
 }
 
 body {
-	line-height: 1.5;
-	-webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 img,
 video,
 svg {
-	display: block;
-	max-inline-size: 100%;
+  display: block;
+  max-inline-size: 100%;
+}
+
+dialog {
+  inset: 0;
+  padding: 0;
+  margin: auto;
+  border: none;
+  scrollbar-width: thin;
 }
 
 input,
 button,
 textarea,
 select {
-	font: inherit;
+  font: inherit;
 }
 
 h1,
@@ -33,29 +41,29 @@ h3,
 h4,
 h5,
 h6 {
-	overflow-wrap: break-word;
-	text-wrap: balance;
+  overflow-wrap: break-word;
+  text-wrap: balance;
 }
 
 p {
-	overflow-wrap: break-word;
-	text-wrap: pretty;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 button {
-	padding: 0;
-	border: none;
-	background-color: transparent;
-	cursor: pointer;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 ul,
 ol {
-	padding-inline-start: 0;
-	list-style: none;
+  padding-inline-start: 0;
+  list-style: none;
 }

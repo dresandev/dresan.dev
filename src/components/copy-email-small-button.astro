@@ -1,0 +1,87 @@
+---
+import { DRESAN_EMAIL } from "@/constants/dresan-data"
+import EmailIcon from "@/components/icons/email-icon.astro"
+import CopyIcon from "@/components/icons/copy-icon.astro"
+import CheckIcon from "@/components/icons/check-icon.astro"
+
+const { class: className, ...props } = Astro.props
+---
+
+<button
+  data-id="copy-email-small-button"
+  data-state="not-copied"
+  class=`button ${className}`
+  type="button"
+  {...props}
+>
+  <EmailIcon width={16} height={16} />
+  {DRESAN_EMAIL}
+  <CopyIcon class="icon copy-icon" />
+  <CheckIcon class="icon check-icon" />
+</button>
+
+<script>
+  import { DRESAN_EMAIL } from "@/constants/dresan-data"
+  import { $ } from "@/utils/dom-selector"
+  import { copyToClipboard } from "@/utils/copy-to-clipboard"
+
+  const RESET_FEEDBACK_TIME = 2000
+  let feedbackTimeout: number | undefined
+
+  const $copyEmailSmallButton = $("[data-id='copy-email-small-button']")!
+
+  $copyEmailSmallButton.addEventListener("click", async () => {
+    const hasCopied = await copyToClipboard(DRESAN_EMAIL)
+
+    if (!hasCopied) return
+
+    $copyEmailSmallButton.setAttribute("data-state", "copied")
+
+    if (feedbackTimeout) {
+      clearTimeout(feedbackTimeout)
+    }
+
+    feedbackTimeout = window.setTimeout(() => {
+      $copyEmailSmallButton.setAttribute("data-state", "not-copied")
+    }, RESET_FEEDBACK_TIME)
+  })
+</script>
+
+<style>
+  .button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    padding-inline: 12px;
+    color: var(--color-text-secondary);
+    border-radius: 30px;
+    cursor: copy;
+  }
+
+  .button[data-state="not-copied"]:hover > .copy-icon,
+  .button[data-state="copied"]:hover > .check-icon {
+    transition: opacity 200ms;
+  }
+
+  .button[data-state="not-copied"]:is(:hover, :focus-visible) > .copy-icon,
+  .button[data-state="copied"]:is(:hover, :focus-visible) > .check-icon {
+    opacity: 1;
+  }
+
+  .button[data-state="not-copied"]:focus-visible > .copy-icon,
+  .button[data-state="copied"]:focus-visible > .check-icon {
+    inset-inline-end: -28px;
+  }
+
+  .icon {
+    --size: 16px;
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: -16px;
+    margin-block: auto;
+    inline-size: var(--size);
+    block-size: var(--size);
+    opacity: 0;
+  }
+</style>
