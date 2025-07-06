@@ -62,6 +62,7 @@ import ThemeSwitcher from "@/components/theme-switcher.astro"
     link.addEventListener("click", () => {
       $mobileButton.setAttribute("data-state", "closed")
       $mobileMenu.setAttribute("data-state", "closed")
+      document.body.removeAttribute("data-scroll-locked")
     })
   })
 </script>
