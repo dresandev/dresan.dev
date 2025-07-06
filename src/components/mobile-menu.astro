@@ -15,7 +15,7 @@ import ThemeSwitcher from "@/components/theme-switcher.astro"
       {
         HOME_NAV_LINKS.map(({ href, label }) => (
           <li>
-            <Link class="nav-link" href={href}>
+            <Link data-id="nav-link" class="nav-link" href={href}>
               {label}
             </Link>
           </li>
@@ -33,10 +33,11 @@ import ThemeSwitcher from "@/components/theme-switcher.astro"
 </div>
 
 <script>
-  import { $ } from "@/utils/dom-selector"
+  import { $, $$ } from "@/utils/dom-selector"
 
   const $mobileButton = $("#mobile-button")!
   const $mobileMenu = $("#mobile-menu")!
+  const $navLinks = $$("[data-id='nav-link']")
 
   $mobileButton.addEventListener("click", () => {
     const currentState = $mobileButton.getAttribute("data-state")
@@ -44,6 +45,13 @@ import ThemeSwitcher from "@/components/theme-switcher.astro"
     $mobileButton.ariaLabel = `${currentState === "open" ? "Cerrar" : "Abrir"} menú`
     $mobileButton.setAttribute("data-state", newState)
     $mobileMenu.setAttribute("data-state", newState)
+  })
+
+  $navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      $mobileButton.setAttribute("data-state", "closed")
+      $mobileMenu.setAttribute("data-state", "closed")
+    })
   })
 </script>
 
