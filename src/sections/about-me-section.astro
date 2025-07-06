@@ -7,10 +7,11 @@ import Greeting from "@/components/about-cards/greeting.astro"
 import Experience from "@/components/about-cards/experience.astro"
 import Education from "@/components/about-cards/education.astro"
 import Stack from "@/components/about-cards/my-stack.astro"
+import Typography from "@/components/typography.astro"
 ---
 
 <section id="about" data-is-section class="section-wrapper">
-  <h2 class="title">Sobre mí</h2>
+  <Typography as="h2" variant="h2" class="section-title">Sobre mí</Typography>
 
   <FakeMasonry class="fake-masonry">
     <Intro />
@@ -22,10 +23,3 @@ import Stack from "@/components/about-cards/my-stack.astro"
     <Stack />
   </FakeMasonry>
 </section>
-
-<style>
-  .title {
-    padding-block-end: clamp(32px, 24.24px + 2.071vw, 64px);
-    text-align: center;
-  }
-</style>

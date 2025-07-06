@@ -1,11 +1,12 @@
 ---
 import { projects } from "@/data/projects"
+import Typography from "@/components/typography.astro"
 import ProjectCard from "@/components/project-card.astro"
 ---
 
 <section id="projects" data-is-section>
   <div class="wrapper section-wrapper">
-    <h2 class="title">Proyectos destacados</h2>
+    <Typography as="h2" variant="h2" class="section-title">Proyectos destacados</Typography>
     <div class="projects-wrapper">
       {projects.map((data) => <ProjectCard {...data} />)}
     </div>
@@ -15,12 +16,6 @@ import ProjectCard from "@/components/project-card.astro"
 <style>
   .wrapper {
     overflow: hidden;
-  }
-
-  .title {
-    --padding-block-end: 32px;
-    padding-block-end: var(--padding-block-end);
-    text-align: center;
   }
 
   .projects-wrapper {
@@ -33,10 +28,6 @@ import ProjectCard from "@/components/project-card.astro"
       grid-template-columns: repeat(2, minmax(0, 1fr));
       max-inline-size: var(--max-inline-size);
       margin-inline: auto;
-    }
-
-    .title {
-      --padding-block-end: 64px;
     }
   }
 </style>

@@ -1,6 +1,7 @@
 ---
 import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
 import Action from "@/components/ui/action.astro"
+import Typography from "@/components/typography.astro"
 import CopyEmailSmallButton from "@/components/copy-email-small-button.astro"
 import ArrowDown from "@/components/icons/arrow-down.astro"
 ---
@@ -19,7 +20,9 @@ import ArrowDown from "@/components/icons/arrow-down.astro"
       Disponible para trabajar <span class="available-circle"></span>
     </Action>
   </p>
-  <h1 class="text-gradient title">Dresan, Desarrollador Frontend</h1>
+  <Typography as="h1" variant="h1" color="gradient" class="title"
+    >Dresan, Desarrollador Frontend</Typography
+  >
   <p class="intro-subtitle">
     Hago que tu proyecto <strong>destaque</strong> con la <strong>elegancia</strong> y la
     <strong>calidad</strong> que merece.
@@ -79,7 +82,6 @@ import ArrowDown from "@/components/icons/arrow-down.astro"
   .title {
     position: relative;
     padding: var(--space-inline) 12px;
-    font: 900 clamp(42px, 34.4px + 2.375vw, 80px) / 1 var(--primary-font);
   }
 
   .title::after {

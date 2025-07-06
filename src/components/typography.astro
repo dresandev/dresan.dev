@@ -1,0 +1,52 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types"
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+  as: Tag
+  variant: "h1" | "h2"
+  color?: "default" | "gradient"
+}>
+
+const { as: Tag, class: className, variant = "h1", color = "default", ...props } = Astro.props
+---
+
+<Tag class:list={[className, variant, color]} {...props}>
+  <slot />
+</Tag>
+
+<style>
+  .h1 {
+    font: 900 clamp(42px, 34.4px + 2.375vw, 80px) / 1 var(--primary-font);
+  }
+
+  .h2 {
+    font-size: 32px;
+  }
+
+  .h3 {
+    font-size: 20px;
+  }
+
+  .gradient {
+    background-image: var(--text-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient::selection {
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: initial;
+  }
+
+  @media screen and (min-width: 768px) {
+    .h2 {
+      font-size: 40px;
+    }
+
+    .h3 {
+      font-size: 24px;
+    }
+  }
+</style>
