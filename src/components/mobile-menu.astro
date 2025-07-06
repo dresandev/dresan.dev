@@ -5,7 +5,7 @@ import Action from "@/components/ui/action.astro"
 import ThemeSwitcher from "@/components/theme-switcher.astro"
 ---
 
-<button id="mobile-button" class="button" type="button">
+<button id="menu-mobile-button" class="button" type="button" aria-label="Abrir menú">
   <span class="line"></span>
   <span class="line"></span>
 </button>
@@ -35,13 +35,14 @@ import ThemeSwitcher from "@/components/theme-switcher.astro"
 <script>
   import { $, $$ } from "@/utils/dom-selector"
 
-  const $mobileButton = $("#mobile-button")!
+  const $mobileButton = $("#menu-mobile-button")!
   const $mobileMenu = $("#mobile-menu")!
   const $navLinks = $$("[data-id='nav-link']")
 
   $mobileButton.addEventListener("click", () => {
     const currentState = $mobileButton.getAttribute("data-state")
-    const newState = currentState === "open" ? "closed" : "open"
+    const isOpen = currentState === "open"
+    const newState = isOpen ? "closed" : "open"
     $mobileButton.ariaLabel = `${currentState === "open" ? "Cerrar" : "Abrir"} menú`
     $mobileButton.setAttribute("data-state", newState)
     $mobileMenu.setAttribute("data-state", newState)
