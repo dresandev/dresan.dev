@@ -81,11 +81,6 @@
   outline-offset: 2px;
 }
 
-[data-scroll-locked] {
-  overflow: hidden;
-  overscroll-behavior: contain;
-}
-
 body {
   font-family: var(--primary-font);
   text-rendering: optimizeSpeed;
@@ -97,36 +92,18 @@ body {
     background-color var(--theme-transition-duration);
 }
 
-h2 {
-  font-size: 32px;
-}
-
-h3 {
-  font-size: 20px;
-}
-
 button,
 a {
   border-radius: 1px;
 }
 
-[data-is-section] {
-  scroll-margin-block-start: calc(var(--header-block-size) - 1px);
+[data-scroll-locked] {
+  overflow: hidden;
+  overscroll-behavior: contain;
 }
 
-@media screen and (min-width: 768px) {
-  :root {
-    --space-inline: 32px;
-    --space-block: 100px;
-  }
-
-  h2 {
-    font-size: 40px;
-  }
-
-  h3 {
-    font-size: 24px;
-  }
+[data-is-section] {
+  scroll-margin-block-start: calc(var(--header-block-size) - 1px);
 }
 
 .tippy-box[data-theme~="tomato"] {
@@ -143,4 +120,64 @@ a {
 .tippy-box[data-animation="custom"][data-state="hidden"] {
   transform: translateY(10px);
   opacity: 0;
+}
+
+.section-wrapper {
+  padding: var(--space-block) var(--space-inline);
+  border-block-start: 1px dashed var(--color-stroke);
+  transition:
+    background-color var(--theme-transition-duration),
+    border-block-start-color var(--theme-transition-duration);
+}
+
+.modal {
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    display 200ms allow-discrete,
+    overlay 200ms allow-discrete,
+    opacity 200ms,
+    transform 200ms;
+  transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  will-change: transform, opacity;
+}
+
+.modal[open] {
+  opacity: 1;
+  transform: scale(1);
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+.modal::backdrop {
+  opacity: 0;
+  transition:
+    display 200ms allow-discrete,
+    opacity 200ms;
+  transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.modal[open]::backdrop {
+  opacity: 1;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.section-title {
+  padding-block-end: clamp(32px, 24.24px + 2.071vw, 64px);
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --space-inline: 32px;
+    --space-block: 100px;
+  }
 }
