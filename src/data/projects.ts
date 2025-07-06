@@ -19,7 +19,7 @@ export const projects: Project[] = [
     description: "App de exploración de películas, al estilo de Amazon Prime Video y Crunchyroll.",
     imageUrl: `${COVER_IMAGE_PATH}/dreflix.webp`,
     modalData: {
-      backgroundGradient: "linear-gradient(135deg, hsl(270 40% 60%), hsl(340 50% 70%))",
+      backgroundGradient: "linear-gradient(135deg, #FFA71A, #CA0003, #660088)",
       description: "Aplicación web para explorar películas, similar a Amazon Prime Video y Crunchyroll, con funcionalidades como scroll infinito, un buscador de películas optimizado para la navegación por teclado similar al de YouTube, y un carrusel para promocionar películas con características como reproducción automática solo cuando la película sea visible (es decir, cuando esté en el viewport y la pestaña tenga el foco), entre otras características.",
       links: [
         {
@@ -34,10 +34,22 @@ export const projects: Project[] = [
         },
       ],
       images: [
-        `${MODAL_IMAGE_PATH}/dreflix-1.webp`,
-        `${MODAL_IMAGE_PATH}/dreflix-2.webp`,
-        `${MODAL_IMAGE_PATH}/dreflix-3.webp`,
-        `${MODAL_IMAGE_PATH}/dreflix-4.webp`,
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/dreflix-1.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/dreflix-1.webp`
+        },
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/dreflix-2.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/dreflix-2.webp`
+        },
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/dreflix-3.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/dreflix-3.webp`
+        },
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/dreflix-4.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/dreflix-4.webp`
+        },
       ],
       tags: [
         Tags.nextJs14,
@@ -55,7 +67,7 @@ export const projects: Project[] = [
     description: "Clon del e-commerce de Bershka, implementando el flujo principal de un e-commerce.",
     imageUrl: `${COVER_IMAGE_PATH}/vexara.webp`,
     modalData: {
-      backgroundGradient: "linear-gradient(135deg, hsl(250 50% 70%), hsl(30 60% 70%))",
+      backgroundGradient: "linear-gradient(135deg, #4A3F35, #F2E6F5, #6789FF)",
       description: "Clon del ecommerce de Bershka, implementando funcionalidades principales como el flujo de autenticación con auth.js, el flujo de pago de productos mediante la pasarela de pagos MercadoPago, maquetación de la app con precisión pixel perfect, y diseño responsive sin usar JavaScript (como se hace originalmente). Además, se implementó código funcional en producción.",
       links: [
         {
@@ -70,10 +82,18 @@ export const projects: Project[] = [
         },
       ],
       images: [
-        `${MODAL_IMAGE_PATH}/vexara-1.webp`,
-        `${MODAL_IMAGE_PATH}/vexara-2.webp`,
-        `${MODAL_IMAGE_PATH}/vexara-3.webp`,
-        `${MODAL_IMAGE_PATH}/vexara-4.webp`,
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/vexara-1.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/vexara-1.webp`
+        },
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/vexara-2.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/vexara-2.webp`
+        },
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/vexara-3.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/vexara-3.webp`
+        },
       ],
       tags: [
         Tags.mercadoPago,
@@ -89,10 +109,10 @@ export const projects: Project[] = [
   {
     id: "linkpeek-project",
     title: "Linkpeek",
-    description: "App para gestionar links, implementando scraping para la obtención de información de los sitios webs.",
+    description: "App para gestionar links, implementando scraping para la obtención de información de los sitios web.",
     imageUrl: `${COVER_IMAGE_PATH}/linkpeek.webp`,
     modalData: {
-      backgroundGradient: "linear-gradient(135deg, hsl(340 40% 65%), hsl(50 50% 75%))",
+      backgroundGradient: "linear-gradient(135deg, #FF6B6B, #F5B041, #6BCFFF)",
       description: "Aplicación para gestionar enlaces, realizando scraping para obtener datos como el título, descripción e imagen usada en el Open Graph Protocol (OGP). Incluye un componente para agregar etiquetas similar al TagsInput de GitHub. El enfoque principal es del lado del servidor, de manera que la mayoría del trabajo se realiza en el servidor.",
       links: [
         {
@@ -107,9 +127,18 @@ export const projects: Project[] = [
         },
       ],
       images: [
-        `${MODAL_IMAGE_PATH}/linkpeek-1.webp`,
-        `${MODAL_IMAGE_PATH}/linkpeek-2.webp`,
-        `${MODAL_IMAGE_PATH}/linkpeek-3.webp`,
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/linkpeek-1.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-1.webp`
+        },
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/linkpeek-2.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-2.webp`
+        },
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/linkpeek-3.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-3.webp`
+        },
       ],
       tags: [
         Tags.nextJs14,
@@ -122,26 +151,43 @@ export const projects: Project[] = [
     }
   },
   {
-    id: "dree-project",
-    title: "Dree",
-    description: "Herramienta para generar diagramas de texto sobre la estructura de file systems 📁.",
-    imageUrl: `${COVER_IMAGE_PATH}/dree.webp`,
+    id: "minestyle-project",
+    title: "MineStyle",
+    description: "Aplicación para ver tu skin de Minecraft con armadura y adornos de armadura, enfocada en el look and feel 😎.",
+    imageUrl: `${COVER_IMAGE_PATH}/minestyle.webp`,
     modalData: {
-      backgroundGradient: "linear-gradient(135deg, hsl(220 40% 65%), hsl(280 45% 70%))",
-      description: "Herramienta para generar diagramas de texto sobre estructuras de directorios y archivos, basado en el proyecto de Nathan Friend: https://tree.nathanfriend.io/.",
+      backgroundGradient: "linear-gradient(135deg, #00F7A5, #00B3FF, #B13CFF)",
+      description: "Aplicación para ver tu skin de Minecraft con armadura y adornos de armadura, enfocada en el look and feel 😎. Utilizando React three fiber y como base el codigo de https://github.com/bs-community/skinview3d",
       links: [
         {
           label: VIEW_WEB_LABEL,
-          url: "https://dreee.vercel.app",
+          url: "https://minestyle.vercel.app",
           icon: VIEW_WEB_ICON
         },
         {
           label: VIEW_CODE_LABEL,
-          url: "https://github.com/dresandev/dree",
+          url: "https://github.com/dresandev/minestyle",
           icon: VIEW_CODE_ICON
         },
       ],
-      images: [`${MODAL_IMAGE_PATH}/dree-1.webp`],
+      images: [
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/minestyle-1.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/minestyle-1.webp`
+        },
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/minestyle-2.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/minestyle-2.webp`
+        },
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/minestyle-3.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/minestyle-3.webp`
+        },
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/minestyle-4.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/minestyle-4.webp`
+        },
+      ],
       tags: [
         Tags.nextJs14,
         Tags.zustand,
