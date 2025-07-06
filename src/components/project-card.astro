@@ -11,7 +11,13 @@ const modalId = `${id}-modal`
 
 <button class="modal-trigger" data-modal-trigger={modalId} type="button">
   <figure class="image-wrapper">
-    <img class="image" src={imageUrl} alt="" width={684} height={385} />
+    <img
+      class="image"
+      src={imageUrl}
+      alt={`${title} project cover image`}
+      width={684}
+      height={454}
+    />
   </figure>
   <img
     class="gradient-image"
@@ -19,7 +25,7 @@ const modalId = `${id}-modal`
     aria-hidden
     alt=""
     width={684}
-    height={385}
+    height={454}
     loading="lazy"
     decoding="async"
   />
@@ -52,7 +58,6 @@ const modalId = `${id}-modal`
 
   .image {
     block-size: auto;
-    inline-size: 100%;
     aspect-ratio: 3 / 2;
     transition: transform 500ms;
   }

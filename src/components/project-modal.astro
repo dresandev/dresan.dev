@@ -36,9 +36,9 @@ const hasSeveralItems = images.length > 1
                   srcset={`${mobile} 675w, ${desktop} 950w`}
                   sizes="(width <= 768px) 675px, 950px"
                   src={desktop}
-                  alt={`Imagen del ${++index} proyecto ${title} desarrollado por Dresan`}
-                  width={974}
-                  height={520}
+                  alt={`Imagen de previsualización ${++index} del proyecto ${title} desarrollado por Dresan`}
+                  width={950}
+                  height={500}
                   loading="lazy"
                 />
               </Slide>
@@ -50,9 +50,9 @@ const hasSeveralItems = images.length > 1
             srcset={`${images[0].mobile} 675w, ${images[0].desktop} 950w`}
             sizes="(width <= 768px) 675px, 950px"
             src={images[0].desktop}
-            alt={`Imagen del proyecto ${title} desarrollado por Dresan`}
-            width={974}
-            height={520}
+            alt={`Imagen de previsualización del proyecto ${title} desarrollado por Dresan`}
+            width={950}
+            height={500}
             loading="lazy"
           />
         )
@@ -169,6 +169,7 @@ const hasSeveralItems = images.length > 1
     flex: 0.7;
     display: grid;
     place-items: center;
+    inline-size: 100%;
   }
 
   .image-wrapper.one-item {

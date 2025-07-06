@@ -1,10 +1,10 @@
 ---
 import { DRESAN_EMAIL } from "@/constants/dresan-data"
-import FakeMasonryItem from "../fake-masonry-item.astro"
+import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 ---
 
 <FakeMasonryItem id="greeting" class="wrapper">
-  <img class="background-image" src="/images/skin.webp" width={388} height={548} alt="" />
+  <img class="skin-image" src="/images/skin.webp" width={388} height={600} alt="" />
   <div class="message-list">
     <div class="message">¡Hola! 🖖🏼</div>
     <div class="message">Me llamo Javier Andrés</div>
@@ -21,7 +21,7 @@ import FakeMasonryItem from "../fake-masonry-item.astro"
     position: relative;
   }
 
-  .background-image {
+  .skin-image {
     block-size: auto;
     padding-block: 30px;
     margin-inline: auto;
