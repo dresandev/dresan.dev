@@ -110,9 +110,9 @@ a {
   border-radius: 1px;
 }
 
-/* [id] {
+[data-is-section] {
   scroll-margin-block-start: calc(var(--header-block-size) - 1px);
-} */
+}
 
 @media screen and (min-width: 768px) {
   :root {
