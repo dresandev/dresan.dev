@@ -10,6 +10,11 @@ export interface Tag {
   colorDarkHsl: string,
 }
 
+export interface Image {
+  desktop: string
+  mobile: string
+}
+
 export interface Project {
   id: string
   title: string
@@ -22,6 +27,6 @@ export interface ProjectModalData {
   backgroundGradient: string
   description: string
   links: Link[]
-  images: string[]
+  images: Image[]
   tags: Tag[]
 }
