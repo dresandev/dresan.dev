@@ -29,18 +29,10 @@ const { title, description, canonical } = Astro.props
 
     {canonical && <link rel="canonical" href={canonical} />}
 
-    <link
-      rel="preload"
-      href="/fonts/geist-vf.ttf"
-      as="font"
-      type="font/ttf"
-      crossorigin="anonymous"
-    />
-
     <meta property="og:url" content={HOST_URL} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={title} />
-    <meta name="og:image" content=`${HOST_URL}/ogp.png` />
+    <meta name="og:image" content=`${HOST_URL}/og.png` />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image:width" content="1200" />
@@ -49,7 +41,7 @@ const { title, description, canonical } = Astro.props
 
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content=`${HOST_URL}/ogp.png` />
+    <meta name="twitter:image" content=`${HOST_URL}/og.png` />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@dresandev" />
 
