@@ -18,12 +18,12 @@ const {
 } = Astro.props
 ---
 
-<Tag class:list={[className, "action", size, variant, rounded]} {...props}>
+<Tag class:list={["this-action", className, size, variant, rounded]} {...props}>
   <slot />
 </Tag>
 
 <style>
-  .action {
+  .this-action {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,21 +35,21 @@ const {
     transition: background-color var(--theme-transition-duration);
   }
 
-  .action:disabled {
+  .this-action:disabled {
     opacity: 0.7;
     pointer-events: none;
   }
 
-  .action.primary {
+  .this-action.primary {
     background-color: var(--color-text);
     color: var(--color-background);
   }
 
-  .action.primary:active {
+  .this-action.primary:active {
     background-color: hsl(var(--color-text-hsl) / 0.8);
   }
 
-  .action.outlined {
+  .this-action.outlined {
     --hover-color-background: hsl(0 0% 88%);
     --hover-color-stroke: hsl(0 0 0 / 0.12);
     background-color: var(--color-themed-background);
@@ -58,22 +58,22 @@ const {
     transition-property: background-color, border-color;
   }
 
-  .action.outlined:active {
+  .this-action.outlined:active {
     background-color: var(--hover-color-background);
     border-color: var(--hover-color-stroke);
   }
 
-  html[data-theme="dark"] .action.outlined {
+  html[data-theme="dark"] .this-action.outlined {
     --hover-color-background: hsl(0 0% 12%);
     --hover-color-stroke: hsl(0 0% 100% / 0.17);
   }
 
   @media (hover: hover) {
-    .action.primary:hover {
+    .this-action.primary:hover {
       background-color: hsl(var(--color-text-hsl) / 0.8);
     }
 
-    .action.outlined:hover {
+    .this-action.outlined:hover {
       background-color: var(--hover-color-background);
       border-color: var(--hover-color-stroke);
     }
@@ -81,19 +81,19 @@ const {
 
   /* Size */
 
-  .action.large {
+  .this-action.large {
     min-block-size: 48px;
     padding-inline: 14px;
     font-size: 16px;
   }
 
-  .action.medium {
+  .this-action.medium {
     min-block-size: 40px;
     padding-inline: 16px;
     font-size: 14px;
   }
 
-  .action.small {
+  .this-action.small {
     min-block-size: 32px;
     padding-inline: 12px;
     font-size: 14px;
@@ -101,11 +101,11 @@ const {
 
   /* Rounded */
 
-  .action.default {
+  .this-action.default {
     border-radius: 6px;
   }
 
-  .action.full {
+  .this-action.full {
     border-radius: 1rem;
   }
 </style>

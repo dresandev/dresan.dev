@@ -1,0 +1,54 @@
+---
+interface Props {
+  id: string
+  class?: string
+}
+
+const { id, class: className, ...props } = Astro.props
+---
+
+<dialog id={id} class={className} data-modal closedby="any" {...props}>
+  <slot />
+</dialog>
+
+<style>
+  dialog {
+    opacity: 0;
+    transform: scale(0.9);
+    transition:
+      display 200ms allow-discrete,
+      overlay 200ms allow-discrete,
+      opacity 200ms,
+      transform 200ms;
+    transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+    will-change: transform, opacity;
+  }
+
+  dialog[open] {
+    opacity: 1;
+    transform: scale(1);
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+
+    @starting-style {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+
+  dialog::backdrop {
+    opacity: 0;
+    transition:
+      display 200ms allow-discrete,
+      opacity 200ms;
+    transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  }
+
+  dialog[open]::backdrop {
+    opacity: 1;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+</style>

@@ -7,7 +7,7 @@ $modals.forEach((modal) => {
     document.body.toggleAttribute("data-scroll-locked", modal.open)
   })
 
-  const $triggerButton = $$(`[data-modal-trigger='${modal.id}']`)!
+  const $triggerButton = $$(`[data-modal-trigger-id='${modal.id}']`)!
 
   $triggerButton.forEach((button) => {
     button.addEventListener("click", () => modal.showModal())

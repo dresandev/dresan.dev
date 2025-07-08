@@ -20,11 +20,11 @@ export interface Project {
   title: string
   imageUrl: string
   description: string
+  gradient: string
   modalData: ProjectModalData
 }
 
 export interface ProjectModalData {
-  backgroundGradient: string
   description: string
   links: Link[]
   images: Image[]

@@ -18,8 +18,8 @@ export const projects: Project[] = [
     title: "Dreflix",
     description: "App de exploración de películas, al estilo de Amazon Prime Video y Crunchyroll.",
     imageUrl: `${COVER_IMAGE_PATH}/dreflix.webp`,
+    gradient: "linear-gradient(135deg, #ff2e63, #7b2cbf, #2a2a72)",
     modalData: {
-      backgroundGradient: "linear-gradient(135deg, #FFA71A, #CA0003, #660088)",
       description: "Aplicación web para explorar películas, similar a Amazon Prime Video y Crunchyroll, con funcionalidades como scroll infinito, un buscador de películas optimizado para la navegación por teclado similar al de YouTube, y un carrusel para promocionar películas con características como reproducción automática solo cuando la película sea visible (es decir, cuando esté en el viewport y la pestaña tenga el foco), entre otras características.",
       links: [
         {
@@ -66,8 +66,8 @@ export const projects: Project[] = [
     title: "Vexara",
     description: "Clon del e-commerce de Bershka, implementando el flujo principal de un e-commerce.",
     imageUrl: `${COVER_IMAGE_PATH}/vexara.webp`,
+    gradient: "linear-gradient(135deg, #5b4434, #e5b5f0, #486eff)",
     modalData: {
-      backgroundGradient: "linear-gradient(135deg, #4A3F35, #F2E6F5, #6789FF)",
       description: "Clon del ecommerce de Bershka, implementando funcionalidades principales como el flujo de autenticación con auth.js, el flujo de pago de productos mediante la pasarela de pagos MercadoPago, maquetación de la app con precisión pixel perfect, y diseño responsive sin usar JavaScript (como se hace originalmente). Además, se implementó código funcional en producción.",
       links: [
         {
@@ -107,56 +107,12 @@ export const projects: Project[] = [
     }
   },
   {
-    id: "linkpeek-project",
-    title: "Linkpeek",
-    description: "App para gestionar links, implementando scraping para la obtención de información de los sitios web.",
-    imageUrl: `${COVER_IMAGE_PATH}/linkpeek.webp`,
-    modalData: {
-      backgroundGradient: "linear-gradient(135deg, #FF6B6B, #F5B041, #6BCFFF)",
-      description: "Aplicación para gestionar enlaces, realizando scraping para obtener datos como el título, descripción e imagen usada en el Open Graph Protocol (OGP). Incluye un componente para agregar etiquetas similar al TagsInput de GitHub. El enfoque principal es del lado del servidor, de manera que la mayoría del trabajo se realiza en el servidor.",
-      links: [
-        {
-          label: VIEW_WEB_LABEL,
-          url: "https://linkpeek.vercel.app",
-          icon: VIEW_WEB_ICON
-        },
-        {
-          label: VIEW_CODE_LABEL,
-          url: "https://github.com/dresandev/linkpeek",
-          icon: VIEW_CODE_ICON
-        },
-      ],
-      images: [
-        {
-          desktop: `${MODAL_IMAGE_PATH}/desktop/linkpeek-1.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-1.webp`
-        },
-        {
-          desktop: `${MODAL_IMAGE_PATH}/desktop/linkpeek-2.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-2.webp`
-        },
-        {
-          desktop: `${MODAL_IMAGE_PATH}/desktop/linkpeek-3.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-3.webp`
-        },
-      ],
-      tags: [
-        Tags.nextJs14,
-        Tags.typescript,
-        Tags.prismaOrm,
-        Tags.tailwindCss,
-        Tags.authJs,
-        Tags.tool,
-      ],
-    }
-  },
-  {
     id: "minestyle-project",
     title: "MineStyle",
     description: "Aplicación para ver tu skin de Minecraft con armadura y adornos de armadura, enfocada en el look and feel 😎.",
     imageUrl: `${COVER_IMAGE_PATH}/minestyle.webp`,
+    gradient: "linear-gradient(135deg, #e8a0d8ff, #75aff1ff, #a8ccdcff)",
     modalData: {
-      backgroundGradient: "linear-gradient(135deg, #00F7A5, #00B3FF, #B13CFF)",
       description: "Aplicación para ver tu skin de Minecraft con armadura y adornos de armadura, enfocada en el look and feel 😎. Utilizando React three fiber y como base el codigo de https://github.com/bs-community/skinview3d",
       links: [
         {
@@ -196,6 +152,50 @@ export const projects: Project[] = [
         Tags.tool,
         Tags.jest,
         Tags.reactTestingLibrary,
+      ],
+    }
+  },
+  {
+    id: "linkpeek-project",
+    title: "Linkpeek",
+    description: "App para gestionar links, implementando scraping para la obtención de información de los sitios web.",
+    imageUrl: `${COVER_IMAGE_PATH}/linkpeek.webp`,
+    gradient: "linear-gradient(135deg, #a066ff, #ff5e7e, #63e3fdff)",
+    modalData: {
+      description: "Aplicación para gestionar enlaces, realizando scraping para obtener datos como el título, descripción e imagen usada en el Open Graph Protocol (OGP). Incluye un componente para agregar etiquetas similar al TagsInput de GitHub. El enfoque principal es del lado del servidor, de manera que la mayoría del trabajo se realiza en el servidor.",
+      links: [
+        {
+          label: VIEW_WEB_LABEL,
+          url: "https://linkpeek.vercel.app",
+          icon: VIEW_WEB_ICON
+        },
+        {
+          label: VIEW_CODE_LABEL,
+          url: "https://github.com/dresandev/linkpeek",
+          icon: VIEW_CODE_ICON
+        },
+      ],
+      images: [
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/linkpeek-1.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-1.webp`
+        },
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/linkpeek-2.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-2.webp`
+        },
+        {
+          desktop: `${MODAL_IMAGE_PATH}/desktop/linkpeek-3.webp`,
+          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-3.webp`
+        },
+      ],
+      tags: [
+        Tags.nextJs14,
+        Tags.typescript,
+        Tags.prismaOrm,
+        Tags.tailwindCss,
+        Tags.authJs,
+        Tags.tool,
       ],
     }
   },

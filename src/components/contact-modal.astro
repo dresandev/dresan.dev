@@ -1,10 +1,11 @@
 ---
 import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
-import X from "@/components/icons/x.astro"
+import Modal from "@/components/ui/modal.astro"
 import ContactForm from "@/components/contact-form.astro"
+import X from "@/components/icons/x.astro"
 ---
 
-<dialog id={CONTACT_MODAL_ID} data-modal class="modal" closedby="any">
+<Modal id={CONTACT_MODAL_ID} class="modal">
   <form method="dialog">
     <button class="close" aria-label="Cerrar">
       <X />
@@ -12,7 +13,7 @@ import ContactForm from "@/components/contact-form.astro"
   </form>
   <h2 class="title">Contactar</h2>
   <ContactForm />
-</dialog>
+</Modal>
 
 <style>
   .modal {
@@ -30,12 +31,12 @@ import ContactForm from "@/components/contact-form.astro"
 
   .close {
     --size: 20px;
-    display: grid;
-    place-content: center;
     position: absolute;
     inset-block-start: 16px;
     inset-inline-end: 16px;
     inline-size: var(--size);
+    display: grid;
+    place-content: center;
     block-size: var(--size);
     opacity: 0.75;
   }

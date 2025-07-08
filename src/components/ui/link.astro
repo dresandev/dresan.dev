@@ -7,23 +7,23 @@ const isTargetBlank = target === "_blank"
 const rel = isTargetBlank ? "noopener" : undefined
 ---
 
-<a class:list={[className, "link"]} rel={rel} target={target} {...props}>
+<a class={className} rel={rel} target={target} {...props}>
   <slot />
   {isTargetBlank && <ArrowUpRight className="arrow-icon" />}
 </a>
 
 <style>
-  .link {
+  a {
     display: inline-flex;
     color: var(--color-text-secondary);
     transition: color var(--theme-transition-duration);
   }
 
-  .link:hover {
+  a:hover {
     color: var(--color-text);
   }
 
-  .arrow-icon {
+  a.arrow-icon {
     --size: 0.65em;
     inline-size: var(--size);
     block-size: var(--size);

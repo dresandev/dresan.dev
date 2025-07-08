@@ -4,39 +4,38 @@ import ProjectModal from "@/components/project-modal.astro"
 
 interface Props extends Project {}
 
-const { id, title, description, imageUrl, modalData } = Astro.props
+const { id, title, description, imageUrl, gradient, modalData } = Astro.props
 
 const modalId = `${id}-modal`
 ---
 
-<button class="modal-trigger" data-modal-trigger={modalId} type="button">
+<button
+  style={{ "--gradient": gradient }}
+  class="modal-trigger"
+  data-modal-trigger-id={modalId}
+  type="button"
+>
+  <div class="gradient"></div>
   <figure class="image-wrapper">
     <img
       class="image"
       src={imageUrl}
       alt={`${title} project cover image`}
-      width={684}
-      height={454}
+      width={550}
+      height={295}
+      loading="lazy"
+      decoding="sync"
     />
   </figure>
-  <img
-    class="gradient-image"
-    src={imageUrl}
-    aria-hidden
-    alt=""
-    width={684}
-    height={454}
-    loading="lazy"
-    decoding="async"
-  />
   <h3 class="title">{title}</h3>
   <p>{description}</p>
 </button>
-<ProjectModal id={modalId} title={title} {...modalData} />
+<ProjectModal id={modalId} title={title} gradient={gradient} {...modalData} />
 
 <style>
   .modal-trigger {
     --border-radius: clamp(12px, 8.268px + 0.259vw, 16px);
+    --aspect-ratio: 3/2;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -45,8 +44,34 @@ const modalId = `${id}-modal`
     border-radius: var(--border-radius);
   }
 
+  .gradient {
+    --active-opacity: 0.6;
+    position: absolute;
+    inset: 0;
+    aspect-ratio: var(--aspect-ratio);
+    background-image: var(--gradient);
+    transform: scale(1.15);
+    filter: blur(60px);
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+
+  html[data-theme="dark"] .gradient {
+    --active-opacity: 0.3;
+  }
+
+  .modal-trigger:is(:focus-visible, :hover) .gradient {
+    opacity: var(--active-opacity);
+  }
+
   .image-wrapper {
+    display: grid;
+    place-items: center;
+    inline-size: 100%;
+    padding-inline: clamp(30px, 21.504px + 2.265vw, 65px);
+    aspect-ratio: var(--aspect-ratio);
     border-radius: var(--border-radius);
+    background-image: var(--gradient);
     overflow: hidden;
     filter: contrast(1.2) grayscale(1);
     transition: filter 500ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -58,33 +83,13 @@ const modalId = `${id}-modal`
 
   .image {
     block-size: auto;
-    aspect-ratio: 3 / 2;
+    border-radius: 12px;
+    border: clamp(3px, 2.272rem + 0.194vw, 6px) solid hsl(0 0% 100% / 0.6);
     transition: transform 500ms;
   }
 
   .modal-trigger:hover .image {
     transform: scale(1.1);
-  }
-
-  .gradient-image {
-    --active-opacity: 0.6;
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    block-size: auto;
-    aspect-ratio: 3 / 2;
-    transform: scale(1.15);
-    filter: blur(60px);
-    opacity: 0;
-    transition: opacity 500ms;
-  }
-
-  html[data-theme="dark"] .gradient-image {
-    --active-opacity: 0.4;
-  }
-
-  .modal-trigger:is(:focus-visible, :hover) .gradient-image {
-    opacity: var(--active-opacity);
   }
 
   .title {

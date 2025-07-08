@@ -1,4 +1,5 @@
 ---
+import Typography from "@/components/ui/typography.astro"
 import FakeMasonry from "@/components/fake-masonry.astro"
 import Intro from "@/components/about-cards/intro.astro"
 import MoreAbout from "@/components/about-cards/more-about.astro"
@@ -7,10 +8,9 @@ import Greeting from "@/components/about-cards/greeting.astro"
 import Experience from "@/components/about-cards/experience.astro"
 import Education from "@/components/about-cards/education.astro"
 import Stack from "@/components/about-cards/my-stack.astro"
-import Typography from "@/components/typography.astro"
 ---
 
-<section id="about" data-is-section class="section-wrapper">
+<section id="about" data-set-scroll-margin class="section-wrapper">
   <Typography as="h2" variant="h2" class="section-title">Sobre mí</Typography>
 
   <FakeMasonry class="fake-masonry">

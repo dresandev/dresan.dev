@@ -1,0 +1,45 @@
+---
+interface Props {
+  url: string
+  title: string
+  description?: string
+}
+
+const { url, title, description } = Astro.props
+---
+
+<li class="card">
+  <h4 class="title">
+    <a class="link" href={url} target="_blank">
+      {title}
+    </a>
+  </h4>
+  <p>{description}</p>
+</li>
+
+<style>
+  .card {
+    padding-block: 12px;
+    border-block-end: 1px solid var(--color-stroke);
+    transition: border-block-end-color var(--theme-transition-duration);
+  }
+
+  .title {
+    padding-block-end: 4px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .link {
+    --color: hsl(214 93% 65%);
+    color: var(--color);
+  }
+
+  html[data-theme="light"] .link {
+    --color: hsl(210 100% 42%);
+  }
+
+  .link:hover {
+    text-decoration: underline 2px;
+  }
+</style>

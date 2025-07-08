@@ -1,6 +1,6 @@
 ---
-import type { CssProperties } from "node_modules/astro/dist/assets/fonts/definitions"
 import type { ProjectModalData } from "@/types"
+import Modal from "@/components/ui/modal.astro"
 import Carousel from "@/components/ui/carousel.astro"
 import Slide from "@/components/ui/slide.astro"
 import X from "@/components/icons/x.astro"
@@ -8,22 +8,18 @@ import X from "@/components/icons/x.astro"
 interface Props extends ProjectModalData {
   id: string
   title: string
+  gradient: string
 }
 
-interface PillCssProperties extends CssProperties {
-  "--tag-pill-light-color-hsl": string
-  "--tag-pill-dark-color-hsl": string
-}
-
-const { id, title, description, images, backgroundGradient, links, tags } = Astro.props
+const { id, title, description, images, gradient, links, tags } = Astro.props
 
 const hasSeveralItems = images.length > 1
 ---
 
-<dialog id={id} class="modal" data-modal closedby="any">
+<Modal id={id} class="modal">
   <div class="content">
     <div
-      style={{ background: backgroundGradient }}
+      style={{ backgroundImage: gradient }}
       class:list={["image-wrapper", { "one-item": !hasSeveralItems }]}
     >
       {
@@ -82,12 +78,10 @@ const hasSeveralItems = images.length > 1
           {
             tags.map(({ name, colorLightHsl, colorDarkHsl }) => (
               <span
-                style={
-                  {
-                    "--tag-pill-light-color-hsl": colorLightHsl,
-                    "--tag-pill-dark-color-hsl": colorDarkHsl,
-                  } as PillCssProperties
-                }
+                style={{
+                  "--tag-pill-light-color-hsl": colorLightHsl,
+                  "--tag-pill-dark-color-hsl": colorDarkHsl,
+                }}
                 class="tag-pill"
               >
                 {name}
@@ -103,7 +97,7 @@ const hasSeveralItems = images.length > 1
       </div>
     </div>
   </div>
-</dialog>
+</Modal>
 
 <style>
   .modal {
@@ -194,7 +188,7 @@ const hasSeveralItems = images.length > 1
     display: flex;
     align-items: center;
     padding-inline: var(--padding-inline);
-    font-size: clamp(1.125rem, 1.034rem + 0.388vw, 1.5rem);
+    font-size: clamp(18px, 16.544px + 0.388vw, 24px);
   }
 
   .action {

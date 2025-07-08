@@ -29,6 +29,14 @@ const { title, description, canonical } = Astro.props
 
     {canonical && <link rel="canonical" href={canonical} />}
 
+    <link
+      rel="preload"
+      href="/fonts/geist-vf.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+
     <meta property="og:url" content={HOST_URL} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={title} />

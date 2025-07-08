@@ -3,7 +3,7 @@ import ChevronLeft from "@/components/icons/chevron-left.astro"
 import ChevronRight from "@/components/icons/chevron-right.astro"
 ---
 
-<section data-id="carousel" class="carousel">
+<section data-id="carousel" class="this-carousel">
   <div data-id="viewport" class="viewport">
     <div data-id="container" class="container">
       <slot />
@@ -24,7 +24,7 @@ import ChevronRight from "@/components/icons/chevron-right.astro"
   import EmblaCarousel, { type EmblaOptionsType, type EmblaCarouselType } from "embla-carousel"
   import { $$ } from "@/utils/dom-selector"
 
-  const $carouselNodes = $$(".carousel")
+  const $carouselNodes = $$(".this-carousel")
   const OPTIONS: EmblaOptionsType = { loop: true }
 
   const addTogglePrevNextBtnsActive = (
@@ -136,7 +136,7 @@ import ChevronRight from "@/components/icons/chevron-right.astro"
 </script>
 
 <style>
-  .carousel {
+  .this-carousel {
     --slide-spacing: 16px;
     --slide-size: 100%;
     --control-margin: clamp(12px, 10.064px + 0.518vw, 20px);
