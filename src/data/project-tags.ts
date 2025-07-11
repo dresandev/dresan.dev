@@ -1,6 +1,6 @@
-import type { Tag } from "@/types"
+import type { ProjectTag } from "@/types"
 
-export const Tags: { [key: string]: Tag } = {
+export const ProjectTags: { [key: string]: ProjectTag } = {
   nextJs14: {
     name: "Next.js 14",
     colorLightHsl: "0 0% 10%",
