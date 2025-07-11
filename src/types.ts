@@ -4,7 +4,7 @@ interface Link {
   icon: (_props: Record<string, any>) => any
 }
 
-export interface Tag {
+export interface ProjectTag {
   name: string,
   colorLightHsl: string,
   colorDarkHsl: string,
@@ -28,5 +28,5 @@ export interface ProjectModalData {
   description: string
   links: Link[]
   images: Image[]
-  tags: Tag[]
+  tags: ProjectTag[]
 }
