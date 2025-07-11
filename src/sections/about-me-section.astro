@@ -7,7 +7,8 @@ import MoreProjects from "@/components/about-cards/more-projects.astro"
 import Greeting from "@/components/about-cards/greeting.astro"
 import Experience from "@/components/about-cards/experience.astro"
 import Education from "@/components/about-cards/education.astro"
-import Stack from "@/components/about-cards/my-stack.astro"
+import MyStack from "@/components/about-cards/my-stack.astro"
+import LastSongListened from "@/components/about-cards/last-song-listened.astro"
 ---
 
 <section id="about" data-set-scroll-margin class="section-wrapper">
@@ -16,10 +17,11 @@ import Stack from "@/components/about-cards/my-stack.astro"
   <FakeMasonry class="fake-masonry">
     <Intro />
     <MoreAbout />
+    <LastSongListened />
     <Greeting />
     <MoreProjects />
     <Experience />
     <Education />
-    <Stack />
+    <MyStack />
   </FakeMasonry>
 </section>
