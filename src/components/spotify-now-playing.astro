@@ -36,7 +36,7 @@ const track = await res.json()
     padding: 12px;
     border-radius: 12px;
     background-color: hsl(var(--color-card-background-secondary-hsl) / var(--background-opacity));
-    transition: background-color 250ms;
+    transition: background-color var(--theme-transition-duration);
   }
 
   .card:hover {
@@ -54,13 +54,10 @@ const track = await res.json()
   .artist {
     font-size: 12px;
     color: var(--color-text-secondary);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-inline-size: 300px;
   }
 
   .spotify-logo {
     margin-inline-start: auto;
+    flex: 0 0 32px;
   }
 </style>

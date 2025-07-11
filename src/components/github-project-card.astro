@@ -31,12 +31,15 @@ const { url, title, description } = Astro.props
   }
 
   .link {
-    --color: hsl(214 93% 65%);
-    color: var(--color);
+    --hover-color: hsl(214 93% 65%);
+  }
+
+  .link:hover {
+    color: var(--hover-color);
   }
 
   html[data-theme="light"] .link {
-    --color: hsl(210 100% 42%);
+    --hover-color: hsl(210 100% 42%);
   }
 
   .link:hover {

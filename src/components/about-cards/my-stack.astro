@@ -30,11 +30,11 @@ import FakeMasonryItem from "@/components/fake-masonry-item.astro"
   .technologies-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: clamp(26px, 27.456px + -0.388vw, 20px);
   }
 
   .technologies-list svg {
-    --size: clamp(1.875rem, 1.814rem + 0.259vw, 2.125rem);
+    --size: clamp(30px, 29.024px + 0.259vw, 34px);
     inline-size: var(--size);
     block-size: var(--size);
   }
