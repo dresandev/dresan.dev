@@ -28,7 +28,7 @@
   --color-background-hsl: 0 0% 99%;
   --color-text-hsl: 0 0% 1%;
   --color-stroke-hsl: 0 3% 84%;
-  --color-card-background-hls: 0 2% 85%;
+  --color-card-background-secondary-hsl: 0 2% 88%;
 
   --color-primary: hsl(212 100% 48%);
   --color-text: hsl(0 0% 1%);
@@ -52,7 +52,7 @@
   --color-background-hsl: 0 0% 1%;
   --color-text-hsl: 0 0% 93%;
   --color-stroke-hsl: 0 0% 12%;
-  --color-card-background-hls: 0 1% 15%;
+  --color-card-background-secondary-hsl: 0 1% 15%;
 
   --color-primary: hsl(212 100% 48%);
   --color-text: hsl(0 0% 93%);
