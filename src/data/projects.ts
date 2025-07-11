@@ -1,5 +1,5 @@
 import type { Project } from "@/types"
-import { Tags } from "./tags"
+import { ProjectTags } from "./project-tags"
 import ExternalLinkIcon from "@/components/icons/external-link-icon.astro"
 import GitHubIcon from "@/components/icons/github-icon.astro"
 
@@ -52,12 +52,12 @@ export const projects: Project[] = [
         },
       ],
       tags: [
-        Tags.nextJs14,
-        Tags.cssModules,
-        Tags.typescript,
-        Tags.theMovieDB,
-        Tags.zustand,
-        Tags.movieExplorer,
+        ProjectTags.nextJs14,
+        ProjectTags.cssModules,
+        ProjectTags.typescript,
+        ProjectTags.theMovieDB,
+        ProjectTags.zustand,
+        ProjectTags.movieExplorer,
       ],
     }
   },
@@ -96,13 +96,13 @@ export const projects: Project[] = [
         },
       ],
       tags: [
-        Tags.mercadoPago,
-        Tags.zustand,
-        Tags.prismaOrm,
-        Tags.nextJs14,
-        Tags.authJs,
-        Tags.typescript,
-        Tags.eCommerce,
+        ProjectTags.mercadoPago,
+        ProjectTags.zustand,
+        ProjectTags.prismaOrm,
+        ProjectTags.nextJs14,
+        ProjectTags.authJs,
+        ProjectTags.typescript,
+        ProjectTags.eCommerce,
       ],
     }
   },
@@ -145,13 +145,13 @@ export const projects: Project[] = [
         },
       ],
       tags: [
-        Tags.nextJs14,
-        Tags.zustand,
-        Tags.cssModules,
-        Tags.typescript,
-        Tags.tool,
-        Tags.jest,
-        Tags.reactTestingLibrary,
+        ProjectTags.nextJs14,
+        ProjectTags.zustand,
+        ProjectTags.cssModules,
+        ProjectTags.typescript,
+        ProjectTags.tool,
+        ProjectTags.jest,
+        ProjectTags.reactTestingLibrary,
       ],
     }
   },
@@ -190,12 +190,12 @@ export const projects: Project[] = [
         },
       ],
       tags: [
-        Tags.nextJs14,
-        Tags.typescript,
-        Tags.prismaOrm,
-        Tags.tailwindCss,
-        Tags.authJs,
-        Tags.tool,
+        ProjectTags.nextJs14,
+        ProjectTags.typescript,
+        ProjectTags.prismaOrm,
+        ProjectTags.tailwindCss,
+        ProjectTags.authJs,
+        ProjectTags.tool,
       ],
     }
   },
