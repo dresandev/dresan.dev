@@ -7,36 +7,52 @@ const { class: className } = Astro.props
 </div>
 
 <script>
-  type OrderMap = Record<string, number>
+  import { type FakeMasonryItemValue, fakeMasonryItemId } from "@/constants/ids"
+
+  type OrderMap = Record<FakeMasonryItemValue, number>
+
+  const {
+    intro,
+    moreAbout,
+    greeting,
+    moreProjects,
+    experience,
+    education,
+    myStack,
+    lastSongListened,
+  } = fakeMasonryItemId
 
   const smOrder: OrderMap = {
-    intro: 1,
-    "more-about": 4,
-    greeting: 2,
-    "more-projects": 7,
-    experience: 3,
-    education: 5,
-    "my-stack": 6,
+    [intro]: 1,
+    [moreAbout]: 5,
+    [greeting]: 2,
+    [moreProjects]: 8,
+    [experience]: 4,
+    [education]: 6,
+    [myStack]: 7,
+    [lastSongListened]: 3,
   }
 
   const mdOrder: OrderMap = {
-    intro: 1,
-    "more-about": 2,
-    greeting: 5,
-    "more-projects": 4,
-    experience: 6,
-    education: 7,
-    "my-stack": 3,
+    [intro]: 1,
+    [moreAbout]: 2,
+    [greeting]: 5,
+    [moreProjects]: 4,
+    [experience]: 7,
+    [education]: 8,
+    [myStack]: 3,
+    [lastSongListened]: 6,
   }
 
   const lgOrder: OrderMap = {
-    intro: 1,
-    "more-about": 2,
-    greeting: 3,
-    "more-projects": 4,
-    experience: 5,
-    education: 6,
-    "my-stack": 7,
+    [intro]: 1,
+    [moreAbout]: 2,
+    [greeting]: 4,
+    [moreProjects]: 5,
+    [experience]: 6,
+    [education]: 7,
+    [myStack]: 8,
+    [lastSongListened]: 3,
   }
 
   const getOrder = () => {
@@ -53,9 +69,9 @@ const { class: className } = Astro.props
     const elements = Array.from(wrapper.children)
 
     const ordered = elements.sort((a, b) => {
-      const aName = a.getAttribute("data-fake-masonry-item-id") || ""
-      const bName = b.getAttribute("data-fake-masonry-item-id") || ""
-      return (order[aName] ?? 99) - (order[bName] ?? 99)
+      const aName = a.getAttribute("data-fake-masonry-item-id") as FakeMasonryItemValue
+      const bName = b.getAttribute("data-fake-masonry-item-id") as FakeMasonryItemValue
+      return (order[aName || ""] ?? 99) - (order[bName || ""] ?? 99)
     })
 
     wrapper.replaceChildren(...ordered)
