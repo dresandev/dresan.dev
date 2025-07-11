@@ -1,4 +1,4 @@
-export interface BackgroundData {
+export interface MyBackgroundData {
   role: string
   years: string
   siteName: string
@@ -6,30 +6,30 @@ export interface BackgroundData {
   inRemote?: boolean
 }
 
-export const experience: BackgroundData[] = [
+export const experience: MyBackgroundData[] = [
   {
     role: "Front-end Developer",
     years: "2023 — 2025",
     siteName: "Freelance",
-    inRemote: true
+    inRemote: true,
   },
   {
     role: "Front-end Developer",
     years: "2022 — 2023",
     siteName: "NTT DATA",
     siteUrl: "https://co.nttdata.com",
-    inRemote: true
+    inRemote: true,
   },
   {
     role: "Front-end Developer",
     years: "2021 — 2021",
     siteName: "SENA",
     siteUrl: "https://www.sena.edu.co/es-co/Paginas/default.aspx",
-    inRemote: true
+    inRemote: true,
   },
 ]
 
-export const education: BackgroundData[] = [
+export const education: MyBackgroundData[] = [
   {
     role: "Tecnólogo en análisis y desarrollo de sistemas de información",
     years: "2020 — 2022",
