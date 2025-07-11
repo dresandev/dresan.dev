@@ -1,15 +1,17 @@
 ---
+import { fakeMasonryItemId } from "@/constants/ids"
 import { skills } from "@/data/my-skills"
 import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 ---
 
-<FakeMasonryItem id="stack">
+<FakeMasonryItem id={fakeMasonryItemId.myStack}>
   <h3>Mi Stack</h3>
 
   <div class="technologies-list">
     {
       skills.map(({ label, url, ...skill }) => (
         <a
+          class="technology-link"
           aria-label={`Visitar el sitio de ${label}`}
           data-tooltip
           data-tooltip-content={label}
@@ -32,14 +34,16 @@ import FakeMasonryItem from "@/components/fake-masonry-item.astro"
   }
 
   .technologies-list svg {
-    --size: 34px;
+    --size: clamp(1.875rem, 1.814rem + 0.259vw, 2.125rem);
     inline-size: var(--size);
     block-size: var(--size);
   }
 
-  @media screen and (min-width: 768px) {
-    .technologies-list svg {
-      --size: 30px;
-    }
+  .technology-link {
+    transition: transform 200ms ease-in-out;
+  }
+
+  .technology-link:hover {
+    transform: scale(1.15);
   }
 </style>

@@ -1,0 +1,66 @@
+---
+import SpotifyLogo from "@/components/icons/spotify-logo.astro"
+
+const res = await fetch(`${Astro.url.origin}/api/spotify`)
+const track = await res.json()
+---
+
+{
+  track.error ? (
+    <p>No hay música reproduciéndose.</p>
+  ) : (
+    <a class="card" href={track.url} target="_blank" rel="noopener noreferrer">
+      <img
+        class="album-image"
+        src={track.albumImage}
+        alt={`${track.title} album cover`}
+        width="56"
+        height="56"
+      />
+      <div>
+        <p class="title">{track.title}</p>
+        <p class="artist">{track.artist}</p>
+      </div>
+
+      <SpotifyLogo class="spotify-logo" width={32} height={32} />
+    </a>
+  )
+}
+
+<style>
+  .card {
+    --background-opacity: 0.7;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: hsl(var(--color-card-background-secondary-hsl) / var(--background-opacity));
+    transition: background-color 250ms;
+  }
+
+  .card:hover {
+    --background-opacity: 1;
+  }
+
+  .album-image {
+    border-radius: 6px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+
+  .artist {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-inline-size: 300px;
+  }
+
+  .spotify-logo {
+    margin-inline-start: auto;
+  }
+</style>

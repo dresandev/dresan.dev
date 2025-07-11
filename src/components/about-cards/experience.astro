@@ -1,14 +1,15 @@
 ---
-import { experience } from "@/data/background"
+import { fakeMasonryItemId } from "@/constants/ids"
+import { experience } from "@/data/my-background"
 import MyBackgroundCard from "@/components/my-background-card.astro"
 import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 ---
 
-<FakeMasonryItem id="experience">
+<FakeMasonryItem id={fakeMasonryItemId.experience}>
   <h3>Experiencia</h3>
 
   <div class="experiences-list">
-    {experience.map((data) => <MyBackgroundCard data={data} />)}
+    {experience.map((data) => <MyBackgroundCard data={data} isExperience />)}
   </div>
 </FakeMasonryItem>
 

@@ -1,11 +1,12 @@
 ---
+import { fakeMasonryItemId } from "@/constants/ids"
 import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 import ColombiaFlag from "@/components/icons/colombia-flag.astro"
 import ReactIcon from "@/components/icons/react-icon.astro"
 import VueJsIcon from "@/components/icons/vuejs-icon.astro"
 ---
 
-<FakeMasonryItem id="more-about">
+<FakeMasonryItem id={fakeMasonryItemId.moreAbout}>
   <h3>Un poco más</h3>
   <p class="text">
     Soy de Colombia <ColombiaFlag /> y disfruto aprender sobre el mundo del desarrollo de software, valoro

@@ -1,10 +1,11 @@
 ---
+import { fakeMasonryItemId } from "@/constants/ids"
 import { extraProjects } from "@/data/projects"
 import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 import GithubProjectCard from "@/components/github-project-card.astro"
 ---
 
-<FakeMasonryItem id="more-projects">
+<FakeMasonryItem id={fakeMasonryItemId.moreProjects}>
   <h3>Otros proyectos</h3>
 
   <ul class="project-list">

@@ -1,13 +1,14 @@
 ---
+import { fakeMasonryItemId } from "@/constants/ids"
 import { DRESAN_EMAIL } from "@/constants/dresan-data"
 import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 ---
 
-<FakeMasonryItem id="greeting" class="wrapper">
+<FakeMasonryItem id={fakeMasonryItemId.greeting} class="wrapper">
   <img
     class="dresan-3d-skin"
     src="/images/skin-3d.webp"
-    alt="Imagen de una Skin de oso creepy"
+    alt="Dresan minecraft skin 3d"
     width={408}
     height={612}
     loading="lazy"
@@ -43,12 +44,17 @@ import FakeMasonryItem from "@/components/fake-masonry-item.astro"
   }
 
   .message {
+    --background-opacity: 0.7;
     inline-size: fit-content;
     padding: 4px 10px;
-    background-color: hsl(var(--color-card-background-hls) / 0.8);
+    background-color: hsl(var(--color-card-background-secondary-hsl) / var(--background-opacity));
     border-radius: 4px 20px 20px 4px;
     text-wrap: pretty;
     transition: background-color var(--theme-transition-duration);
+  }
+
+  html[data-theme="light"] .message {
+    --background-opacity: 0.9;
   }
 
   .message:first-of-type {
