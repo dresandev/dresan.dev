@@ -1,3 +1,11 @@
+---
+import type { HTMLAttributes } from "astro/types"
+
+interface Props extends HTMLAttributes<"svg"> {}
+
+const { "stroke-width": strokeWidth = 2 } = Astro.props
+---
+
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width={20}
@@ -6,7 +14,7 @@
   stroke="currentColor"
   stroke-linecap="round"
   stroke-linejoin="round"
-  stroke-width={2}
+  stroke-width={strokeWidth}
   viewBox="0 0 24 24"
   {...Astro.props}
 >
