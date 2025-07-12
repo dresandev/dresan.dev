@@ -6,23 +6,15 @@ import Action from "@/components/ui/action.astro"
 <Layout
   title="Dresan - 404"
   description="Página no encontrada. Vuelve al inicio para seguir explorando mi trabajo y trayectoria."
+  canonical="https://www.dresan.dev/404"
+  vh={true}
 >
-  <main class="wrapper">
-    <h1 class="title">404</h1>
-    <p class="description">Página no encontrada ♨︎_♨︎</p>
-    <Action as="a" href="/">Volver al inicio</Action>
-  </main>
+  <h1 class="title">404</h1>
+  <p class="description">Página no encontrada ♨︎_♨︎</p>
+  <Action as="a" href="/">Volver al inicio</Action>
 </Layout>
 
 <style>
-  .wrapper {
-    display: grid;
-    justify-items: center;
-    align-content: center;
-    min-block-size: var(--max-content-block-size);
-    padding-block: 32px;
-  }
-
   .title {
     font-size: clamp(150px, 137.872px + 3.236vw, 200px);
     line-height: 1;

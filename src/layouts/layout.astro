@@ -7,15 +7,15 @@ import Footer from "@/components/footer.astro"
 import "@/styles/reset.css"
 import "@/styles/fonts.css"
 import "@/styles/globals.css"
-import "@/styles/utils.css"
 
 interface Props {
   title: string
   description?: string
   canonical?: string
+  vh?: boolean
 }
 
-const { title, description, canonical } = Astro.props
+const { title, description, canonical, vh = false } = Astro.props
 ---
 
 <!doctype html>
@@ -55,7 +55,7 @@ const { title, description, canonical } = Astro.props
 
     <script is:inline src="/scripts/theme.js"></script>
   </head>
-  <body>
+  <body class:list={[{ vh }]}>
     <MoonMask />
     <Header />
     <main>

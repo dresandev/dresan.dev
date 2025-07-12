@@ -12,9 +12,9 @@
   --max-inline-size: 1400px;
   --theme-transition-duration: 150ms;
   --safe-space: 5px;
-  --max-content-block-size: calc(
+  /* --max-content-block-size: calc(
     100vh - var(--header-block-size) - var(--footer-block-size) - var(--safe-space)
-  );
+  ); */
   --primary-font: Geist, Arial;
 
   font-size: 16px;
@@ -90,6 +90,20 @@ body {
   transition:
     color var(--theme-transition-duration),
     background-color var(--theme-transition-duration);
+}
+
+body.vh {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100svh;
+}
+
+body.vh main {
+  flex: 1;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  padding-block: 32px;
 }
 
 button,
