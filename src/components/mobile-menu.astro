@@ -1,9 +1,12 @@
 ---
 import { HOME_NAV_LINKS } from "@/constants/nav-links"
+import { APP_ROUTES } from "@/constants/app-routes"
 import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
 import Link from "@/components/ui/link.astro"
 import Action from "@/components/ui/action.astro"
 import ThemeSwitcher from "@/components/theme-switcher.astro"
+
+const isValidRoute = APP_ROUTES.includes(Astro.url.pathname)
 ---
 
 <button id="menu-mobile-button" class="button" type="button" aria-label="Abrir menú">
@@ -14,13 +17,14 @@ import ThemeSwitcher from "@/components/theme-switcher.astro"
   <nav class="nav">
     <ul class="nav-list">
       {
-        HOME_NAV_LINKS.map(({ href, label }) => (
-          <li>
-            <Link data-id="nav-link" class="nav-link" href={href}>
-              {label}
-            </Link>
-          </li>
-        ))
+        isValidRoute &&
+          HOME_NAV_LINKS.map(({ href, label }) => (
+            <li>
+              <Link data-id="nav-link" class="nav-link" href={href}>
+                {label}
+              </Link>
+            </li>
+          ))
       }
     </ul>
   </nav>

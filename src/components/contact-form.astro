@@ -46,11 +46,15 @@ import Textfield from "@/components/ui/textfield.astro"
 
 <script>
   import { $, $$ } from "@/utils/dom-selector"
-  const RESET_MESSAGE_TIME = 6000
+  import { FORM_BASE_URL } from "@/constants/urls"
 
   const $contactForm = $("#contact-form")!
   const $statusMessage = $("#status-message")!
   const $formActions = $$<HTMLFormElement>("#contact-form > [data-is-action]")
+
+  const RESET_MESSAGE_TIME = 6000
+  const formId = import.meta.env.PUBLIC_FORM_ID
+  const url = `${FORM_BASE_URL}/${formId}`
 
   const showMessage = (message: string, type: "success" | "error") => {
     $statusMessage.textContent = message
@@ -67,10 +71,8 @@ import Textfield from "@/components/ui/textfield.astro"
     const form = e.target as HTMLFormElement
 
     form.checkValidity()
-
     e.preventDefault()
 
-    const url = `https://formspree.io/f/${import.meta.env.PUBLIC_FORMSPREE_ID}`
     const formData = new FormData(form)
     const formDataObject = Object.fromEntries(formData.entries())
 

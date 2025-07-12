@@ -1,0 +1,14 @@
+---
+import Typography from "@/components/ui/typography.astro"
+---
+
+<Typography as="h2" variant="h2" class="section-title">
+  <slot />
+</Typography>
+
+<style>
+  .section-title {
+    padding-block-end: clamp(32px, 24.24px + 2.071vw, 64px);
+    text-align: center;
+  }
+</style>

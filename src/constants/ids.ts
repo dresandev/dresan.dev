@@ -10,5 +10,12 @@ export const fakeMasonryItemId = {
 }
 
 export type FakeMasonryItemKey = keyof typeof fakeMasonryItemId
-export type FakeMasonryItemValue = (typeof fakeMasonryItemId)[keyof typeof fakeMasonryItemId];
+export type FakeMasonryItemValue = (typeof fakeMasonryItemId)[keyof typeof fakeMasonryItemId]
 
+export const sectionId = {
+  projects: "projects",
+  aboutMe: "about",
+}
+
+export type SectionIdKey = keyof typeof sectionId
+export type SectionIdValue = (typeof fakeMasonryItemId)[keyof typeof fakeMasonryItemId]

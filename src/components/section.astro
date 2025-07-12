@@ -1,0 +1,29 @@
+---
+import type { SectionIdValue } from "@/constants/ids"
+
+interface Props {
+  id?: SectionIdValue
+  class?: string
+}
+
+const { id, class: className } = Astro.props
+---
+
+<section
+  id={id}
+  class:list={[className, "this-section"]}
+  data-add-scroll-margin={!!id}
+  {...Astro.props}
+>
+  <slot />
+</section>
+
+<style>
+  .this-section {
+    padding: var(--space-block) var(--space-inline);
+    border-block-start: 1px dashed var(--color-stroke);
+    transition:
+      background-color var(--theme-transition-duration),
+      border-block-start-color var(--theme-transition-duration);
+  }
+</style>

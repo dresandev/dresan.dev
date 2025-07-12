@@ -9,7 +9,7 @@ const rel = isTargetBlank ? "noopener" : undefined
 
 <a class={className} rel={rel} target={target} {...props}>
   <slot />
-  {isTargetBlank && <ArrowUpRight className="arrow-icon" />}
+  {isTargetBlank && <ArrowUpRight class="arrow-icon" />}
 </a>
 
 <style>
@@ -23,7 +23,7 @@ const rel = isTargetBlank ? "noopener" : undefined
     color: var(--color-text);
   }
 
-  a.arrow-icon {
+  a .arrow-icon {
     --size: 0.65em;
     inline-size: var(--size);
     block-size: var(--size);

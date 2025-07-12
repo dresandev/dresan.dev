@@ -1,10 +1,12 @@
+import { sectionId } from "./ids"
+
 export const HOME_NAV_LINKS = [
   {
-    href: "#projects",
+    href: `#${sectionId.projects}`,
     label: "Proyectos",
   },
   {
-    href: "#about",
+    href: `#${sectionId.aboutMe}`,
     label: "Sobre mí",
   },
 ]

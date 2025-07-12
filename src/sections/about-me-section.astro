@@ -1,5 +1,7 @@
 ---
-import Typography from "@/components/ui/typography.astro"
+import { sectionId } from "@/constants/ids"
+import Section from "@/components/section.astro"
+import SectionTitle from "@/components/section-title.astro"
 import FakeMasonry from "@/components/fake-masonry.astro"
 import Intro from "@/components/about-cards/intro.astro"
 import MoreAbout from "@/components/about-cards/more-about.astro"
@@ -11,8 +13,8 @@ import MyStack from "@/components/about-cards/my-stack.astro"
 import LastSongListened from "@/components/about-cards/last-song-listened.astro"
 ---
 
-<section id="about" data-set-scroll-margin class="section-wrapper">
-  <Typography as="h2" variant="h2" class="section-title">Sobre mí</Typography>
+<Section id={sectionId.aboutMe}>
+  <SectionTitle>Sobre mí</SectionTitle>
 
   <FakeMasonry class="fake-masonry">
     <Intro />
@@ -24,4 +26,4 @@ import LastSongListened from "@/components/about-cards/last-song-listened.astro"
     <Education />
     <MyStack />
   </FakeMasonry>
-</section>
+</Section>

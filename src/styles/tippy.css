@@ -1,0 +1,15 @@
+.tippy-box[data-theme~="tomato"] {
+  padding: 1px 6px;
+  font-size: 13px;
+  line-height: normal;
+  border: 2px dotted hsl(var(--color-primary-hsl) / 0.5);
+  border-radius: 20px;
+  background-color: var(--color-background-secondary);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.tippy-box[data-animation="custom"][data-state="hidden"] {
+  transform: translateY(10px);
+  opacity: 0;
+}

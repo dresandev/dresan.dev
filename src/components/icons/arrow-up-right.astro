@@ -3,7 +3,7 @@ import type { HTMLAttributes } from "astro/types"
 
 interface Props extends HTMLAttributes<"svg"> {}
 
-const { "stroke-width": strokeWidth = 2 } = Astro.props
+const { "stroke-width": strokeWidth = 2, ...props } = Astro.props
 ---
 
 <svg
@@ -16,7 +16,7 @@ const { "stroke-width": strokeWidth = 2 } = Astro.props
   stroke-linejoin="round"
   stroke-width={strokeWidth}
   viewBox="0 0 24 24"
-  {...Astro.props}
+  {...props}
 >
   <path stroke="none" d="M0 0h24v24H0z"></path>
   <path d="M17 7 7 17M8 7h9v9"></path>
