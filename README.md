@@ -1,6 +1,6 @@
 # Web personal
 
-Soy Dresan y aqui encontrarás mi portafolio, habilidades, información de contacto y blog. Explora mi trabajo y contáctame si tienes un proyecto en mente.
+I'm Dresan, and here you'll find my portfolio, skills, contact information, and blog. Explore my work and contact me if you have a project in mind.
 
 ## Screenshots
 
@@ -11,6 +11,16 @@ Soy Dresan y aqui encontrarás mi portafolio, habilidades, información de conta
 ![image](https://github.com/user-attachments/assets/a68c4db1-f514-4ae6-9ee7-f1e207c268f5)
 
 ![image](https://github.com/user-attachments/assets/b80892a0-413a-40b6-bd33-93fd2052e1d0)
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env.* file.
+
+`PUBLIC_HOST_URL`
+`PUBLIC_FORM_ID`
+`SPOTIFY_REFRESH_TOKEN`
+`SPOTIFY_CLIENT_ID`
+`SPOTIFY_CLIENT_SECRET`
 
 ## Run development server
 
