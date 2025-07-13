@@ -1,4 +1,5 @@
 ---
+import Analytics from "@vercel/analytics/astro"
 import { HOST_URL } from "@/constants/urls"
 import Header from "@/components/header.astro"
 import MoonMask from "@/components/icons/moon-mask.astro"
@@ -55,6 +56,7 @@ const { title, description, canonical, vh = false } = Astro.props
     <meta name="twitter:creator" content="@dresandev" />
 
     <script is:inline src="/scripts/theme.js"></script>
+    <Analytics />
   </head>
   <body class:list={[{ vh }]}>
     <MoonMask />

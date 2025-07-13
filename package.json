@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^8.2.1",
+    "@vercel/analytics": "^1.5.0",
     "astro": "^5.10.1",
     "embla-carousel": "^8.6.0",
     "tippy.js": "^6.3.7"

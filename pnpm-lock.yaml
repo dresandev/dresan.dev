@@ -11,6 +11,9 @@ importers:
       '@astrojs/vercel':
         specifier: ^8.2.1
         version: 8.2.1(astro@5.10.1(@types/node@24.0.7)(rollup@4.44.1)(typescript@5.8.3))(rollup@4.44.1)
+      '@vercel/analytics':
+        specifier: ^1.5.0
+        version: 1.5.0
       astro:
         specifier: ^5.10.1
         version: 5.10.1(@types/node@24.0.7)(rollup@4.44.1)(typescript@5.8.3)
