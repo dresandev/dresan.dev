@@ -1,4 +1,4 @@
-# Web personal
+# Personal web
 
 I'm Dresan, and here you'll find my portfolio, skills, contact information, and blog. Explore my work and contact me if you have a project in mind.
 
