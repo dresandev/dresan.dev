@@ -5,7 +5,7 @@ import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 
 <FakeMasonryItem id={fakeMasonryItemId.greeting} class="wrapper">
   <img
-    class="dresan-3d-skin"
+    class="image"
     src="/images/dresan-and-friend.webp"
     alt="Dresan y amigo en Minecraft"
     width={578}
@@ -26,9 +26,9 @@ import FakeMasonryItem from "@/components/fake-masonry-item.astro"
     overflow: hidden;
   }
 
-  .dresan-3d-skin {
+  .image {
     block-size: auto;
-    margin-inline: auto;
+    inline-size: 100%;
   }
 
   .message-list {
