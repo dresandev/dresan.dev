@@ -1,4 +1,5 @@
 ---
+import { APP_ROUTES } from "@/constants/app-routes"
 import { HOME_NAV_LINKS } from "@/constants/nav-links"
 import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
 import Link from "@/components/ui/link.astro"
@@ -6,6 +7,8 @@ import Action from "@/components/ui/action.astro"
 import ThemeSwitcher from "@/components/theme-switcher.astro"
 import MobileMenu from "@/components/mobile-menu.astro"
 import DresanLogo from "@/components/icons/dresan-logo.astro"
+
+const isValidRoute = APP_ROUTES.includes(Astro.url.pathname)
 ---
 
 <header class="header">
@@ -14,17 +17,19 @@ import DresanLogo from "@/components/icons/dresan-logo.astro"
       <DresanLogo class="dresan-logo" />
     </a>
 
-    <nav class="nav">
-      <ul class="nav-list">
-        {
-          HOME_NAV_LINKS.map(({ label, href }) => (
-            <li>
-              <Link href={href}>{label}</Link>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
+    {
+      isValidRoute && (
+        <nav class="nav">
+          <ul class="nav-list">
+            {HOME_NAV_LINKS.map(({ label, href }) => (
+              <li>
+                <Link href={href}>{label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )
+    }
 
     <div class="options-wrapper">
       <Action as="button" data-modal-trigger-id={CONTACT_MODAL_ID} size="small" type="button"

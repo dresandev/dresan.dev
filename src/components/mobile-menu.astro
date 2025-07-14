@@ -14,20 +14,21 @@ const isValidRoute = APP_ROUTES.includes(Astro.url.pathname)
   <span class="line"></span>
 </button>
 <div id="mobile-menu" class="menu">
-  <nav class="nav">
-    <ul class="nav-list">
-      {
-        isValidRoute &&
-          HOME_NAV_LINKS.map(({ href, label }) => (
+  {
+    isValidRoute && (
+      <nav class="nav">
+        <ul class="nav-list">
+          {HOME_NAV_LINKS.map(({ href, label }) => (
             <li>
               <Link data-id="nav-link" class="nav-link" href={href}>
                 {label}
               </Link>
             </li>
-          ))
-      }
-    </ul>
-  </nav>
+          ))}
+        </ul>
+      </nav>
+    )
+  }
   <div class="options-wrapper">
     <Action
       data-modal-trigger-id={CONTACT_MODAL_ID}
