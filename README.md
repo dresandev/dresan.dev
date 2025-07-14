@@ -1,4 +1,4 @@
-# Web personal
+# Personal web
 
 I'm Dresan, and here you'll find my portfolio, skills, contact information, and blog. Explore my work and contact me if you have a project in mind.
 
@@ -10,7 +10,7 @@ I'm Dresan, and here you'll find my portfolio, skills, contact information, and 
 
 ![image](https://github.com/user-attachments/assets/a68c4db1-f514-4ae6-9ee7-f1e207c268f5)
 
-![image](https://github.com/user-attachments/assets/b80892a0-413a-40b6-bd33-93fd2052e1d0)
+<img width="1860" height="985" alt="image" src="https://github.com/user-attachments/assets/f1bf15d4-20fc-413e-ae4a-b266fe8efe7b" />
 
 ## Environment Variables
 
