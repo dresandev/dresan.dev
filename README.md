@@ -10,7 +10,7 @@ I'm Dresan, and here you'll find my portfolio, skills, contact information, and 
 
 ![image](https://github.com/user-attachments/assets/a68c4db1-f514-4ae6-9ee7-f1e207c268f5)
 
-<img width="1860" height="985" alt="image" src="https://github.com/user-attachments/assets/f1bf15d4-20fc-413e-ae4a-b266fe8efe7b" />
+<img width="1861" height="984" alt="image" src="https://github.com/user-attachments/assets/32307dbe-bccd-4d06-9436-0ab1f4cada96" />
 
 ## Environment Variables
 
