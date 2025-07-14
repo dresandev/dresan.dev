@@ -1,36 +1,29 @@
 ---
 import { fakeMasonryItemId } from "@/constants/ids"
-import { DRESAN_EMAIL } from "@/constants/dresan-data"
 import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 ---
 
 <FakeMasonryItem id={fakeMasonryItemId.greeting} class="wrapper">
   <img
     class="dresan-3d-skin"
-    src="/images/skin-3d.webp"
-    alt="Dresan minecraft skin 3d"
-    width={408}
-    height={612}
+    src="/images/dresan-and-friend.webp"
+    alt="Dresan y amigo en Minecraft"
+    width={578}
+    height={662}
     loading="lazy"
   />
   <div class="message-list">
     <div class="message">¡Hola! 🖖🏼</div>
     <div class="message">Me llamo Javier Andrés</div>
     <div class="message">¡Pero puedes decirme Dresan!</div>
-    <div class="message">
-      Te dejo mi <a class="email-link" href={`mailto:${DRESAN_EMAIL}`} target="_blank">correo</a>
-      para ponernos en contacto 🫱🏼
-    </div>
   </div>
 </FakeMasonryItem>
 
 <style>
   .wrapper {
     position: relative;
-  }
-
-  html[data-theme="dark"] .wrapper {
-    background-color: hsl(0, 0%, 50%);
+    padding: 0;
+    overflow: hidden;
   }
 
   .dresan-3d-skin {
@@ -44,11 +37,11 @@ import FakeMasonryItem from "@/components/fake-masonry-item.astro"
     inset-block-start: unset;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
   }
 
   .message {
-    --background-opacity: 0.7;
+    --background-opacity: 0.8;
     inline-size: fit-content;
     padding: 4px 10px;
     background-color: hsl(var(--color-card-background-secondary-hsl) / var(--background-opacity));
@@ -67,18 +60,5 @@ import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 
   .message:last-of-type {
     border-bottom-left-radius: 20px;
-  }
-
-  .email-link {
-    --hover-color: hsl(211 100% 88%);
-    text-decoration: underline;
-  }
-
-  html[data-theme="light"] .email-link {
-    --hover-color: hsl(211 64% 40%);
-  }
-
-  .email-link:hover {
-    color: var(--hover-color);
   }
 </style>
