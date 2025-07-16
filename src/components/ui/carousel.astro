@@ -170,11 +170,12 @@ import ChevronRight from "@/components/icons/chevron-right.astro"
       --size: 32px;
       position: absolute;
       inset: 0 var(--control-margin);
-      inline-size: var(--size);
-      block-size: var(--size);
       display: grid;
       place-items: center;
+      inline-size: var(--size);
+      block-size: var(--size);
       margin-block: auto;
+      user-select: none;
       border-radius: 50%;
       background-color: hsl(0 0% 0% / 0.2);
       transition: transform 200ms;
@@ -186,10 +187,6 @@ import ChevronRight from "@/components/icons/chevron-right.astro"
 
     .button:active {
       transform: scale(0.9);
-    }
-
-    .button > svg {
-      color: hsl(0 0% 100%);
     }
 
     .button:first-of-type > svg {
