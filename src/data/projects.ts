@@ -211,17 +211,17 @@ export const projects: Project[] = [
 export const extraProjects = [
   {
     title: "github-tags-input",
-    descriptionI18nId: "about.otherProjects.project1.description",
+    descriptionI18nId: "about.otherProjects.project1.description" as const,
     url: "https://github.com/dresandev/github-tags-input",
   },
   {
     title: "youtube-shorts-autoscroll-extension",
-    descriptionI18nId: "about.otherProjects.project2.description",
+    descriptionI18nId: "about.otherProjects.project2.description" as const,
     url: "https://github.com/dresandev/youtube-shorts-autoscroll-extension",
   },
   {
     title: "new-component",
-    descriptionI18nId: "about.otherProjects.project3.description",
+    descriptionI18nId: "about.otherProjects.project3.description" as const,
     url: "https://github.com/dresandev/new-component",
   },
 ]
