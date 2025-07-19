@@ -1,0 +1,33 @@
+---
+import { SUPPORTED_LOCALES } from "@/i18n/ui"
+---
+
+<div>
+  {
+    SUPPORTED_LOCALES.map((locale) => (
+      <a
+        class:list={["lang-link", { unselected: Astro.currentLocale !== locale }]}
+        href={`/${locale}`}
+      >
+        {locale}
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .lang-link {
+    --size: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--size);
+    block-size: var(--size);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .lang-link.unselected {
+    color: var(--color-text-secondary);
+  }
+</style>

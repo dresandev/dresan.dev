@@ -1,21 +1,21 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { fakeMasonryItemId } from "@/constants/ids"
 import { SOCIAL_MEDIA_LINKS } from "@/constants/social-media-links"
 import FakeMasonryItem from "@/components/fake-masonry-item.astro"
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <FakeMasonryItem id={fakeMasonryItemId.intro}>
-  <p class="intro">
-    Desarrollador de Software con <em>+2 años de experiencia</em> especializado en el Front-end, enfocado
-    en los <strong>detalles</strong> y el <strong>performace</strong> para brindar una experiencia de
-    usuario representativa.
-  </p>
+  <p class="intro" set:html={t("about.intro.description")} />
 
   <div class="links-wrapper">
     {
       SOCIAL_MEDIA_LINKS.map(({ label, url, ...link }) => (
         <a
-          aria-label={`Visitar mi ${label}`}
+          aria-label={`${t("label.visitMy")} ${label}`}
           data-tooltip
           data-tooltip-content={label}
           class="link"

@@ -1,4 +1,5 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import type { MyBackgroundData } from "@/data/my-background"
 import ArrowUpRight from "@/components/icons/arrow-up-right.astro"
 
@@ -8,11 +9,14 @@ interface Props {
 }
 
 const {
-  data: { role, siteName, years, inRemote, siteUrl },
+  data: { roleI18nId, siteName, years, inRemote, siteUrl },
   isExperience,
 } = Astro.props
 
 const showBadge = isExperience && inRemote
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <div class="card">
@@ -20,7 +24,7 @@ const showBadge = isExperience && inRemote
     {years}
   </div>
   <div>
-    <h4 class="role">{role}</h4>
+    <h4 class="role">{t(roleI18nId)}</h4>
     {
       isExperience ? (
         <div class="site-data">
@@ -32,7 +36,7 @@ const showBadge = isExperience && inRemote
           ) : (
             <div class="site-name">{siteName}</div>
           )}
-          {showBadge && <div class="badge">Remoto</div>}
+          {showBadge && <div class="badge">{t("text.remote")}</div>}
         </div>
       ) : (
         <div class="site-name">{siteName}</div>

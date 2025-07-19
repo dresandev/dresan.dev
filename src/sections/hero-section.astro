@@ -1,14 +1,18 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
 import Action from "@/components/ui/action.astro"
 import Typography from "@/components/ui/typography.astro"
 import CopyEmailSmallButton from "@/components/copy-email-small-button.astro"
 import ArrowDown from "@/components/icons/arrow-down.astro"
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <section class="section">
   <p class="phrase">
-    El código más limpio es el que no se escribió
+    {t("hero.phrase")}
     <Action
       as="a"
       href="https://www.linkedin.com/in/dresandev"
@@ -17,16 +21,14 @@ import ArrowDown from "@/components/icons/arrow-down.astro"
       rounded="full"
       size="small"
     >
-      Disponible para trabajar <span class="available-circle"></span>
+      {t("hero.available")}
+      <span class="available-circle"></span>
     </Action>
   </p>
   <Typography as="h1" variant="h1" color="gradient" class="title">
-    Dresan, Desarrollador Frontend
+    {t("hero.title")}
   </Typography>
-  <p class="intro-subtitle">
-    Hago que tu proyecto <strong>destaque</strong> con la <strong>elegancia</strong> y la
-    <strong>calidad</strong> que merece.
-  </p>
+  <p class="intro-slogan" set:html={t("hero.slogan")} />
   <div class="actions">
     <Action
       as="button"
@@ -34,7 +36,7 @@ import ArrowDown from "@/components/icons/arrow-down.astro"
       class="action-button"
       type="button"
     >
-      ʕっ•ᴥ•ʔっ Contáctame
+      ʕっ•ᴥ•ʔっ {t("hero.contactButton")}
     </Action>
     <Action
       as="a"
@@ -43,7 +45,8 @@ import ArrowDown from "@/components/icons/arrow-down.astro"
       class="action-button"
       variant="outlined"
     >
-      Descargar Curriculum <ArrowDown />
+      {t("hero.downloadCv")}
+      <ArrowDown />
     </Action>
     <CopyEmailSmallButton class="copy-email-button" />
   </div>
@@ -98,7 +101,7 @@ import ArrowDown from "@/components/icons/arrow-down.astro"
     pointer-events: none;
   }
 
-  .intro-subtitle {
+  .intro-slogan {
     padding: var(--space-inline);
     font-size: clamp(18px, 17.296px + 0.141vw, 20px);
     color: var(--color-text-secondary);
@@ -106,7 +109,7 @@ import ArrowDown from "@/components/icons/arrow-down.astro"
     transition: border-block-end-color var(--theme-transition-duration);
   }
 
-  .intro-subtitle > strong {
+  .intro-slogan > strong {
     color: var(--color-text);
     font-weight: 500;
   }

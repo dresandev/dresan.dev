@@ -1,12 +1,16 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { DRESAN_EMAIL } from "@/constants/dresan-data"
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <div class="wrapper">
-  <div data-id="fake-toast" class="toast">¡Espero saber pronto de ti!</div>
+  <div data-id="fake-toast" class="toast">{t("label.copyEmailButton.message")}</div>
   <button data-id="copy-email-button" class="button" type="button">
     <span>{DRESAN_EMAIL}</span>
-    <div class="hint-message">Click para copiar</div>
+    <div class="hint-message">{t("text.clickToCopy")}</div>
   </button>
 </div>
 

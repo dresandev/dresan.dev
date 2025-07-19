@@ -1,17 +1,22 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import Layout from "@/layouts/layout.astro"
 import Action from "@/components/ui/action.astro"
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <Layout
   title="Dresan - 404"
-  description="Página no encontrada. Vuelve al inicio para seguir explorando mi trabajo y trayectoria."
+  description={t("seo.404.description")}
   canonical="https://www.dresan.dev/404"
   vh={true}
 >
   <h1 class="title">404</h1>
-  <p class="description">Página no encontrada ♨︎_♨︎</p>
-  <Action as="a" href="/">Volver al inicio</Action>
+  <p class="description">{t("404.description")} ♨︎_♨︎</p>
+  <Action as="a" href={getRelativeLocaleUrl(locale, "/")}>{t("404.goBackHomeLink")}</Action>
 </Layout>
 
 <style>

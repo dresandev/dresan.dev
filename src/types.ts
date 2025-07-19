@@ -1,5 +1,7 @@
+import type { UiKey } from "@/i18n/ui"
+
 interface Link {
-  label: string
+  labelI18nId: UiKey
   url: string
   icon: (_props: Record<string, any>) => any
 }
@@ -19,13 +21,13 @@ export interface Project {
   id: string
   title: string
   imageUrl: string
-  description: string
+  descriptionI18nId: UiKey
   gradient: string
   modalData: ProjectModalData
 }
 
 export interface ProjectModalData {
-  description: string
+  descriptionI18nId: UiKey
   links: Link[]
   images: Image[]
   tags: ProjectTag[]

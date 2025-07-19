@@ -3,32 +3,39 @@ import { ProjectTags } from "./project-tags"
 import ExternalLinkIcon from "@/components/icons/external-link-icon.astro"
 import GitHubIcon from "@/components/icons/github-icon.astro"
 
+type FeaturedProjectName = "dreflix" | "vexara" | "minestyle" | "linkpeek"
+
 const IMAGE_BASE_PATH = "/images/projects"
 const COVER_IMAGE_PATH = `${IMAGE_BASE_PATH}/cover`
 const MODAL_IMAGE_PATH = `${IMAGE_BASE_PATH}/modal`
 
-const VIEW_WEB_LABEL = "Visitar sitio"
+const VIEW_WEB_LABEL_I18N_ID = "projects.link.viewWeb" as const
+const VIEW_CODE_LABEL_I18N_ID = "projects.link.viewCode" as const
 const VIEW_WEB_ICON = ExternalLinkIcon
-const VIEW_CODE_LABEL = "Ver código"
 const VIEW_CODE_ICON = GitHubIcon
+
+
+const getProjectDescriptionI18nId = (projectName: FeaturedProjectName, short: boolean = false) => {
+  return `projects.description${short ? ".short" : ""}.${projectName}` as const
+}
 
 export const projects: Project[] = [
   {
     id: "dreflix-project",
     title: "Dreflix",
-    description: "App de exploración de películas, al estilo de Amazon Prime Video y Crunchyroll.",
+    descriptionI18nId: getProjectDescriptionI18nId("dreflix", true),
     imageUrl: `${COVER_IMAGE_PATH}/dreflix.webp`,
     gradient: "linear-gradient(135deg, #ff2e63, #7b2cbf, #2a2a72)",
     modalData: {
-      description: "Aplicación web para explorar películas, similar a Amazon Prime Video y Crunchyroll, con funcionalidades como scroll infinito, un buscador de películas optimizado para la navegación por teclado similar al de YouTube, y un carrusel para promocionar películas con características como reproducción automática solo cuando la película sea visible (es decir, cuando esté en el viewport y la pestaña tenga el foco), entre otras características.",
+      descriptionI18nId: getProjectDescriptionI18nId("dreflix"),
       links: [
         {
-          label: VIEW_WEB_LABEL,
+          labelI18nId: VIEW_WEB_LABEL_I18N_ID,
           url: "https://dreflix.vercel.app",
           icon: VIEW_WEB_ICON
         },
         {
-          label: VIEW_CODE_LABEL,
+          labelI18nId: VIEW_CODE_LABEL_I18N_ID,
           url: "https://github.com/dresandev/dreflix",
           icon: VIEW_CODE_ICON
         },
@@ -64,19 +71,19 @@ export const projects: Project[] = [
   {
     id: "vexara-project",
     title: "Vexara",
-    description: "Clon del e-commerce de Bershka, implementando el flujo principal de un e-commerce.",
+    descriptionI18nId: getProjectDescriptionI18nId("vexara", true),
     imageUrl: `${COVER_IMAGE_PATH}/vexara.webp`,
     gradient: "linear-gradient(135deg, #5b4434, #e5b5f0, #486eff)",
     modalData: {
-      description: "Clon del ecommerce de Bershka, implementando funcionalidades principales como el flujo de autenticación con auth.js, el flujo de pago de productos mediante la pasarela de pagos MercadoPago, maquetación de la app con precisión pixel perfect, y diseño responsive sin usar JavaScript (como se hace originalmente). Además, se implementó código funcional en producción.",
+      descriptionI18nId: getProjectDescriptionI18nId("vexara"),
       links: [
         {
-          label: VIEW_WEB_LABEL,
+          labelI18nId: VIEW_WEB_LABEL_I18N_ID,
           url: "https://vexara.vercel.app",
           icon: VIEW_WEB_ICON
         },
         {
-          label: VIEW_CODE_LABEL,
+          labelI18nId: VIEW_CODE_LABEL_I18N_ID,
           url: "https://github.com/dresandev/vexara",
           icon: VIEW_CODE_ICON
         },
@@ -109,19 +116,19 @@ export const projects: Project[] = [
   {
     id: "minestyle-project",
     title: "MineStyle",
-    description: "Aplicación para ver tu skin de Minecraft con armadura y adornos de armadura, enfocada en el look and feel 😎.",
+    descriptionI18nId: getProjectDescriptionI18nId("minestyle", true),
     imageUrl: `${COVER_IMAGE_PATH}/minestyle.webp`,
     gradient: "linear-gradient(135deg, #e8a0d8ff, #75aff1ff, #a8ccdcff)",
     modalData: {
-      description: "Aplicación para ver tu skin de Minecraft con armadura y adornos de armadura, enfocada en el look and feel 😎. Utilizando React three fiber y como base el codigo de https://github.com/bs-community/skinview3d",
+      descriptionI18nId: getProjectDescriptionI18nId("minestyle"),
       links: [
         {
-          label: VIEW_WEB_LABEL,
+          labelI18nId: VIEW_WEB_LABEL_I18N_ID,
           url: "https://minestyle.vercel.app",
           icon: VIEW_WEB_ICON
         },
         {
-          label: VIEW_CODE_LABEL,
+          labelI18nId: VIEW_CODE_LABEL_I18N_ID,
           url: "https://github.com/dresandev/minestyle",
           icon: VIEW_CODE_ICON
         },
@@ -158,19 +165,19 @@ export const projects: Project[] = [
   {
     id: "linkpeek-project",
     title: "Linkpeek",
-    description: "App para gestionar links, implementando scraping para la obtención de información de los sitios web.",
+    descriptionI18nId: getProjectDescriptionI18nId("linkpeek", true),
     imageUrl: `${COVER_IMAGE_PATH}/linkpeek.webp`,
     gradient: "linear-gradient(135deg, #a066ff, #ff5e7e, #63e3fdff)",
     modalData: {
-      description: "Aplicación para gestionar enlaces, realizando scraping para obtener datos como el título, descripción e imagen usada en el Open Graph Protocol (OGP). Incluye un componente para agregar etiquetas similar al TagsInput de GitHub. El enfoque principal es del lado del servidor, de manera que la mayoría del trabajo se realiza en el servidor.",
+      descriptionI18nId: getProjectDescriptionI18nId("linkpeek"),
       links: [
         {
-          label: VIEW_WEB_LABEL,
+          labelI18nId: VIEW_WEB_LABEL_I18N_ID,
           url: "https://linkpeek.vercel.app",
           icon: VIEW_WEB_ICON
         },
         {
-          label: VIEW_CODE_LABEL,
+          labelI18nId: VIEW_CODE_LABEL_I18N_ID,
           url: "https://github.com/dresandev/linkpeek",
           icon: VIEW_CODE_ICON
         },
@@ -204,17 +211,17 @@ export const projects: Project[] = [
 export const extraProjects = [
   {
     title: "github-tags-input",
-    description: "Recreating the component to add Tags on GitHub 🩻",
+    descriptionI18nId: "about.otherProjects.project1.description",
     url: "https://github.com/dresandev/github-tags-input",
   },
   {
     title: "youtube-shorts-autoscroll-extension",
-    description: "Add a button at the bottom left that when active automatically scrolls the YouTube shorts👆🏼.",
+    descriptionI18nId: "about.otherProjects.project2.description",
     url: "https://github.com/dresandev/youtube-shorts-autoscroll-extension",
   },
   {
     title: "new-component",
-    description: "⚛⚡ CLI utility for quickly creating new React components. ⚡⚛",
+    descriptionI18nId: "about.otherProjects.project3.description",
     url: "https://github.com/dresandev/new-component",
   },
 ]

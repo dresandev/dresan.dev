@@ -1,12 +1,16 @@
 ---
 import type { Project } from "@/types"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import ProjectModal from "@/components/project-modal.astro"
 
 interface Props extends Project {}
 
-const { id, title, description, imageUrl, gradient, modalData } = Astro.props
+const { id, title, descriptionI18nId, imageUrl, gradient, modalData } = Astro.props
 
 const modalId = `${id}-modal`
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <button
@@ -28,7 +32,7 @@ const modalId = `${id}-modal`
     />
   </figure>
   <h3 class="title">{title}</h3>
-  <p>{description}</p>
+  <p>{t(descriptionI18nId)}</p>
 </button>
 <ProjectModal id={modalId} title={title} gradient={gradient} {...modalData} />
 

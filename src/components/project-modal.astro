@@ -1,5 +1,6 @@
 ---
 import type { ProjectModalData } from "@/types"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import Modal from "@/components/ui/modal.astro"
 import Carousel from "@/components/ui/carousel.astro"
 import Slide from "@/components/ui/slide.astro"
@@ -11,9 +12,12 @@ interface Props extends ProjectModalData {
   gradient: string
 }
 
-const { id, title, description, images, gradient, links, tags } = Astro.props
+const { id, title, descriptionI18nId, images, gradient, links, tags } = Astro.props
 
 const hasSeveralItems = images.length > 1
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <Modal id={id} class="modal">
@@ -32,7 +36,7 @@ const hasSeveralItems = images.length > 1
                   srcset={`${mobile} 675w, ${desktop} 950w`}
                   sizes="(width <= 768px) 675px, 950px"
                   src={desktop}
-                  alt={`Imagen de previsualización ${++index} del proyecto ${title} desarrollado por Dresan`}
+                  alt={`${t("projects.modal.carousel.image.alt.part1")} ${title} ${t("projects.modal.carousel.image.alt.part2")} - #${++index}`}
                   width={950}
                   height={500}
                   loading="lazy"
@@ -46,7 +50,7 @@ const hasSeveralItems = images.length > 1
             srcset={`${images[0].mobile} 675w, ${images[0].desktop} 950w`}
             sizes="(width <= 768px) 675px, 950px"
             src={images[0].desktop}
-            alt={`Imagen de previsualización del proyecto ${title} desarrollado por Dresan`}
+            alt={`${t("projects.modal.carousel.image.alt.part1")} ${title} ${t("projects.modal.carousel.image.alt.part2")}`}
             width={950}
             height={500}
             loading="lazy"
@@ -59,21 +63,21 @@ const hasSeveralItems = images.length > 1
       <div class="header">
         <h2 class="title block">{title}</h2>
         {
-          links.map(({ url, label, ...link }) => (
-            <a class="action block" href={url} target="_blank" aria-label={label}>
+          links.map(({ url, labelI18nId, ...link }) => (
+            <a class="action block" href={url} target="_blank" aria-label={t(labelI18nId)}>
               <link.icon />
             </a>
           ))
         }
         <form method="dialog">
-          <button class="action close block" aria-label="Cerrar modal">
+          <button class="action close block" aria-label={t("label.closeModal")}>
             <X />
           </button>
         </form>
       </div>
 
       <div class="tags-wrapper block">
-        <h3 class="subtitle">Tags</h3>
+        <h3 class="subtitle">{t("text.tags")}</h3>
         <div class="tag-list">
           {
             tags.map(({ name, colorLightHsl, colorDarkHsl }) => (
@@ -92,8 +96,8 @@ const hasSeveralItems = images.length > 1
       </div>
 
       <div class="info block">
-        <h3 class="subtitle">Descripción general</h3>
-        <p>{description}</p>
+        <h3 class="subtitle">{t("projects.description.title")}</h3>
+        <p class="description" set:html={t(descriptionI18nId)} />
       </div>
     </div>
   </div>
@@ -249,6 +253,10 @@ const hasSeveralItems = images.length > 1
     font-weight: 600;
     padding-block-end: 12px;
     font-size: 16px;
+  }
+
+  :global(.description > a:hover) {
+    text-decoration: underline;
   }
 
   @media (hover: hover) {

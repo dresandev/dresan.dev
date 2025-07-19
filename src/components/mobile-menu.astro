@@ -1,9 +1,14 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n"
+import { getLangFromUrl } from "@/i18n/utils"
 import { HOME_NAV_LINKS } from "@/constants/nav-links"
 import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
 import Link from "@/components/ui/link.astro"
 import Action from "@/components/ui/action.astro"
 import ThemeSwitcher from "@/components/theme-switcher.astro"
+import LangSelector from "@/components/lang-selector.astro"
+
+const locale = getLangFromUrl(Astro.url)
 ---
 
 <button id="menu-mobile-button" class="button" type="button" aria-label="Abrir menú">
@@ -14,13 +19,17 @@ import ThemeSwitcher from "@/components/theme-switcher.astro"
   <nav class="nav">
     <ul class="nav-list">
       {
-        HOME_NAV_LINKS.map(({ href, label }) => (
-          <li>
-            <Link data-id="nav-link" class="nav-link" href={`/${href}`}>
-              {label}
-            </Link>
-          </li>
-        ))
+        HOME_NAV_LINKS.map(({ href, labelI18nId: label }) => {
+          const relativeLocaleUrl = `${getRelativeLocaleUrl(locale, "/")}${href}`
+
+          return (
+            <li>
+              <Link data-id="nav-link" class="nav-link" href={relativeLocaleUrl}>
+                {label}
+              </Link>
+            </li>
+          )
+        })
       }
     </ul>
   </nav>
@@ -35,9 +44,16 @@ import ThemeSwitcher from "@/components/theme-switcher.astro"
     >
       Contactar
     </Action>
-    <div class="theme-wrapper">
-      <span>Tema</span>
-      <ThemeSwitcher />
+
+    <div class="inner-options-wrapper">
+      <div class="option-item">
+        <span class="option-label">Tema</span>
+        <ThemeSwitcher />
+      </div>
+      <div class="option-item">
+        <span class="option-label">Idioma</span>
+        <LangSelector />
+      </div>
     </div>
   </div>
 </div>
@@ -146,15 +162,22 @@ import ThemeSwitcher from "@/components/theme-switcher.astro"
     margin-inline: var(--items-padding);
   }
 
-  .theme-wrapper {
+  .inner-options-wrapper {
+    padding-block: 12px;
+    border-block-start: 1px dashed var(--color-stroke);
+    transition: border-block-start-color var(--theme-transition-duration);
+  }
+
+  .option-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    block-size: 72px;
+    block-size: 42px;
     padding-inline: var(--items-padding);
+  }
+
+  .option-label {
     color: var(--color-text-secondary);
-    border-block-start: 1px dashed var(--color-stroke);
-    transition: border-block-start-color var(--theme-transition-duration);
   }
 
   @media screen and (min-width: 769px) {

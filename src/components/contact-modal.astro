@@ -1,8 +1,12 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
 import Modal from "@/components/ui/modal.astro"
 import ContactForm from "@/components/contact-form.astro"
 import X from "@/components/icons/x.astro"
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <Modal id={CONTACT_MODAL_ID} class="modal">
@@ -11,7 +15,7 @@ import X from "@/components/icons/x.astro"
       <X />
     </button>
   </form>
-  <h2 class="title">Contactar</h2>
+  <h2 class="title">{t("contactForm.title")}</h2>
   <ContactForm />
 </Modal>
 

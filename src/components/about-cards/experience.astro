@@ -1,12 +1,16 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { fakeMasonryItemId } from "@/constants/ids"
 import { experience } from "@/data/my-background"
 import MyBackgroundCard from "@/components/my-background-card.astro"
 import FakeMasonryItem from "@/components/fake-masonry-item.astro"
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <FakeMasonryItem id={fakeMasonryItemId.experience}>
-  <h3>Experiencia</h3>
+  <h3>{t("about.experience.title")}</h3>
 
   <div class="experiences-list">
     {experience.map((data) => <MyBackgroundCard data={data} isExperience />)}

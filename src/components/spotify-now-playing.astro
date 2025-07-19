@@ -1,19 +1,23 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import SpotifyLogo from "@/components/icons/spotify-logo.astro"
 
 const res = await fetch(`${Astro.url.origin}/api/spotify`)
 const track = await res.json()
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 {
   track.error ? (
-    <p>No hay música reproduciéndose.</p>
+    <p>{t("nowPlaying.message.error")}</p>
   ) : (
     <a class="card" href={track.url} target="_blank" rel="noopener noreferrer">
       <img
         class="album-image"
         src={track.albumImage}
-        alt={`${track.title} album cover`}
+        alt={`${track.title} ${t("nowPlaying.image.alt")}`}
         width="56"
         height="56"
         loading="lazy"

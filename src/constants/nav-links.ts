@@ -3,10 +3,10 @@ import { sectionId } from "./ids"
 export const HOME_NAV_LINKS = [
   {
     href: `#${sectionId.projects}`,
-    label: "Proyectos",
+    labelI18nId: "nav.link.projects" as const,
   },
   {
     href: `#${sectionId.aboutMe}`,
-    label: "Sobre mí",
+    labelI18nId: "nav.link.about" as const,
   },
 ]

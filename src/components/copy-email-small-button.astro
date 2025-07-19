@@ -1,13 +1,18 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { DRESAN_EMAIL } from "@/constants/dresan-data"
 import EmailIcon from "@/components/icons/email-icon.astro"
 import CopyIcon from "@/components/icons/copy-icon.astro"
 import CheckIcon from "@/components/icons/check-icon.astro"
 
 const { class: className, ...props } = Astro.props
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <button
+  aria-label={t("label.copyEmailButton")}
   data-id="copy-email-small-button"
   data-state="not-copied"
   class=`button ${className}`

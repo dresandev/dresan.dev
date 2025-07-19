@@ -1,13 +1,17 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { sectionId } from "@/constants/ids"
 import { projects } from "@/data/projects"
 import Section from "@/components/section.astro"
 import SectionTitle from "@/components/section-title.astro"
 import ProjectCard from "@/components/project-card.astro"
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <Section id={sectionId.projects} class="section">
-  <SectionTitle>Proyectos destacados</SectionTitle>
+  <SectionTitle>{t("projects.title")}</SectionTitle>
   <div class="projects-wrapper">
     {projects.map((data) => <ProjectCard {...data} />)}
   </div>

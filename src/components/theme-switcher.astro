@@ -22,7 +22,11 @@
 </button>
 
 <script>
+  import { getLangFromUrl, useTranslations } from "@/i18n/utils"
   import { $$ } from "@/utils/dom-selector"
+
+  const locale = getLangFromUrl(new URL(window.location.href))
+  const t = useTranslations(locale)
 
   const storageKey = "theme-preference"
 
@@ -54,7 +58,10 @@
     document.documentElement.setAttribute("data-theme", theme.value)
 
     $themeSwitchers.forEach((button) => {
-      button.setAttribute("title", `Cambiar a modo ${theme.value === "dark" ? "claro" : "oscuro"}`)
+      button.setAttribute(
+        "title",
+        `${t("themeSwitcher.label")} ${theme.value === "dark" ? t("text.light") : t("text.dark")}`,
+      )
     })
   }
 

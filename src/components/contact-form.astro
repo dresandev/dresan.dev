@@ -1,15 +1,19 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import Label from "@/components/ui/label.astro"
 import Action from "@/components/ui/action.astro"
 import Textfield from "@/components/ui/textfield.astro"
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <form id="contact-form" class="form">
   <Label>
-    <span class="label">Nombre</span>
+    <span class="label">{t("contactForm.name.label")}</span>
     <Textfield
       data-is-action
-      placeholder="Pepito Perez Pepian"
+      placeholder={t("contactForm.name.placeholder")}
       name="name"
       autocomplete="name"
       required
@@ -17,10 +21,10 @@ import Textfield from "@/components/ui/textfield.astro"
   </Label>
 
   <Label>
-    <span class="label">Correo</span>
+    <span class="label">{t("contactForm.email.label")}</span>
     <Textfield
       data-is-action
-      placeholder="pepito@perez.com"
+      placeholder={t("contactForm.email.placeholder")}
       type="email"
       name="email"
       autocomplete="email"
@@ -29,24 +33,28 @@ import Textfield from "@/components/ui/textfield.astro"
   </Label>
 
   <Label>
-    <span class="label">Mensaje</span>
+    <span class="label">{t("contactForm.message.label")}</span>
     <Textfield
       data-is-action
       multiline
-      placeholder="Hola Dresan, (Tu bonito mensaje)"
+      placeholder={t("contactForm.message.placeholder")}
       name="message"
       required
     />
   </Label>
 
-  <Action data-is-action as="button" size="medium" type="submit">Enviar</Action>
+  <Action data-is-action as="button" size="medium" type="submit">{t("text.send")}</Action>
 
   <p id="status-message" class="status-message hidden" aria-live="polite" role="status"></p>
 </form>
 
 <script>
+  import { getLangFromUrl, useTranslations } from "@/i18n/utils"
   import { $, $$ } from "@/utils/dom-selector"
   import { FORM_BASE_URL } from "@/constants/urls"
+
+  const locale = getLangFromUrl(new URL(window.location.href))
+  const t = useTranslations(locale)
 
   const $contactForm = $("#contact-form")!
   const $statusMessage = $("#status-message")!
@@ -86,14 +94,17 @@ import Textfield from "@/components/ui/textfield.astro"
       })
 
       if (!response.ok) {
-        showMessage(`Error en la solicitud: Código ${response.status}.`, "error")
+        showMessage(
+          `${t("contactForm.message.error.status")}: ${t("text.code")} ${response.status}`,
+          "error",
+        )
         return
       }
 
-      showMessage("Gracias por tu mensaje 🩵, responderé lo antes posible.", "success")
+      showMessage(t("contactForm.message.success"), "success")
       form.reset()
     } catch (err) {
-      showMessage("Algo salió mal, intenta más tarde.", "error")
+      showMessage(t("contactForm.message.error"), "error")
     } finally {
       $formActions.forEach((el) => el.removeAttribute("disabled"))
       setTimeout(hideMessage, RESET_MESSAGE_TIME)

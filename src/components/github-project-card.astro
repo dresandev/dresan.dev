@@ -1,11 +1,17 @@
 ---
+import type { UiKey } from "@/i18n/ui"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+
 interface Props {
   url: string
   title: string
-  description?: string
+  descriptionI18nId: UiKey
 }
 
-const { url, title, description } = Astro.props
+const { url, title, descriptionI18nId } = Astro.props
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <li class="card">
@@ -14,7 +20,7 @@ const { url, title, description } = Astro.props
       {title}
     </a>
   </h4>
-  <p>{description}</p>
+  <p>{t(descriptionI18nId)}</p>
 </li>
 
 <style>

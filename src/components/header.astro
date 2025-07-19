@@ -1,4 +1,7 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n"
+import { useTranslations } from "@/i18n/utils"
+import { getLangFromUrl } from "@/i18n/utils"
 import { HOME_NAV_LINKS } from "@/constants/nav-links"
 import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
 import Link from "@/components/ui/link.astro"
@@ -6,30 +9,39 @@ import Action from "@/components/ui/action.astro"
 import ThemeSwitcher from "@/components/theme-switcher.astro"
 import MobileMenu from "@/components/mobile-menu.astro"
 import DresanLogo from "@/components/icons/dresan-logo.astro"
+import LangSelector from "@/components/lang-selector.astro"
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <header class="header">
   <div class="content-wrapper">
-    <a href="/" aria-label="Ir al inicio">
+    <a href={getRelativeLocaleUrl(locale, "/")} aria-label="Ir al inicio">
       <DresanLogo class="dresan-logo" />
     </a>
 
     <nav class="nav">
       <ul class="nav-list">
         {
-          HOME_NAV_LINKS.map(({ label, href }) => (
-            <li>
-              <Link href={`/${href}`}>{label}</Link>
-            </li>
-          ))
+          HOME_NAV_LINKS.map(({ labelI18nId, href }) => {
+            const relativeLocaleUrl = `${getRelativeLocaleUrl(locale, "/")}${href}`
+
+            return (
+              <li>
+                <Link href={relativeLocaleUrl}>{t(labelI18nId)}</Link>
+              </li>
+            )
+          })
         }
       </ul>
     </nav>
 
     <div class="options-wrapper">
-      <Action as="button" data-modal-trigger-id={CONTACT_MODAL_ID} size="small" type="button"
-        >Contactar</Action
-      >
+      <Action as="button" data-modal-trigger-id={CONTACT_MODAL_ID} size="small" type="button">
+        {t("contactButton")}
+      </Action>
+      <LangSelector />
       <ThemeSwitcher />
     </div>
 
