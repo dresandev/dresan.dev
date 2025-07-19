@@ -1,6 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n"
-import { getLangFromUrl } from "@/i18n/utils"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { HOME_NAV_LINKS } from "@/constants/nav-links"
 import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
 import Link from "@/components/ui/link.astro"
@@ -9,6 +9,7 @@ import ThemeSwitcher from "@/components/theme-switcher.astro"
 import LangSelector from "@/components/lang-selector.astro"
 
 const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <button id="menu-mobile-button" class="button" type="button" aria-label="Abrir menú">
