@@ -55,31 +55,44 @@ const { class: className } = Astro.props
     [lastSongListened]: 3,
   }
 
-  const getOrder = () => {
+  const getBreakpoint = (): "sm" | "md" | "lg" => {
     const width = window.innerWidth
-    if (width >= 1400) return lgOrder
-    if (width >= 900) return mdOrder
-    return smOrder
+    if (width >= 1400) return "lg"
+    if (width >= 900) return "md"
+    return "sm"
+  }
+
+  const orderMapByBreakpoint = {
+    sm: smOrder,
+    md: mdOrder,
+    lg: lgOrder,
   }
 
   const wrapper = document.querySelector("[data-id='fake-masonry']")!
 
+  let currentBreakpoint = getBreakpoint()
+
   const sortElements = () => {
-    const order = getOrder()
+    const order = orderMapByBreakpoint[currentBreakpoint]
     const elements = Array.from(wrapper.children)
 
-    const ordered = elements.sort((a, b) => {
-      const aName = a.getAttribute("data-fake-masonry-item-id") as FakeMasonryItemValue
-      const bName = b.getAttribute("data-fake-masonry-item-id") as FakeMasonryItemValue
-      return (order[aName || ""] ?? 99) - (order[bName || ""] ?? 99)
+    elements.sort((a, b) => {
+      const aId = a.getAttribute("data-fake-masonry-item-id") as FakeMasonryItemValue
+      const bId = b.getAttribute("data-fake-masonry-item-id") as FakeMasonryItemValue
+      return (order[aId] ?? 99) - (order[bId] ?? 99)
     })
 
-    wrapper.replaceChildren(...ordered)
+    wrapper.replaceChildren(...elements)
   }
 
   sortElements()
 
-  window.addEventListener("resize", sortElements)
+  window.addEventListener("resize", () => {
+    const newBreakpoint = getBreakpoint()
+    if (newBreakpoint === currentBreakpoint) return
+    currentBreakpoint = newBreakpoint
+    sortElements()
+  })
 </script>
 
 <style>
