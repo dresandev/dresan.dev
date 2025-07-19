@@ -19,13 +19,13 @@ const locale = getLangFromUrl(Astro.url)
   <nav class="nav">
     <ul class="nav-list">
       {
-        HOME_NAV_LINKS.map(({ href, labelI18nId: label }) => {
+        HOME_NAV_LINKS.map(({ href, labelI18nId }) => {
           const relativeLocaleUrl = `${getRelativeLocaleUrl(locale, "/")}${href}`
 
           return (
             <li>
               <Link data-id="nav-link" class="nav-link" href={relativeLocaleUrl}>
-                {label}
+                {t(labelI18nId)}
               </Link>
             </li>
           )
