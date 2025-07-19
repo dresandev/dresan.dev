@@ -1,6 +1,5 @@
 // @ts-check
 import vercel from "@astrojs/vercel"
-import sitemap from "@astrojs/sitemap"
 import { defineConfig } from "astro/config"
 
 // https://astro.build/config
@@ -8,15 +7,6 @@ export default defineConfig({
   site: "https://www.dresan.dev/",
   output: "server",
   adapter: vercel(),
-  integrations: [sitemap({
-    i18n: {
-      defaultLocale: "es",
-      locales: {
-        es: "es",
-        en: "en",
-      },
-    },
-  })],
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],
