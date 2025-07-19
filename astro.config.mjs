@@ -8,7 +8,15 @@ export default defineConfig({
   site: "https://www.dresan.dev/",
   output: "server",
   adapter: vercel(),
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    i18n: {
+      defaultLocale: "es",
+      locales: {
+        es: "es-CO",
+        en: "en-US",
+      },
+    },
+  })],
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],
