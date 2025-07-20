@@ -86,6 +86,7 @@ export const UI = {
   en: {
     "seo.home.title": "Dresan - Frontend developer",
     "seo.home.description": "Hi 👋🏻, I'm Dresan. Here you'll find my portfolio, skills, contact information, and a little bit about myself. Explore my work and contact me if you have a project in mind.",
+    "seo.404.description": "Page not found. Return to the top to continue exploring my work and career.",
     "nav.link.projects": "Projects",
     "nav.link.about": "About me",
     "contactButton": "Contact",

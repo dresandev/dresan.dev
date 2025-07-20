@@ -1,6 +1,7 @@
 ---
 import Analytics from "@vercel/analytics/astro"
 import { HOST_URL } from "@/constants/urls"
+import { getAlternateCanonicalLinks } from "@/helpers/get-alternate-canonical-links"
 import Header from "@/components/header.astro"
 import MoonMask from "@/components/icons/moon-mask.astro"
 import Modals from "@/components/modals.astro"
@@ -31,7 +32,16 @@ const locale = Astro.currentLocale
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content={description} />
 
-    {canonical && <link rel="canonical" href={canonical} />}
+    {
+      canonical && (
+        <>
+          <link rel="canonical" href={canonical} />
+          {getAlternateCanonicalLinks(canonical).map(({ href, hreflang }) => (
+            <link rel="alternate" hreflang={hreflang} href={href} />
+          ))}
+        </>
+      )
+    }
 
     <link
       rel="preload"
