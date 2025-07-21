@@ -16,8 +16,8 @@ I'm Dresan, and here you'll find my portfolio, skills, contact information, and 
 
 To run this project, you will need to add the following environment variables to your .env.* file.
 
-`PUBLIC_HOST_URL`
-`PUBLIC_FORM_ID`
+`HOST_URL`
+`FORM_ID`
 `SPOTIFY_REFRESH_TOKEN`
 `SPOTIFY_CLIENT_ID`
 `SPOTIFY_CLIENT_SECRET`

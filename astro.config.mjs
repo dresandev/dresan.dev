@@ -1,8 +1,7 @@
 // @ts-check
 import vercel from "@astrojs/vercel"
-import { defineConfig } from "astro/config"
+import { defineConfig, envField } from "astro/config"
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://www.dresan.dev/",
   output: "server",
@@ -12,6 +11,15 @@ export default defineConfig({
     locales: ["es", "en"],
     routing: {
       prefixDefaultLocale: true,
+    },
+  },
+  env: {
+    schema: {
+      HOST_URL: envField.string({ context: "client", access: "public" }),
+      FORM_ID: envField.string({ context: "client", access: "public" }),
+      SPOTIFY_REFRESH_TOKEN: envField.string({ context: "server", access: "secret" }),
+      SPOTIFY_CLIENT_ID: envField.string({ context: "server", access: "secret" }),
+      SPOTIFY_CLIENT_SECRET: envField.string({ context: "server", access: "secret" }),
     },
   },
 })

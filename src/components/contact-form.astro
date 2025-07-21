@@ -49,9 +49,10 @@ const t = useTranslations(locale)
 </form>
 
 <script>
+  import { FORM_ID } from "astro:env/client"
   import { getLangFromUrl, useTranslations } from "@/i18n/utils"
-  import { $, $$ } from "@/utils/dom-selector"
   import { FORM_BASE_URL } from "@/constants/urls"
+  import { $, $$ } from "@/utils/dom-selector"
 
   const locale = getLangFromUrl(new URL(window.location.href))
   const t = useTranslations(locale)
@@ -61,8 +62,7 @@ const t = useTranslations(locale)
   const $formActions = $$<HTMLFormElement>("#contact-form > [data-is-action]")
 
   const RESET_MESSAGE_TIME = 6000
-  const formId = import.meta.env.PUBLIC_FORM_ID
-  const url = `${FORM_BASE_URL}/${formId}`
+  const url = `${FORM_BASE_URL}/${FORM_ID}`
 
   const showMessage = (message: string, type: "success" | "error") => {
     $statusMessage.textContent = message

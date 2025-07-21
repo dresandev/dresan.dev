@@ -1,6 +1,6 @@
 ---
 import Analytics from "@vercel/analytics/astro"
-import { HOST_URL } from "@/constants/urls"
+import { HOST_URL } from "astro:env/client"
 import { getAlternateCanonicalLinks } from "@/helpers/get-alternate-canonical-links"
 import Header from "@/components/header.astro"
 import MoonMask from "@/components/icons/moon-mask.astro"

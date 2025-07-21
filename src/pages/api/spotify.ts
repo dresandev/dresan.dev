@@ -1,20 +1,25 @@
 import type { APIRoute } from "astro"
-
-const refreshToken = import.meta.env.SPOTIFY_REFRESH_TOKEN
-const clientId = import.meta.env.SPOTIFY_CLIENT_ID
-const clientSecret = import.meta.env.SPOTIFY_CLIENT_SECRET
+import {
+  SPOTIFY_CLIENT_ID,
+  SPOTIFY_CLIENT_SECRET,
+  SPOTIFY_REFRESH_TOKEN,
+} from "astro:env/server"
+import {
+  SPOTIFY_TOKEN_URL,
+  SPOTIFY_TRACK_BASE_URL,
+} from "@/constants/urls"
 
 const getAccessToken = async () => {
-  const res = await fetch('https://accounts.spotify.com/api/token', {
+  const res = await fetch(SPOTIFY_TOKEN_URL, {
     method: 'POST',
     headers: {
       Authorization:
-        'Basic ' + Buffer.from(`${clientId}:${clientSecret}`).toString('base64'),
+        'Basic ' + Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64'),
       'Content-Type': 'application/x-www-form-urlencoded',
     },
     body: new URLSearchParams({
       grant_type: 'refresh_token',
-      refresh_token: refreshToken,
+      refresh_token: SPOTIFY_REFRESH_TOKEN,
     }),
   })
   const data = await res.json()
@@ -34,9 +39,10 @@ export const GET: APIRoute = async () => {
     return res.json()
   }
 
-  let data = await fetchTrack('https://api.spotify.com/v1/me/player/currently-playing')
+  let data = await fetchTrack(`${SPOTIFY_TRACK_BASE_URL}/currently-playing`)
+
   if (!data || !data.item) {
-    data = await fetchTrack('https://api.spotify.com/v1/me/player/recently-played?limit=1')
+    data = await fetchTrack(`${SPOTIFY_TRACK_BASE_URL}/recently-played?limit=1`)
     if (data?.items?.length) {
       data = data.items[0]
     }
