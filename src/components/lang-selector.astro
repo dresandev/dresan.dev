@@ -25,6 +25,11 @@ import { SUPPORTED_LOCALES } from "@/i18n/ui"
     block-size: var(--size);
     font-weight: 500;
     text-transform: uppercase;
+    transition: border-inline-end-color var(--theme-transition-duration);
+  }
+
+  .lang-link:first-of-type {
+    border-inline-end: 1px solid var(--color-stroke);
   }
 
   .lang-link.unselected {
