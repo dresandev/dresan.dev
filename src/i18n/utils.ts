@@ -1,6 +1,6 @@
 import { type Locale, type UiKey, UI, DEFAULT_LOCALE } from './ui'
 
-export const getLangFromUrl = (url: URL) => {
+export const getLangFromUrl = (url: URL): Locale => {
   const [, lang] = url.pathname.split('/')
   if (lang in UI) return lang as Locale
   return DEFAULT_LOCALE

@@ -1,4 +1,4 @@
-export const SUPPORTED_LOCALES = ["es", "en"]
+export const SUPPORTED_LOCALES: Locale[] = ["es", "en"]
 
 export const DEFAULT_LOCALE = "es"
 
@@ -60,6 +60,7 @@ export const UI = {
     "label.copyEmailButton": "Copiar el correo de Dresan",
     "label.copyEmailButton.message": "!Espero saber de ti pronto!",
     "label.closeModal": "Cerrar modal",
+    "label.changeLanguage": "Cambiar idioma a",
     "contactForm.title": "Contactar",
     "contactForm.name.label": "Nombre",
     "contactForm.name.placeholder": "Pepito Pérez Pepian",
@@ -82,6 +83,8 @@ export const UI = {
     "text.tags": "Etiquetas",
     "text.clickToCopy": "Click para copiar",
     "text.send": "Enviar",
+    "text.spanish": "Español",
+    "text.english": "Inglés",
   },
   en: {
     "seo.home.title": "Dresan - Frontend developer",
@@ -140,6 +143,7 @@ export const UI = {
     "label.copyEmailButton": "Copy Dresan's email",
     "label.copyEmailButton.message": "I hope to hear from you soon!",
     "label.closeModal": "Close modal",
+    "label.changeLanguage": "Change language to",
     "contactForm.title": "Contact me",
     "contactForm.name.label": "Name",
     "contactForm.name.placeholder": "Joe Schmo",
@@ -162,6 +166,8 @@ export const UI = {
     "text.tags": "Tags",
     "text.clickToCopy": "Click to copy",
     "text.send": "Send",
+    "text.spanish": "Spanish",
+    "text.english": "English",
   },
 } as const
 
