@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { CONTACT_MODAL_ID } from "@/constants/modal-ids"
+import { SOCIAL_MEDIA } from "@/constants/social-media-links"
 import Action from "@/components/ui/action.astro"
 import Typography from "@/components/ui/typography.astro"
 import CopyEmailSmallButton from "@/components/copy-email-small-button.astro"
@@ -15,7 +16,7 @@ const t = useTranslations(locale)
     {t("hero.phrase")}
     <Action
       as="a"
-      href="https://www.linkedin.com/in/dresandev"
+      href={SOCIAL_MEDIA.linkedin.url}
       target="_blank"
       rel="noopener"
       rounded="full"
@@ -40,7 +41,7 @@ const t = useTranslations(locale)
     </Action>
     <Action
       as="a"
-      href="/files/Javier-Andres-Frontend-Developer-CV.pdf"
+      href={`/files/Javier-Andres-Frontend-Developer-CV-${locale}.pdf`}
       target="_blank"
       class="action-button"
       variant="outlined"
