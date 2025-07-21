@@ -4,13 +4,13 @@ I'm Dresan, and here you'll find my portfolio, skills, contact information, and 
 
 ## Screenshots
 
-![image](https://github.com/user-attachments/assets/bdb098e0-04f1-4fc9-9e32-163c7c90f0f8)
+<img width="1855" height="980" alt="image" src="https://github.com/user-attachments/assets/9d4a4bc3-3f15-4cef-aee0-862171a46424" />
 
-![image](https://github.com/user-attachments/assets/1c8d28c3-c16d-40e9-a312-4bbaeef10ecd)
+<img width="1871" height="987" alt="image" src="https://github.com/user-attachments/assets/9d8dadd3-bda6-4945-b7e2-c4d996d50640" />
 
-![image](https://github.com/user-attachments/assets/a68c4db1-f514-4ae6-9ee7-f1e207c268f5)
+<img width="1860" height="990" alt="image" src="https://github.com/user-attachments/assets/6e144f9f-d99d-44a9-8637-2e0d201d11c1" />
 
-<img width="1861" height="984" alt="image" src="https://github.com/user-attachments/assets/32307dbe-bccd-4d06-9436-0ab1f4cada96" />
+<img width="1856" height="986" alt="image" src="https://github.com/user-attachments/assets/b78a6b2a-222f-4c2c-9d27-dc885d2f065c" />
 
 ## Environment Variables
 
