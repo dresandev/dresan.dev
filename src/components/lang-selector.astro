@@ -1,5 +1,9 @@
 ---
 import { SUPPORTED_LOCALES } from "@/i18n/ui"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <div>
@@ -7,6 +11,7 @@ import { SUPPORTED_LOCALES } from "@/i18n/ui"
     SUPPORTED_LOCALES.map((locale) => (
       <a
         class:list={["lang-link", { unselected: Astro.currentLocale !== locale }]}
+        title={`${t("label.changeLanguage")} ${t(`text.${locale === "es" ? "spanish" : "english"}`)}`}
         href={`/${locale}/`}
       >
         {locale}
