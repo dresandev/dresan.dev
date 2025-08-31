@@ -5,7 +5,7 @@ export const DEFAULT_LOCALE = "es"
 export const UI = {
   es: {
     "seo.home.title": "Dresan - Desarrollador frontend",
-    "seo.home.description": "Hola 👋🏻, soy Dresan y aquí encontrarás mi portafolio, habilidades, información de contacto y un poco de mi. Explora mi trabajo y contáctame si tienes un proyecto en mente.",
+    "seo.home.description": "Desarrollador de Software con +2 años de experiencia especializado en el Front-end, enfocado en los detalles y el performace. ¿Nuevo proyecto? contáctame!",
     "seo.404.description": "Página no encontrada. Vuelve al inicio para seguir explorando mi trabajo y trayectoria.",
     "nav.link.projects": "Proyectos",
     "nav.link.about": "Sobre mí",
@@ -88,7 +88,7 @@ export const UI = {
   },
   en: {
     "seo.home.title": "Dresan - Frontend developer",
-    "seo.home.description": "Hi 👋🏻, I'm Dresan. Here you'll find my portfolio, skills, contact information, and a little bit about myself. Explore my work and contact me if you have a project in mind.",
+    "seo.home.description": "Software Developer with 2+ years of experience specializing in front-end development, focused on details and performance. New project? Contact me!",
     "seo.404.description": "Page not found. Return to the top to continue exploring my work and career.",
     "nav.link.projects": "Projects",
     "nav.link.about": "About me",
