@@ -8,13 +8,13 @@ import ContactSection from "@/sections/contact-section.astro"
 
 const locale = getLangFromUrl(Astro.url)
 const t = useTranslations(locale)
+
+const title = t("seo.home.title")
+const description = t("seo.home.description")
+const canonical = `https://www.dresan.dev/${locale}/`
 ---
 
-<Layout
-  title={t("seo.home.title")}
-  description={t("seo.home.description")}
-  canonical="https://www.dresan.dev/es"
->
+<Layout title={title} description={description} canonical={canonical}>
   <HeroSection />
   <ProjectsSection />
   <AboutMeSection />
