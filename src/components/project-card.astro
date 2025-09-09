@@ -40,7 +40,7 @@ const t = useTranslations(locale)
   .modal-trigger {
     --transition-time: 350ms;
     --border-radius: clamp(12px, 8.268px + 0.259vw, 16px);
-    --aspect-ratio: 3/2;
+    --aspect-ratio: 3 / 2;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -48,27 +48,6 @@ const t = useTranslations(locale)
     text-align: start;
     border-radius: var(--border-radius);
     -webkit-tap-highlight-color: transparent;
-  }
-
-  .gradient {
-    --active-opacity: 0.6;
-    position: absolute;
-    inset: 0;
-    aspect-ratio: var(--aspect-ratio);
-    background-image: var(--gradient);
-    transform: scale(1.15);
-    filter: blur(60px);
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity var(--transition-time) cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  html[data-theme="dark"] .gradient {
-    --active-opacity: 0.3;
-  }
-
-  .modal-trigger:is(:focus-visible, :hover) .gradient {
-    opacity: var(--active-opacity);
   }
 
   .image-wrapper {
@@ -80,12 +59,6 @@ const t = useTranslations(locale)
     border-radius: var(--border-radius);
     background-image: var(--gradient);
     overflow: hidden;
-    filter: contrast(1.2) grayscale(1);
-    transition: filter var(--transition-time) cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .modal-trigger:is(:focus-visible, :hover) .image-wrapper {
-    filter: contrast(1) grayscale(0);
   }
 
   .image {
@@ -95,12 +68,44 @@ const t = useTranslations(locale)
     transition: transform var(--transition-time) cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .modal-trigger:hover .image {
-    transform: scale(1.1);
-  }
-
   .title {
     padding-block-start: 14px;
     font-size: 24px;
+  }
+
+  @media (hover: hover) {
+    .image-wrapper {
+      filter: contrast(1.2) grayscale(1);
+      transition: filter var(--transition-time) cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .gradient {
+      --active-opacity: 0.6;
+      position: absolute;
+      inset: 0;
+      aspect-ratio: var(--aspect-ratio);
+      background-image: var(--gradient);
+      transform: scale(1.15);
+      filter: blur(60px);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity var(--transition-time) cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html[data-theme="dark"] .gradient {
+      --active-opacity: 0.3;
+    }
+
+    .modal-trigger:is(:focus-visible, :hover) .gradient {
+      opacity: var(--active-opacity);
+    }
+
+    .modal-trigger:is(:focus-visible, :hover) .image-wrapper {
+      filter: contrast(1) grayscale(0);
+    }
+
+    .modal-trigger:hover .image {
+      transform: scale(1.1);
+    }
   }
 </style>
