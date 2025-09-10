@@ -1,9 +1,9 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/i18n/ui"
 import Layout from "@/layouts/layout.astro"
 import Action from "@/components/ui/action.astro"
-import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/i18n/ui"
 
 const locale = getLangFromUrl(Astro.url)
 const isValidLocale = SUPPORTED_LOCALES.includes(locale)
@@ -14,14 +14,13 @@ if (!isValidLocale) {
 }
 
 const t = useTranslations(locale)
+
+const title = "Dresan - 404"
+const description = t("seo.404.description")
+const canonical = `https://www.dresan.dev/${locale}/404`
 ---
 
-<Layout
-  title="Dresan - 404"
-  description={t("seo.404.description")}
-  canonical="https://www.dresan.dev/es/404"
-  vh={true}
->
+<Layout title={title} description={description} canonical={canonical} vh={true}>
   <h1 class="title">404</h1>
   <p class="description">{t("404.description")} ♨︎_♨︎</p>
   <Action as="a" href={getRelativeLocaleUrl(locale, "/")}>{t("404.goBackHomeLink")}</Action>
