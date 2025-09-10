@@ -7,12 +7,10 @@
     <loc>https://www.dresan.dev/en/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.dresan.dev/en/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.dresan.dev/es/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dresan.dev/" />
   </url>
   <url>
     <loc>https://www.dresan.dev/es/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.dresan.dev/en/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.dresan.dev/es/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.dresan.dev/" />
   </url>
 </urlset>
