@@ -6,6 +6,12 @@ export default defineConfig({
   site: "https://www.dresan.dev/",
   output: "server",
   adapter: vercel(),
+  redirects: {
+    "/": {
+      status: 301,
+      destination: "/es/",
+    },
+  },
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],
