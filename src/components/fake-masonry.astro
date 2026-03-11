@@ -7,9 +7,7 @@ const { class: className } = Astro.props
 </div>
 
 <script>
-  import { type FakeMasonryItemValue, fakeMasonryItemId } from "@/constants/ids"
-
-  type OrderMap = Record<FakeMasonryItemValue, number>
+  import { FAKE_MASONRY_ITEM_ID } from "@/constants/ids"
 
   const {
     intro,
@@ -20,9 +18,9 @@ const { class: className } = Astro.props
     education,
     myStack,
     lastSongListened,
-  } = fakeMasonryItemId
+  } = FAKE_MASONRY_ITEM_ID
 
-  const smOrder: OrderMap = {
+  const smOrder = {
     [intro]: 1,
     [moreAbout]: 5,
     [greeting]: 2,
@@ -33,7 +31,7 @@ const { class: className } = Astro.props
     [lastSongListened]: 3,
   }
 
-  const mdOrder: OrderMap = {
+  const mdOrder = {
     [intro]: 1,
     [moreAbout]: 2,
     [greeting]: 5,
@@ -44,7 +42,7 @@ const { class: className } = Astro.props
     [lastSongListened]: 6,
   }
 
-  const lgOrder: OrderMap = {
+  const lgOrder = {
     [intro]: 1,
     [moreAbout]: 2,
     [greeting]: 4,
@@ -77,9 +75,12 @@ const { class: className } = Astro.props
     const elements = Array.from(wrapper.children)
 
     elements.sort((a, b) => {
-      const aId = a.getAttribute("data-fake-masonry-item-id") as FakeMasonryItemValue
-      const bId = b.getAttribute("data-fake-masonry-item-id") as FakeMasonryItemValue
-      return (order[aId] ?? 99) - (order[bId] ?? 99)
+      const idA = a.getAttribute("data-fake-masonry-item-id")
+      const idB = b.getAttribute("data-fake-masonry-item-id")
+
+      if (!idA || !idB) return 0
+
+      return (order[idA] ?? 99) - (order[idB] ?? 99)
     })
 
     wrapper.replaceChildren(...elements)

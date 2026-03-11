@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
-import { fakeMasonryItemId } from "@/constants/ids"
+import { FAKE_MASONRY_ITEM_ID } from "@/constants/ids"
 import { SOCIAL_MEDIA_LINKS } from "@/constants/social-media-links"
 import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 
@@ -8,7 +8,7 @@ const locale = getLangFromUrl(Astro.url)
 const t = useTranslations(locale)
 ---
 
-<FakeMasonryItem id={fakeMasonryItemId.intro}>
+<FakeMasonryItem id={FAKE_MASONRY_ITEM_ID.intro}>
   <p class="intro" set:html={t("about.intro.description")} />
 
   <div class="links-wrapper">

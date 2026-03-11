@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
-import { sectionId } from "@/constants/ids"
+import { HOME_SECTION_ID } from "@/constants/ids"
 import Section from "@/components/section.astro"
 import SectionTitle from "@/components/section-title.astro"
 import FakeMasonry from "@/components/fake-masonry.astro"
@@ -17,7 +17,7 @@ const locale = getLangFromUrl(Astro.url)
 const t = useTranslations(locale)
 ---
 
-<Section id={sectionId.aboutMe}>
+<Section id={HOME_SECTION_ID.aboutMe}>
   <SectionTitle>{t("about.title")}</SectionTitle>
 
   <FakeMasonry class="fake-masonry">

@@ -1,6 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
-import { fakeMasonryItemId } from "@/constants/ids"
+import { FAKE_MASONRY_ITEM_ID } from "@/constants/ids"
 import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 import SpotifyNowPlaying from "@/components/spotify-now-playing.astro"
 
@@ -8,7 +8,7 @@ const locale = getLangFromUrl(Astro.url)
 const t = useTranslations(locale)
 ---
 
-<FakeMasonryItem id={fakeMasonryItemId.lastSongListened}>
+<FakeMasonryItem id={FAKE_MASONRY_ITEM_ID.lastSongListened}>
   <h3>{t("about.lastSongListened.title")}</h3>
 
   <SpotifyNowPlaying />

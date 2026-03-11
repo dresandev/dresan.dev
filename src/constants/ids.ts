@@ -1,4 +1,4 @@
-export const fakeMasonryItemId = {
+export const FAKE_MASONRY_ITEM_ID = {
   intro: "fake-masonry-intro-item",
   moreAbout: "fake-masonry-more-about-item",
   greeting: "fake-masonry-greeting-item",
@@ -9,13 +9,12 @@ export const fakeMasonryItemId = {
   lastSongListened: "fake-masonry-last-song-listened-item",
 }
 
-export type FakeMasonryItemKey = keyof typeof fakeMasonryItemId
-export type FakeMasonryItemValue = (typeof fakeMasonryItemId)[keyof typeof fakeMasonryItemId]
-
-export const sectionId = {
+export const HOME_SECTION_ID = {
   projects: "projects",
   aboutMe: "about",
 }
 
-export type SectionIdKey = keyof typeof sectionId
-export type SectionIdValue = (typeof fakeMasonryItemId)[keyof typeof fakeMasonryItemId]
+export const CONTACT_MODAL_ID = "contact-modal"
+
+export type FakeMasonryItemKey = keyof typeof FAKE_MASONRY_ITEM_ID
+export type HomeSectionIdKey = keyof typeof HOME_SECTION_ID
