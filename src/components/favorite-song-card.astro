@@ -2,35 +2,31 @@
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import SpotifyLogo from "@/components/icons/spotify-logo.astro"
 
-const res = await fetch(`${Astro.url.origin}/api/spotify`)
-const track = await res.json()
-
 const locale = getLangFromUrl(Astro.url)
 const t = useTranslations(locale)
+
+const title = "Stressed out"
+const artist = "Twenty One Pilots"
+const albumImage = "/images/stressed-out-album-cover.png"
+const url = "https://open.spotify.com/intl-es/album/3cQO7jp5S9qLBoIVtbkSM1"
 ---
 
-{
-  track.error ? (
-    <p>{t("nowPlaying.message.error")}</p>
-  ) : (
-    <a class="card" href={track.url} target="_blank" rel="noopener noreferrer">
-      <img
-        class="album-image"
-        src={track.albumImage}
-        alt={`${track.title} ${t("nowPlaying.image.alt")}`}
-        width="56"
-        height="56"
-        loading="lazy"
-      />
-      <div>
-        <p class="title">{track.title}</p>
-        <p class="artist">{track.artist}</p>
-      </div>
+<a class="card" href={url} target="_blank" rel="noopener noreferrer">
+  <img
+    class="album-image"
+    src={albumImage}
+    alt={`${title} ${t("nowPlaying.image.alt")}`}
+    width="56"
+    height="56"
+    loading="lazy"
+  />
+  <div>
+    <p class="title">{title}</p>
+    <p class="artist">{artist}</p>
+  </div>
 
-      <SpotifyLogo class="spotify-logo" width={32} height={32} />
-    </a>
-  )
-}
+  <SpotifyLogo class="spotify-logo" width={32} height={32} />
+</a>
 
 <style>
   .card {
