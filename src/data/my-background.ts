@@ -8,10 +8,15 @@ export interface MyBackgroundData {
   inRemote?: boolean
 }
 
+export const latestWork: Pick<MyBackgroundData, "siteName" | "siteUrl"> = {
+  siteName: "La Velada VI",
+  siteUrl: "https://www.infolavelada.com",
+}
+
 export const experience: MyBackgroundData[] = [
   {
     roleI18nId: "about.experience.role.frontend",
-    years: "2023 — 2025",
+    years: "2023 — 2026",
     siteName: "Freelance",
     inRemote: true,
   },

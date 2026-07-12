@@ -1,1 +1,1 @@
-export const DRESAN_EMAIL = "dresan.dev@gmail.com"
+export const DRESAN_EMAIL = "hi@dresan.dev"

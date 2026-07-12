@@ -1,9 +1,10 @@
 ---
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { FAKE_MASONRY_ITEM_ID } from "@/constants/ids"
-import { experience } from "@/data/my-background"
+import { latestWork, experience } from "@/data/my-background"
 import MyBackgroundCard from "@/components/my-background-card.astro"
 import FakeMasonryItem from "@/components/fake-masonry-item.astro"
+import ArrowUpRight from "@/components/icons/arrow-up-right.astro"
 
 const locale = getLangFromUrl(Astro.url)
 const t = useTranslations(locale)
@@ -12,12 +13,63 @@ const t = useTranslations(locale)
 <FakeMasonryItem id={FAKE_MASONRY_ITEM_ID.experience}>
   <h3>{t("about.experience.title")}</h3>
 
+  <div class="latest-work">
+    <h4>{t("about.experience.subtitle")} &nbsp;</h4>
+    <a class="last-work-link" href={latestWork.siteUrl} target="_blank" rel="noopener noreferrer">
+      {latestWork.siteName}
+      <ArrowUpRight width="18" height="18" stroke-width="1.5" />
+    </a>
+  </div>
+
   <div class="experiences-list">
     {experience.map((data) => <MyBackgroundCard data={data} isExperience />)}
   </div>
 </FakeMasonryItem>
 
 <style>
+  .latest-work {
+    padding-block-end: 24px;
+  }
+
+  .latest-work > h4 {
+    display: inline;
+    padding-block-end: 8px;
+  }
+
+  .last-work-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .last-work-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    background-color: var(--color-text);
+    block-size: 1px;
+    inline-size: 100%;
+    mask-image: linear-gradient(to right, black 50%, transparent 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 250ms;
+    will-change: transform;
+  }
+
+  .last-work-link:hover::before {
+    transform: scaleX(1);
+  }
+
+  .last-work-link svg {
+    transition: transform 250ms;
+    transform: rotate(45deg);
+  }
+
+  .last-work-link:hover svg {
+    transform: rotate(0);
+  }
+
   .experiences-list {
     display: flex;
     flex-direction: column;

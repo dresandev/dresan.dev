@@ -5,47 +5,67 @@ export const DEFAULT_LOCALE = "es"
 export const UI = {
   es: {
     "seo.home.title": "Dresan - Desarrollador frontend",
-    "seo.home.description": "Desarrollador de Software con +2 años de experiencia especializado en el Front-end, enfocado en los detalles y el performace. ¿Nuevo proyecto? contáctame!",
-    "seo.404.description": "Página no encontrada. Vuelve al inicio para seguir explorando mi trabajo y trayectoria.",
+    "seo.home.description":
+      "Desarrollador de Software con +3 años de experiencia especializado en el Front-end, enfocado en los detalles y el performace. ¿Nuevo proyecto? contáctame!",
+    "seo.404.description":
+      "Página no encontrada. Vuelve al inicio para seguir explorando mi trabajo y trayectoria.",
     "nav.link.projects": "Proyectos",
     "nav.link.about": "Sobre mí",
-    "contactButton": "Contactar",
+    contactButton: "Contactar",
     "hero.phrase": "El código más limpio es el que no se escribió",
     "hero.available": "Disponible para trabajar",
     "hero.title": "Dresan, Desarrollador Frontend",
-    "hero.slogan": "Hago que tu proyecto <strong>destaque</strong> con la <strong>elegancia</strong> y la <strong>calidad</strong> que merece.",
+    "hero.slogan":
+      "Hago que tu proyecto <strong>destaque</strong> con la <strong>elegancia</strong> y la <strong>calidad</strong> que merece.",
     "hero.contactButton": "Contáctame",
     "hero.downloadCv": "Descargar Curriculum",
     "projects.title": "Proyectos destacados",
     "projects.description.title": "Descripción general",
-    "projects.description.short.dreflix": "App de exploración de películas, al estilo de Amazon Prime Video y Crunchyroll.",
-    "projects.description.dreflix": "Aplicación web para explorar películas, similar a Amazon Prime Video y Crunchyroll, con funcionalidades como scroll infinito, un buscador de películas optimizado para la navegación por teclado similar al de YouTube, y un carrusel para promocionar películas con características como reproducción automática solo cuando la película sea visible (es decir, cuando esté en el viewport y la pestaña tenga el foco), entre otras características.",
-    "projects.description.short.vexara": "Clon del e-commerce de Bershka, implementando el flujo principal de un e-commerce.",
-    "projects.description.vexara": "Clon del ecommerce de Bershka, implementando funcionalidades principales como el flujo de autenticación con auth.js, el flujo de pago de productos mediante la pasarela de pagos MercadoPago, maquetación de la app con precisión pixel perfect, y diseño responsive sin usar JavaScript (como se hace originalmente). Además, se implementó código funcional en producción.",
-    "projects.description.short.minestyle": "Aplicación para ver tu skin de Minecraft con armadura y adornos de armadura, enfocada en el look and feel.",
-    "projects.description.minestyle": "Aplicación para ver tu skin de Minecraft con armadura y adornos de armadura, enfocada en el look and feel. Utilizando React three fiber y como base el codigo de <a href='https://github.com/bs-community/skinview3d' target='_blank' rel='noopener noreferrer'>Skinview3d</a>.",
-    "projects.description.short.linkpeek": "App para gestionar links, implementando scraping para la obtención de información de los sitios web.",
-    "projects.description.linkpeek": "Aplicación para gestionar enlaces, realizando scraping para obtener datos como el título, descripción e imagen usada en el Open Graph Protocol (OGP). Incluye un componente para agregar etiquetas similar al TagsInput de GitHub. El enfoque principal es del lado del servidor, de manera que la mayoría del trabajo se realiza en el servidor.",
+    "projects.description.short.dreflix":
+      "App de exploración de películas, al estilo de Amazon Prime Video y Crunchyroll.",
+    "projects.description.dreflix":
+      "Aplicación web para explorar películas, similar a Amazon Prime Video y Crunchyroll, con funcionalidades como scroll infinito, un buscador de películas optimizado para la navegación por teclado similar al de YouTube, y un carrusel para promocionar películas con características como reproducción automática solo cuando la película sea visible (es decir, cuando esté en el viewport y la pestaña tenga el foco), entre otras características.",
+    "projects.description.short.vexara":
+      "Clon del e-commerce de Bershka, implementando el flujo principal de un e-commerce.",
+    "projects.description.vexara":
+      "Clon del ecommerce de Bershka, implementando funcionalidades principales como el flujo de autenticación con auth.js, el flujo de pago de productos mediante la pasarela de pagos MercadoPago, maquetación de la app con precisión pixel perfect, y diseño responsive sin usar JavaScript (como se hace originalmente). Además, se implementó código funcional en producción.",
+    "projects.description.short.minestyle":
+      "Aplicación para ver tu skin de Minecraft con armadura y adornos de armadura, enfocada en el look and feel.",
+    "projects.description.minestyle":
+      "Aplicación para ver tu skin de Minecraft con armadura y adornos de armadura, enfocada en el look and feel. Utilizando React three fiber y como base el codigo de <a href='https://github.com/bs-community/skinview3d' target='_blank' rel='noopener noreferrer'>Skinview3d</a>.",
+    "projects.description.short.linkpeek":
+      "App para gestionar links, implementando scraping para la obtención de información de los sitios web.",
+    "projects.description.linkpeek":
+      "Aplicación para gestionar enlaces, realizando scraping para obtener datos como el título, descripción e imagen usada en el Open Graph Protocol (OGP). Incluye un componente para agregar etiquetas similar al TagsInput de GitHub. El enfoque principal es del lado del servidor, de manera que la mayoría del trabajo se realiza en el servidor.",
     "projects.link.viewWeb": "Visitar sitio",
     "projects.link.viewCode": "Ver código",
     "projects.modal.carousel.image.alt.part1": "Imagen de previsualización del proyecto",
     "projects.modal.carousel.image.alt.part2": "desarrollado por Dresan",
     "about.title": "Sobre mí",
-    "about.intro.description": "Desarrollador de Software con <em>+2 años de experiencia</em> especializado en el Front-end, enfocado en los <strong>detalles</strong> y el <strong>performace</strong> para brindar una experiencia de usuario representativa.",
+    "about.intro.description":
+      "<strong>+3 años de experiencia como Desarrollador de Software</strong>, especializado en Frontend con el ecosistema de React y con enfoque en el desarrollo de productos digitales. Orientado a mitigar problemas de accesibilidad y rendimiento que impactan la UX, con gran énfasis en los detalles que mejoran la calidad del producto.",
     "about.more.title": "Un poco más sobre mí",
-    "about.more.description.paragraph1": "Soy de Colombia y disfruto aprender sobre el mundo del desarrollo de software, valoro los pequeños detalles y soy gran fan de CSS (¡el mejor lenguaje de programación! 🙂).",
-    "about.more.description.paragraph2": "En mi tiempo libre suelo consumir contenido sobre tecnología, contribuir a proyectos de código abierto, mejorar mi creatividad y habilidades de comunicación, solucionar problemas de código o generar ideas para mis proyectos.",
-    "about.more.description.paragraph3": "Me gusta mucho trabajar en la web, hacer que sea un lugar accesible, agradable y eficiente para todo tipo de usuarios.",
-    "about.more.description.paragraph4": "Actualmente, estoy profundizando mi conocimiento en el ecosistema de React y adentrándome en el mundo de Vue.js.",
+    "about.more.description.paragraph1":
+      "Soy de Colombia y disfruto aprender sobre el mundo del desarrollo de software, valoro los pequeños detalles y soy gran fan de CSS (¡el mejor lenguaje de programación! 🙂).",
+    "about.more.description.paragraph2":
+      "En mi tiempo libre suelo consumir contenido sobre tecnología, contribuir a proyectos de código abierto, mejorar mi creatividad y habilidades de comunicación, solucionar problemas de código o generar ideas para mis proyectos.",
+    "about.more.description.paragraph3":
+      "Me gusta mucho trabajar en la web, hacer que sea un lugar accesible, agradable y eficiente para todo tipo de usuarios.",
+    "about.more.description.paragraph4":
+      "Actualmente, estoy profundizando mi conocimiento en el ecosistema de React y adentrándome en el mundo de Vue.js.",
     "about.favoriteSong.title": "Canción favorita",
     "about.greeting.message1": "¡Hola! 🖖🏼",
     "about.greeting.message2": "Me llamo Javier Andrés",
     "about.greeting.message3": "¡Pero puedes decirme Dresan!",
-    "about.otherProjects.title": "Otros proyectos",
-    "about.otherProjects.project1.description": "Recreando el componente para agregar etiquetas en GitHub. 🩻",
-    "about.otherProjects.project2.description": "Extensión que agrega un botón en la parte inferior izquierda que al activarlo desplaza automáticamente los Shorts de YouTube. 👆🏼",
-    "about.otherProjects.project3.description": "⚛⚡ Utilidad CLI para crear rápidamente nuevos componentes React. ⚡⚛",
+    "about.moreProjects.title": "Más proyectos",
+    "about.moreProjects.project1.description":
+      "Recreando el componente para agregar etiquetas en GitHub. 🩻",
+    "about.moreProjects.project2.description":
+      "Extensión que agrega un botón en la parte inferior izquierda que al activarlo desplaza automáticamente los Shorts de YouTube. 👆🏼",
+    "about.moreProjects.project3.description":
+      "⚛⚡ Utilidad CLI para crear rápidamente nuevos componentes React. ⚡⚛",
     "about.experience.title": "Experiencia",
+    "about.experience.subtitle": "Último trabajo",
     "about.experience.role.frontend": "Desarrollador Front-end",
     "about.experience.role.fullStack": "Desarrollador Full stack",
     "about.education.title": "Educación",
@@ -88,47 +108,66 @@ export const UI = {
   },
   en: {
     "seo.home.title": "Dresan - Frontend developer",
-    "seo.home.description": "Software Developer with 2+ years of experience specializing in front-end development, focused on details and performance. New project? Contact me!",
-    "seo.404.description": "Page not found. Return to the top to continue exploring my work and career.",
+    "seo.home.description":
+      "Software Developer with 3+ years of experience specializing in front-end development, focused on details and performance. New project? Contact me!",
+    "seo.404.description":
+      "Page not found. Return to the top to continue exploring my work and career.",
     "nav.link.projects": "Projects",
     "nav.link.about": "About me",
-    "contactButton": "Contact",
+    contactButton: "Contact",
     "hero.phrase": "The cleanest code is the one that wasn't written",
     "hero.available": "Available to work",
     "hero.title": "Dresan, Frontend Developer",
-    "hero.slogan": "I make your project <strong>stand out</strong> with the <strong>elegance</strong> and <strong>quality</strong> it deserves.",
+    "hero.slogan":
+      "I make your project <strong>stand out</strong> with the <strong>elegance</strong> and <strong>quality</strong> it deserves.",
     "hero.contactButton": "Contact me",
     "hero.downloadCv": "Download Curriculum",
     "projects.title": "Featured Projects",
     "projects.description.title": "General description",
-    "projects.description.short.dreflix": "Movie browsing app, similar to Amazon Prime Video and Crunchyroll.",
-    "projects.description.dreflix": "A web app for browsing movies, similar to Amazon Prime Video and Crunchyroll, with features like infinite scrolling, a keyboard-optimized movie search engine similar to YouTube's, and a carousel for promoting movies with features like autoplay only when the movie is visible (i.e., when it's in the viewport and the tab has focus), among other features.",
-    "projects.description.short.vexara": "Bershka e-commerce clone, implementing the main flow of an e-commerce site.",
-    "projects.description.vexara": "A clone of Bershka's e-commerce platform, implementing core features such as the authentication flow with auth.js, the product payment flow through the MercadoPago payment gateway, pixel-perfect app layout, and responsive design without using JavaScript (as originally implemented). In addition, functional code was deployed in production.",
-    "projects.description.short.minestyle": "An app to view your Minecraft skin with armor and armor decorations, focused on the look and feel.",
-    "projects.description.minestyle": "An app for viewing your Minecraft skin with armor and armor embellishments, focused on the look and feel. Using React 3 fiber and the code from <a href='https://github.com/bs-community/skinview3d' target='_blank' rel='noopener noreferrer'>Skinview3d</a> as a base.",
-    "projects.description.short.linkpeek": "App for managing links, implementing scraping to obtain information from websites.",
-    "projects.description.linkpeek": "Link management application, performing scraping to obtain data such as the title, description, and image used in the Open Graph Protocol (OGP). It includes a tagging component similar to GitHub's TagsInput. The primary focus is server-side, so most of the work is done on the server.",
+    "projects.description.short.dreflix":
+      "Movie browsing app, similar to Amazon Prime Video and Crunchyroll.",
+    "projects.description.dreflix":
+      "A web app for browsing movies, similar to Amazon Prime Video and Crunchyroll, with features like infinite scrolling, a keyboard-optimized movie search engine similar to YouTube's, and a carousel for promoting movies with features like autoplay only when the movie is visible (i.e., when it's in the viewport and the tab has focus), among other features.",
+    "projects.description.short.vexara":
+      "Bershka e-commerce clone, implementing the main flow of an e-commerce site.",
+    "projects.description.vexara":
+      "A clone of Bershka's e-commerce platform, implementing core features such as the authentication flow with auth.js, the product payment flow through the MercadoPago payment gateway, pixel-perfect app layout, and responsive design without using JavaScript (as originally implemented). In addition, functional code was deployed in production.",
+    "projects.description.short.minestyle":
+      "An app to view your Minecraft skin with armor and armor decorations, focused on the look and feel.",
+    "projects.description.minestyle":
+      "An app for viewing your Minecraft skin with armor and armor embellishments, focused on the look and feel. Using React 3 fiber and the code from <a href='https://github.com/bs-community/skinview3d' target='_blank' rel='noopener noreferrer'>Skinview3d</a> as a base.",
+    "projects.description.short.linkpeek":
+      "App for managing links, implementing scraping to obtain information from websites.",
+    "projects.description.linkpeek":
+      "Link management application, performing scraping to obtain data such as the title, description, and image used in the Open Graph Protocol (OGP). It includes a tagging component similar to GitHub's TagsInput. The primary focus is server-side, so most of the work is done on the server.",
     "projects.link.viewWeb": "Visit site",
     "projects.link.viewCode": "View code",
     "projects.modal.carousel.image.alt.part1": "Project preview image",
     "projects.modal.carousel.image.alt.part2": "developed by Dresan",
     "about.title": "About me",
-    "about.intro.description": "Software Developer with <em>+2 years of experience</em> specializing in front-end, focusing on <strong>details</strong> and <strong>performance</strong> to deliver a representative user experience.",
+    "about.intro.description":
+      "<strong>3+ years of experience as a Software Developer</strong>, specializing in Frontend development with the React ecosystem and focused on digital product development. Aimed at mitigating accessibility and performance issues that impact UX, with a strong emphasis on details that improve product quality.",
     "about.more.title": "A little more about me",
-    "about.more.description.paragraph1": "I'm from Colombia and I enjoy learning about the world of software development. I appreciate the small details and I'm a big fan of CSS (the best programming language! 🙂).",
-    "about.more.description.paragraph2": "In my free time, I tend to consume tech content, contribute to open source projects, improve my creativity and communication skills, troubleshoot code issues, or brainstorm ideas for my projects.",
-    "about.more.description.paragraph3": "I really enjoy working on the web, making it accessible, enjoyable, and efficient for all types of users.",
-    "about.more.description.paragraph4": "Currently, I'm deepening my knowledge in the React ecosystem and delving into the world of Vue.js.",
+    "about.more.description.paragraph1":
+      "I'm from Colombia and I enjoy learning about the world of software development. I appreciate the small details and I'm a big fan of CSS (the best programming language! 🙂).",
+    "about.more.description.paragraph2":
+      "In my free time, I tend to consume tech content, contribute to open source projects, improve my creativity and communication skills, troubleshoot code issues, or brainstorm ideas for my projects.",
+    "about.more.description.paragraph3":
+      "I really enjoy working on the web, making it accessible, enjoyable, and efficient for all types of users.",
+    "about.more.description.paragraph4":
+      "Currently, I'm deepening my knowledge in the React ecosystem and delving into the world of Vue.js.",
     "about.favoriteSong.title": "Favorite song",
     "about.greeting.message1": "Hi! 🖖🏼",
     "about.greeting.message2": "My name is Javier Andrés",
     "about.greeting.message3": "But you can call me Dresan!",
-    "about.otherProjects.title": "Other projects",
-    "about.otherProjects.project1.description": "Recreating the component to add tags on GitHub. 🩻",
-    "about.otherProjects.project2.description": "Extension that adds a button at the bottom left that, when activated, automatically scrolls YouTube Shorts. 👆🏼",
-    "about.otherProjects.project3.description": "⚛⚡ CLI utility for quickly creating new React components. ⚡⚛",
+    "about.moreProjects.title": "More projects",
+    "about.moreProjects.project1.description": "Recreating the component to add tags on GitHub. 🩻",
+    "about.moreProjects.project2.description":
+      "Extension that adds a button at the bottom left that, when activated, automatically scrolls YouTube Shorts. 👆🏼",
+    "about.moreProjects.project3.description":
+      "⚛⚡ CLI utility for quickly creating new React components. ⚡⚛",
     "about.experience.title": "Experience",
+    "about.experience.subtitle": "Latest work",
     "about.experience.role.frontend": "Front-end Developer",
     "about.experience.role.fullStack": "Full stack Developer",
     "about.education.title": "Education",
@@ -151,7 +190,8 @@ export const UI = {
     "contactForm.email.placeholder": "joe@gmail.com",
     "contactForm.message.label": "Message",
     "contactForm.message.placeholder": "Hey Dresan!, just reaching out because...",
-    "contactForm.message.success": "Thank you for your message 🩵, I will reply as soon as possible.",
+    "contactForm.message.success":
+      "Thank you for your message 🩵, I will reply as soon as possible.",
     "contactForm.message.error": "Something went wrong 💔, please try again later.",
     "contactForm.message.error.status": "Request error",
     "nowPlaying.image.alt": "album cover",
@@ -172,4 +212,4 @@ export const UI = {
 } as const
 
 export type Locale = keyof typeof UI
-export type UiKey = keyof typeof UI[typeof DEFAULT_LOCALE]
+export type UiKey = keyof (typeof UI)[typeof DEFAULT_LOCALE]

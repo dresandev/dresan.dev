@@ -14,7 +14,6 @@ const VIEW_CODE_LABEL_I18N_ID = "projects.link.viewCode" as const
 const VIEW_WEB_ICON = ExternalLinkIcon
 const VIEW_CODE_ICON = GitHubIcon
 
-
 const getProjectDescriptionI18nId = (projectName: FeaturedProjectName, short: boolean = false) => {
   return `projects.description${short ? ".short" : ""}.${projectName}` as const
 }
@@ -32,30 +31,30 @@ export const projects: Project[] = [
         {
           labelI18nId: VIEW_WEB_LABEL_I18N_ID,
           url: "https://dreflix.vercel.app",
-          icon: VIEW_WEB_ICON
+          icon: VIEW_WEB_ICON,
         },
         {
           labelI18nId: VIEW_CODE_LABEL_I18N_ID,
           url: "https://github.com/dresandev/dreflix",
-          icon: VIEW_CODE_ICON
+          icon: VIEW_CODE_ICON,
         },
       ],
       images: [
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/dreflix-1.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/dreflix-1.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/dreflix-1.webp`,
         },
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/dreflix-2.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/dreflix-2.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/dreflix-2.webp`,
         },
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/dreflix-3.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/dreflix-3.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/dreflix-3.webp`,
         },
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/dreflix-4.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/dreflix-4.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/dreflix-4.webp`,
         },
       ],
       tags: [
@@ -66,7 +65,7 @@ export const projects: Project[] = [
         ProjectTags.zustand,
         ProjectTags.movieExplorer,
       ],
-    }
+    },
   },
   {
     id: "vexara-project",
@@ -80,26 +79,26 @@ export const projects: Project[] = [
         {
           labelI18nId: VIEW_WEB_LABEL_I18N_ID,
           url: "https://vexara.vercel.app",
-          icon: VIEW_WEB_ICON
+          icon: VIEW_WEB_ICON,
         },
         {
           labelI18nId: VIEW_CODE_LABEL_I18N_ID,
           url: "https://github.com/dresandev/vexara",
-          icon: VIEW_CODE_ICON
+          icon: VIEW_CODE_ICON,
         },
       ],
       images: [
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/vexara-1.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/vexara-1.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/vexara-1.webp`,
         },
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/vexara-2.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/vexara-2.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/vexara-2.webp`,
         },
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/vexara-3.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/vexara-3.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/vexara-3.webp`,
         },
       ],
       tags: [
@@ -111,7 +110,7 @@ export const projects: Project[] = [
         ProjectTags.typescript,
         ProjectTags.eCommerce,
       ],
-    }
+    },
   },
   {
     id: "minestyle-project",
@@ -125,30 +124,30 @@ export const projects: Project[] = [
         {
           labelI18nId: VIEW_WEB_LABEL_I18N_ID,
           url: "https://minestyle.vercel.app",
-          icon: VIEW_WEB_ICON
+          icon: VIEW_WEB_ICON,
         },
         {
           labelI18nId: VIEW_CODE_LABEL_I18N_ID,
           url: "https://github.com/dresandev/minestyle",
-          icon: VIEW_CODE_ICON
+          icon: VIEW_CODE_ICON,
         },
       ],
       images: [
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/minestyle-1.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/minestyle-1.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/minestyle-1.webp`,
         },
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/minestyle-2.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/minestyle-2.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/minestyle-2.webp`,
         },
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/minestyle-3.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/minestyle-3.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/minestyle-3.webp`,
         },
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/minestyle-4.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/minestyle-4.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/minestyle-4.webp`,
         },
       ],
       tags: [
@@ -160,7 +159,7 @@ export const projects: Project[] = [
         ProjectTags.jest,
         ProjectTags.reactTestingLibrary,
       ],
-    }
+    },
   },
   {
     id: "linkpeek-project",
@@ -174,26 +173,26 @@ export const projects: Project[] = [
         {
           labelI18nId: VIEW_WEB_LABEL_I18N_ID,
           url: "https://linkpeek.vercel.app",
-          icon: VIEW_WEB_ICON
+          icon: VIEW_WEB_ICON,
         },
         {
           labelI18nId: VIEW_CODE_LABEL_I18N_ID,
           url: "https://github.com/dresandev/linkpeek",
-          icon: VIEW_CODE_ICON
+          icon: VIEW_CODE_ICON,
         },
       ],
       images: [
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/linkpeek-1.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-1.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-1.webp`,
         },
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/linkpeek-2.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-2.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-2.webp`,
         },
         {
           desktop: `${MODAL_IMAGE_PATH}/desktop/linkpeek-3.webp`,
-          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-3.webp`
+          mobile: `${MODAL_IMAGE_PATH}/mobile/linkpeek-3.webp`,
         },
       ],
       tags: [
@@ -204,24 +203,24 @@ export const projects: Project[] = [
         ProjectTags.authJs,
         ProjectTags.tool,
       ],
-    }
+    },
   },
 ]
 
 export const extraProjects = [
   {
     title: "github-tags-input",
-    descriptionI18nId: "about.otherProjects.project1.description" as const,
+    descriptionI18nId: "about.moreProjects.project1.description" as const,
     url: "https://github.com/dresandev/github-tags-input",
   },
   {
     title: "youtube-shorts-autoscroll-extension",
-    descriptionI18nId: "about.otherProjects.project2.description" as const,
+    descriptionI18nId: "about.moreProjects.project2.description" as const,
     url: "https://github.com/dresandev/youtube-shorts-autoscroll-extension",
   },
   {
     title: "new-component",
-    descriptionI18nId: "about.otherProjects.project3.description" as const,
+    descriptionI18nId: "about.moreProjects.project3.description" as const,
     url: "https://github.com/dresandev/new-component",
   },
 ]

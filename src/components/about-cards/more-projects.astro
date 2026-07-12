@@ -1,12 +1,16 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { FAKE_MASONRY_ITEM_ID } from "@/constants/ids"
 import { extraProjects } from "@/data/projects"
 import FakeMasonryItem from "@/components/fake-masonry-item.astro"
 import GithubProjectCard from "@/components/github-project-card.astro"
+
+const locale = getLangFromUrl(Astro.url)
+const t = useTranslations(locale)
 ---
 
 <FakeMasonryItem id={FAKE_MASONRY_ITEM_ID.moreProjects}>
-  <h3>Otros proyectos</h3>
+  <h3>{t("about.moreProjects.title")}</h3>
 
   <ul class="project-list">
     {extraProjects.map((data) => <GithubProjectCard {...data} />)}
